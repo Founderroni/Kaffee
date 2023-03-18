@@ -8,10 +8,10 @@ namespace KaffeeUtility.Tabs
 {
     public partial class Home : UserControl
     {
-        public Home()
-        {
+        private static readonly string animsTrue = $"Animations: <b><span style=\"color:green;\">true</span></b>";
+        private static readonly string animsFalse = "Animations: <b><span style=\"color:red;\">false</span></b>";
+        public Home() =>
             InitializeComponent();
-        }
 
         private void Home_Load(object sender, EventArgs e)
         {
@@ -38,6 +38,7 @@ namespace KaffeeUtility.Tabs
 
                 Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
                 Version.Text = $"File Version: <b>{Globals.Version}</b>";
+                Animations.Text = GetConfig().UseAnimations ? animsTrue : animsFalse;
             });
         }
     }
