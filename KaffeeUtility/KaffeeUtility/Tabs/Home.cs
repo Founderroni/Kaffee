@@ -18,10 +18,10 @@ namespace KaffeeUtility.Tabs
             Task.Run(() =>
             {
                 foreach (Control ctrl in Controls)
+                {
                     ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
-
-                foreach (Control ctrl in Controls)
                     Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
+                }
 
                 Task.Delay(500).ContinueWith(t =>
                 {

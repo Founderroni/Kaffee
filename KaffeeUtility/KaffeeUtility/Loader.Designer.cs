@@ -101,7 +101,6 @@
             this.VerboseLabel.Name = "VerboseLabel";
             this.VerboseLabel.Size = new System.Drawing.Size(435, 20);
             this.VerboseLabel.TabIndex = 3;
-            this.VerboseLabel.Text = "Nothing";
             this.VerboseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Loader
