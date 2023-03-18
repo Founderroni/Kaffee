@@ -16,12 +16,13 @@ namespace KaffeeUtility
             Task.Run(() =>
             {
                 foreach (Control ctrl in SidePanel.Controls)
+                {
                     if (ctrl.Name != "Separator")
+                    {
                         ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
-
-                foreach (Control ctrl in SidePanel.Controls)
-                    if (ctrl.Name != "Separator")
                         Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
+                    }
+                }
             });
         }
 
