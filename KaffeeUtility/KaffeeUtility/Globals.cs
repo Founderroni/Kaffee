@@ -17,5 +17,9 @@ namespace KaffeeUtility
 
         public static List<ClientListStruct> ClientList = new List<ClientListStruct>();
         public static List<SpoofPointersStruct> SpoofList = new List<SpoofPointersStruct>();
+
+        /*
+         Icon Color: #232323
+         */
     }
 }

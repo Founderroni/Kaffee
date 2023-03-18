@@ -32,15 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.ModifyForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.SidePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.Injector = new Guna.UI2.WinForms.Guna2Button();
             this.Separator = new Guna.UI2.WinForms.Guna2Separator();
+            this.Watermark = new System.Windows.Forms.Label();
+            this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Directory = new Guna.UI2.WinForms.Guna2Button();
+            this.Settings = new Guna.UI2.WinForms.Guna2Button();
+            this.Injector = new Guna.UI2.WinForms.Guna2Button();
             this.Logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.HomeBtn = new Guna.UI2.WinForms.Guna2Button();
             this.Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.Exit = new Guna.UI2.WinForms.Guna2Button();
-            this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.Watermark = new System.Windows.Forms.Label();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +57,8 @@
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.Transparent;
+            this.SidePanel.Controls.Add(this.Directory);
+            this.SidePanel.Controls.Add(this.Settings);
             this.SidePanel.Controls.Add(this.Injector);
             this.SidePanel.Controls.Add(this.Separator);
             this.SidePanel.Controls.Add(this.Watermark);
@@ -69,6 +73,89 @@
             this.SidePanel.ShadowDecoration.Enabled = true;
             this.SidePanel.Size = new System.Drawing.Size(155, 548);
             this.SidePanel.TabIndex = 0;
+            // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.Color.Transparent;
+            this.Separator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Separator.Location = new System.Drawing.Point(6, 84);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(143, 10);
+            this.Separator.TabIndex = 6;
+            this.Separator.UseTransparentBackground = true;
+            // 
+            // Watermark
+            // 
+            this.Watermark.AutoSize = true;
+            this.Watermark.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Watermark.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Watermark.Location = new System.Drawing.Point(69, 48);
+            this.Watermark.Name = "Watermark";
+            this.Watermark.Size = new System.Drawing.Size(60, 23);
+            this.Watermark.TabIndex = 5;
+            this.Watermark.Text = "Kaffee";
+            // 
+            // TabContainer
+            // 
+            this.TabContainer.BackColor = System.Drawing.Color.Transparent;
+            this.TabContainer.FillColor = System.Drawing.Color.Transparent;
+            this.TabContainer.Location = new System.Drawing.Point(161, 0);
+            this.TabContainer.Name = "TabContainer";
+            this.TabContainer.Size = new System.Drawing.Size(811, 548);
+            this.TabContainer.TabIndex = 1;
+            this.TabContainer.UseTransparentBackground = true;
+            // 
+            // DragSidePanel
+            // 
+            this.DragSidePanel.DockIndicatorTransparencyValue = 0.6D;
+            this.DragSidePanel.TargetControl = this.SidePanel;
+            this.DragSidePanel.UseTransparentDrag = true;
+            // 
+            // Directory
+            // 
+            this.Directory.Animated = true;
+            this.Directory.BackColor = System.Drawing.Color.Transparent;
+            this.Directory.BorderColor = System.Drawing.Color.Transparent;
+            this.Directory.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.Directory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Directory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Directory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Directory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Directory.FillColor = System.Drawing.Color.Transparent;
+            this.Directory.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.Directory.ForeColor = System.Drawing.Color.LightGray;
+            this.Directory.Image = global::KaffeeUtility.Properties.Resources.folder_48px;
+            this.Directory.ImageSize = new System.Drawing.Size(28, 28);
+            this.Directory.Location = new System.Drawing.Point(43, 513);
+            this.Directory.Name = "Directory";
+            this.Directory.Size = new System.Drawing.Size(32, 32);
+            this.Directory.TabIndex = 9;
+            this.Directory.UseTransparentBackground = true;
+            this.Directory.Click += new System.EventHandler(this.Directory_Click);
+            // 
+            // Settings
+            // 
+            this.Settings.Animated = true;
+            this.Settings.BackColor = System.Drawing.Color.Transparent;
+            this.Settings.BorderColor = System.Drawing.Color.Transparent;
+            this.Settings.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.Settings.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.Settings.CheckedState.Image = global::KaffeeUtility.Properties.Resources.settings_pressed;
+            this.Settings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Settings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Settings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Settings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Settings.FillColor = System.Drawing.Color.Transparent;
+            this.Settings.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.Settings.ForeColor = System.Drawing.Color.LightGray;
+            this.Settings.Image = global::KaffeeUtility.Properties.Resources.settings_48px;
+            this.Settings.ImageSize = new System.Drawing.Size(28, 28);
+            this.Settings.Location = new System.Drawing.Point(79, 513);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(32, 32);
+            this.Settings.TabIndex = 8;
+            this.Settings.UseTransparentBackground = true;
+            this.Settings.Click += new System.EventHandler(this.Settings_Click);
             // 
             // Injector
             // 
@@ -93,16 +180,6 @@
             this.Injector.Text = "Injector";
             this.Injector.UseTransparentBackground = true;
             this.Injector.Click += new System.EventHandler(this.Injector_Click);
-            // 
-            // Separator
-            // 
-            this.Separator.BackColor = System.Drawing.Color.Transparent;
-            this.Separator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Separator.Location = new System.Drawing.Point(6, 84);
-            this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(143, 10);
-            this.Separator.TabIndex = 6;
-            this.Separator.UseTransparentBackground = true;
             // 
             // Logo
             // 
@@ -182,32 +259,6 @@
             this.Exit.UseTransparentBackground = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // TabContainer
-            // 
-            this.TabContainer.BackColor = System.Drawing.Color.Transparent;
-            this.TabContainer.FillColor = System.Drawing.Color.Transparent;
-            this.TabContainer.Location = new System.Drawing.Point(161, 0);
-            this.TabContainer.Name = "TabContainer";
-            this.TabContainer.Size = new System.Drawing.Size(811, 548);
-            this.TabContainer.TabIndex = 1;
-            this.TabContainer.UseTransparentBackground = true;
-            // 
-            // DragSidePanel
-            // 
-            this.DragSidePanel.DockIndicatorTransparencyValue = 0.6D;
-            this.DragSidePanel.TargetControl = this.SidePanel;
-            this.DragSidePanel.UseTransparentDrag = true;
-            // 
-            // Watermark
-            // 
-            this.Watermark.AutoSize = true;
-            this.Watermark.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Watermark.Location = new System.Drawing.Point(69, 48);
-            this.Watermark.Name = "Watermark";
-            this.Watermark.Size = new System.Drawing.Size(60, 23);
-            this.Watermark.TabIndex = 5;
-            this.Watermark.Text = "Kaffee";
-            // 
             // Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -244,5 +295,7 @@
         private Guna.UI2.WinForms.Guna2Panel TabContainer;
         private Guna.UI2.WinForms.Guna2DragControl DragSidePanel;
         private System.Windows.Forms.Label Watermark;
+        private Guna.UI2.WinForms.Guna2Button Settings;
+        private Guna.UI2.WinForms.Guna2Button Directory;
     }
 }

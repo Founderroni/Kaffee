@@ -63,6 +63,16 @@ namespace KaffeeUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_48px {
+            get {
+                object obj = ResourceManager.GetObject("folder_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_48px {
             get {
                 object obj = ResourceManager.GetObject("home_48px", resourceCulture);
@@ -116,6 +126,26 @@ namespace KaffeeUtility.Properties {
         internal static System.Drawing.Bitmap mc_yellw {
             get {
                 object obj = ResourceManager.GetObject("mc-yellw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_48px {
+            get {
+                object obj = ResourceManager.GetObject("settings_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_pressed {
+            get {
+                object obj = ResourceManager.GetObject("settings_pressed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

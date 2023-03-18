@@ -57,14 +57,25 @@ namespace KaffeeUtility
         private void Minimize_Click(object sender, EventArgs e) =>
             WindowState = FormWindowState.Minimized;
 
-        private void HomeBtn_Click(object sender, EventArgs e)
-        {
+        private void HomeBtn_Click(object sender, EventArgs e) =>
             OpenTab(new Tabs.Home());
+
+        private void Injector_Click(object sender, EventArgs e) =>
+            OpenTab();
+
+        private void Directory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Utils.Misc.OpenProcess(Globals.DataDir);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kaffee");
+            }
         }
 
-        private void Injector_Click(object sender, EventArgs e)
-        {
+        private void Settings_Click(object sender, EventArgs e) =>
             OpenTab();
-        }
     }
 }

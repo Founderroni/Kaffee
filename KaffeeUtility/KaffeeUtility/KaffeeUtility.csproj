@@ -298,6 +298,7 @@
     <Compile Include="Utils\Config.cs" />
     <Compile Include="Utils\Loader.cs" />
     <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\Misc.cs" />
     <Compile Include="Utils\Network.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -334,6 +335,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kaffee.ico" />
+    <None Include="Resources\folder_48px.png" />
+    <None Include="Resources\settings_pressed.png" />
+    <None Include="Resources\settings_48px.png" />
     <None Include="Resources\home_pressed1.png" />
     <None Include="Resources\syringe_pressed.png" />
     <None Include="Resources\syringe_48px.png" />
