@@ -17,17 +17,24 @@ namespace KaffeeUtility.Tabs
         {
             Task.Run(() =>
             {
-                foreach (Control ctrl in Controls)
+                if (GetConfig().UseAnimations)
                 {
-                    ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
-                    Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
-                }
+                    foreach (Control ctrl in Controls)
+                    {
+                        ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
+                        Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
+                    }
 
-                Task.Delay(500).ContinueWith(t =>
+                    Task.Delay(500).ContinueWith(t =>
+                    {
+                        InjectorPanel.ShadowDecoration.Enabled = true;
+                        Handlers.Animator.Linear(InjectorPanel.ShadowDecoration, "Depth", 30, 300);
+                    });
+                } else
                 {
                     InjectorPanel.ShadowDecoration.Enabled = true;
-                    Handlers.Animator.Linear(InjectorPanel.ShadowDecoration, "Depth", 30, 300);
-                });
+                    InjectorPanel.ShadowDecoration.Depth = 30;
+                }
 
                 Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
                 Version.Text = $"File Version: <b>{Globals.Version}</b>";

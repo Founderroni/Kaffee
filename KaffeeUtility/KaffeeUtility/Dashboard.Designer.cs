@@ -34,13 +34,13 @@
             this.SidePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.Injector = new Guna.UI2.WinForms.Guna2Button();
             this.Separator = new Guna.UI2.WinForms.Guna2Separator();
-            this.Watermark = new System.Windows.Forms.Label();
             this.Logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.HomeBtn = new Guna.UI2.WinForms.Guna2Button();
             this.Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.Exit = new Guna.UI2.WinForms.Guna2Button();
             this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Watermark = new System.Windows.Forms.Label();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -103,16 +103,6 @@
             this.Separator.Size = new System.Drawing.Size(143, 10);
             this.Separator.TabIndex = 6;
             this.Separator.UseTransparentBackground = true;
-            // 
-            // Watermark
-            // 
-            this.Watermark.AutoSize = true;
-            this.Watermark.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Watermark.Location = new System.Drawing.Point(69, 48);
-            this.Watermark.Name = "Watermark";
-            this.Watermark.Size = new System.Drawing.Size(60, 23);
-            this.Watermark.TabIndex = 5;
-            this.Watermark.Text = "Kaffee";
             // 
             // Logo
             // 
@@ -208,6 +198,16 @@
             this.DragSidePanel.TargetControl = this.SidePanel;
             this.DragSidePanel.UseTransparentDrag = true;
             // 
+            // Watermark
+            // 
+            this.Watermark.AutoSize = true;
+            this.Watermark.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Watermark.Location = new System.Drawing.Point(69, 48);
+            this.Watermark.Name = "Watermark";
+            this.Watermark.Size = new System.Drawing.Size(60, 23);
+            this.Watermark.TabIndex = 5;
+            this.Watermark.Text = "Kaffee";
+            // 
             // Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -239,10 +239,10 @@
         private Guna.UI2.WinForms.Guna2Button Exit;
         private Guna.UI2.WinForms.Guna2Button HomeBtn;
         private Guna.UI2.WinForms.Guna2Separator Separator;
-        private System.Windows.Forms.Label Watermark;
         private Guna.UI2.WinForms.Guna2PictureBox Logo;
         private Guna.UI2.WinForms.Guna2Button Injector;
         private Guna.UI2.WinForms.Guna2Panel TabContainer;
         private Guna.UI2.WinForms.Guna2DragControl DragSidePanel;
+        private System.Windows.Forms.Label Watermark;
     }
 }

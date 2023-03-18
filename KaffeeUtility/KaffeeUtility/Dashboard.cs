@@ -43,7 +43,8 @@ namespace KaffeeUtility
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            AnimateControls();
+            if (Utils.Config.GetConfig().UseAnimations)
+                AnimateControls();
         }
 
         private void Exit_Click(object sender, EventArgs e)

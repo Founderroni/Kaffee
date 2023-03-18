@@ -100,11 +100,14 @@ namespace KaffeeUtility.Utils
                 Logging.Log("+1 Launch");
 
 
-                await Task.Delay(300).ContinueWith(t =>
+                if (Config.GetConfig().UseAnimations)
                 {
-                    Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", 300);
-                    Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, 500);
-                });
+                    await Task.Delay(300).ContinueWith(t =>
+                    {
+                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", 300);
+                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, 500);
+                    });
+                }
 
 
                 await Task.Delay(550);
