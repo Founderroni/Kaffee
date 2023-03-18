@@ -31,12 +31,14 @@
             this.InjectorPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.LauncherStats = new System.Windows.Forms.Label();
             this.InjectorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // InjectorPanel
             // 
             this.InjectorPanel.BackColor = System.Drawing.Color.Transparent;
+            this.InjectorPanel.Controls.Add(this.LauncherStats);
             this.InjectorPanel.Controls.Add(this.Version);
             this.InjectorPanel.Controls.Add(this.Launches);
             this.InjectorPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -51,7 +53,7 @@
             // 
             this.Version.BackColor = System.Drawing.Color.Transparent;
             this.Version.ForeColor = System.Drawing.Color.LightGray;
-            this.Version.Location = new System.Drawing.Point(32, 44);
+            this.Version.Location = new System.Drawing.Point(6, 44);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(81, 15);
             this.Version.TabIndex = 1;
@@ -61,11 +63,21 @@
             // 
             this.Launches.BackColor = System.Drawing.Color.Transparent;
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
-            this.Launches.Location = new System.Drawing.Point(32, 21);
+            this.Launches.Location = new System.Drawing.Point(6, 23);
             this.Launches.Name = "Launches";
             this.Launches.Size = new System.Drawing.Size(63, 15);
             this.Launches.TabIndex = 0;
             this.Launches.Text = "Launches: <b>0</b>";
+            // 
+            // LauncherStats
+            // 
+            this.LauncherStats.AutoSize = true;
+            this.LauncherStats.ForeColor = System.Drawing.Color.Gray;
+            this.LauncherStats.Location = new System.Drawing.Point(50, 0);
+            this.LauncherStats.Name = "LauncherStats";
+            this.LauncherStats.Size = new System.Drawing.Size(90, 15);
+            this.LauncherStats.TabIndex = 2;
+            this.LauncherStats.Text = "Launcher Stats";
             // 
             // Home
             // 
@@ -88,5 +100,6 @@
         private Guna.UI2.WinForms.Guna2Panel InjectorPanel;
         private Guna.UI2.WinForms.Guna2HtmlLabel Version;
         private Guna.UI2.WinForms.Guna2HtmlLabel Launches;
+        private System.Windows.Forms.Label LauncherStats;
     }
 }
