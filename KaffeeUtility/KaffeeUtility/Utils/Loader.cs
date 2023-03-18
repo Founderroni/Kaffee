@@ -8,6 +8,7 @@ namespace KaffeeUtility.Utils
     internal class Loader
     {
         public static KaffeeUtility.Loader GetLoader => (KaffeeUtility.Loader)Application.OpenForms["Loader"];
+        private static bool FastLaunch = Config.GetConfig().FastLaunch;
         public static void UpdateProgress(string status, int increment = 1, string verbose = null)
         {
             GetLoader.ProgressCircle.Increment(increment);
@@ -36,7 +37,8 @@ namespace KaffeeUtility.Utils
                 Logging.Log("Confirmed RootDataDir");
 
 
-                await Task.Delay(100);
+                if (!FastLaunch)
+                    await Task.Delay(100);
 
 
                 UpdateProgress("Checking Data Directory");
@@ -45,7 +47,8 @@ namespace KaffeeUtility.Utils
                 Logging.Log("Confirmed DataDir");
 
 
-                await Task.Delay(100);
+                if (!FastLaunch)
+                    await Task.Delay(100);
 
 
                 UpdateProgress("Checking Log File");
@@ -102,15 +105,15 @@ namespace KaffeeUtility.Utils
 
                 if (Config.GetConfig().UseAnimations)
                 {
-                    await Task.Delay(300).ContinueWith(t =>
+                    await Task.Delay(FastLaunch ? 1 : 500).ContinueWith(t =>
                     {
-                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", 300);
-                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, 500);
+                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", FastLaunch ? 125 : 300);
+                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, FastLaunch ? 225 : 500);
                     });
                 }
 
 
-                await Task.Delay(550);
+                await Task.Delay(FastLaunch ? 235 : 550);
                 return "Complete";
             } catch (Exception ex)
             {

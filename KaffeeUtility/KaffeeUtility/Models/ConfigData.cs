@@ -8,6 +8,9 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = true)]
         bool Logging { get; set; }
 
+        [Option(DefaultValue = false)]
+        bool FastLaunch { get; set; }
+
         [Option(DefaultValue = true)]
         bool UseAnimations { get; set; }
 
