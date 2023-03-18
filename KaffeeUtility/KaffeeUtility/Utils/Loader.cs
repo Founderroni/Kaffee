@@ -8,38 +8,53 @@ namespace KaffeeUtility.Utils
     internal class Loader
     {
         public static KaffeeUtility.Loader GetLoader => (KaffeeUtility.Loader)Application.OpenForms["Loader"];
-        public static void IncrementLoaderProgress(int amount = 1) => GetLoader.ProgressCircle.Increment(amount);
+        public static void UpdateProgress(string status, int increment = 1, string verbose = null)
+        {
+            GetLoader.ProgressCircle.Increment(increment);
+            GetLoader.StatusLabel.Text = status;
+            if (verbose == null)
+            {
+                if (!string.IsNullOrEmpty(GetLoader.VerboseLabel.Text))
+                    GetLoader.VerboseLabel.Text = "";
+                return;
+            }
+            else
+                GetLoader.VerboseLabel.Text = verbose;
+        }
 
         public static async Task<string> LoaderTask()
         {
             try
             {
+                UpdateProgress("Clearing Log");
                 Logging.Clear();
 
+
+                UpdateProgress("Checking Root Directory");
                 if (!Directory.Exists(Globals.RootDataDir))
                     Directory.CreateDirectory(Globals.RootDataDir);
-                IncrementLoaderProgress();
                 Logging.Log("Confirmed RootDataDir");
 
 
                 await Task.Delay(100);
 
 
+                UpdateProgress("Checking Data Directory");
                 if (!Directory.Exists(Globals.DataDir))
                     Directory.CreateDirectory(Globals.DataDir);
-                IncrementLoaderProgress();
                 Logging.Log("Confirmed DataDir");
 
 
                 await Task.Delay(100);
 
 
+                UpdateProgress("Checking Log File");
                 if (!File.Exists(Globals.LogFile))
                     File.Create(Globals.LogFile);
-                IncrementLoaderProgress();
                 Logging.Log("Confirmed LogFile");
 
 
+                UpdateProgress("Getting Client List");
                 string clientListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/ClientList.txt");
                 string[] lines = clientListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var line in lines)
@@ -52,19 +67,19 @@ namespace KaffeeUtility.Utils
                     Logging.Log($"Adding {name} {version} from {url} to ClientList");
                     Globals.ClientList.Add(new Models.ClientListStruct(name, url, version, fileName));
                 }
-                IncrementLoaderProgress();
                 Logging.Log("Finished ClientList");
 
 
                 foreach (var client in Globals.ClientList)
                 {
-                    Logging.Log($"Installing {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
+                    UpdateProgress("Getting Client List", 0, $"Downloading {client.displayName}");
+                    Logging.Log($"Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
                     await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
                 }
-                IncrementLoaderProgress();
                 Logging.Log("Finished downloading DLLs");
 
 
+                UpdateProgress("Getting Spoof Pointers");
                 string spoofListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/SpoofPtrs.txt");
                 string[] spoofListLines = spoofListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var line in spoofListLines)
@@ -73,18 +88,26 @@ namespace KaffeeUtility.Utils
                     string version = parts[0];
                     string didPtr = parts[1];
                     string mcidPtr = parts[2];
+                    UpdateProgress("Getting Spoof Pointers", 0, $"Adding Pointer ({version}: {didPtr} - {mcidPtr})");
                     Logging.Log($"Adding pointers for {version} ({didPtr} - {mcidPtr})");
                     Globals.SpoofList.Add(new Models.SpoofPointersStruct(version, didPtr, mcidPtr));
                 }
-                IncrementLoaderProgress();
                 Logging.Log("Finished SpoofList");
 
 
+                UpdateProgress("Updating Launches");
                 Config.GetConfig().Launches += 1;
-                IncrementLoaderProgress();
                 Logging.Log("+1 Launch");
 
-                await Task.Delay(10);
+
+                await Task.Delay(300).ContinueWith(t =>
+                {
+                    Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", 300);
+                    Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, 500);
+                });
+
+
+                await Task.Delay(550);
                 return "Complete";
             } catch (Exception ex)
             {

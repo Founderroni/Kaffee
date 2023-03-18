@@ -13,8 +13,8 @@ namespace KaffeeUtility
             var LoaderTask = await Utils.Loader.LoaderTask();
             if (LoaderTask == "Complete")
             {
-                new Dashboard().Show();
                 Hide();
+                new Dashboard().Show();
             } else
                 MessageBox.Show($"An error occured, it will be printed below:\n{LoaderTask}", "Loader Error");
         }

@@ -32,6 +32,8 @@
             this.ModifyForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ProgressCircle = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.VerboseLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ModifyForm
@@ -64,7 +66,7 @@
             this.ProgressCircle.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ProgressCircle.ForeColor = System.Drawing.Color.White;
             this.ProgressCircle.Location = new System.Drawing.Point(97, 86);
-            this.ProgressCircle.Maximum = 10;
+            this.ProgressCircle.Maximum = 7;
             this.ProgressCircle.Minimum = 0;
             this.ProgressCircle.Name = "ProgressCircle";
             this.ProgressCircle.ProgressColor = System.Drawing.Color.MediumPurple;
@@ -78,14 +80,40 @@
             this.ProgressCircle.TabIndex = 1;
             this.ProgressCircle.UseTransparentBackground = true;
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusLabel.ForeColor = System.Drawing.Color.LightGray;
+            this.StatusLabel.Location = new System.Drawing.Point(12, 354);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(435, 20);
+            this.StatusLabel.TabIndex = 2;
+            this.StatusLabel.Text = "Starting";
+            this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // VerboseLabel
+            // 
+            this.VerboseLabel.BackColor = System.Drawing.Color.Transparent;
+            this.VerboseLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VerboseLabel.ForeColor = System.Drawing.Color.Gray;
+            this.VerboseLabel.Location = new System.Drawing.Point(12, 374);
+            this.VerboseLabel.Name = "VerboseLabel";
+            this.VerboseLabel.Size = new System.Drawing.Size(435, 20);
+            this.VerboseLabel.TabIndex = 3;
+            this.VerboseLabel.Text = "Nothing";
+            this.VerboseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Loader
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(459, 436);
+            this.Controls.Add(this.VerboseLabel);
             this.Controls.Add(this.ProgressCircle);
             this.Controls.Add(this.Exit);
+            this.Controls.Add(this.StatusLabel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -104,6 +132,8 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm ModifyForm;
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
         public Guna.UI2.WinForms.Guna2CircleProgressBar ProgressCircle;
+        public System.Windows.Forms.Label StatusLabel;
+        public System.Windows.Forms.Label VerboseLabel;
     }
 }
 
