@@ -56,6 +56,15 @@ namespace KaffeeUtility.Utils
                     File.Create(Globals.LogFile);
                 Logging.Log("Confirmed LogFile");
 
+                UpdateProgress("Checking for Updates");
+                /*
+                 Check for Launcher Update
+                - Compare Launcher version from github version
+                - Download updated Launcher as Temp
+                - Close, Delete, then Rename and Launch
+                */
+                Logging.Log("Checked for Updates");
+
 
                 UpdateProgress("Getting Client List");
                 string clientListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/ClientList.txt");

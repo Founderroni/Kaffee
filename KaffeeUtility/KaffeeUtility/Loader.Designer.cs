@@ -66,7 +66,7 @@
             this.ProgressCircle.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ProgressCircle.ForeColor = System.Drawing.Color.White;
             this.ProgressCircle.Location = new System.Drawing.Point(97, 86);
-            this.ProgressCircle.Maximum = 7;
+            this.ProgressCircle.Maximum = 8;
             this.ProgressCircle.Minimum = 0;
             this.ProgressCircle.Name = "ProgressCircle";
             this.ProgressCircle.ProgressColor = System.Drawing.Color.MediumPurple;
