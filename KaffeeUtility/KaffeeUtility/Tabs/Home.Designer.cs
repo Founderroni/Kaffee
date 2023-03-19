@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.InjectorPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Animations = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.LauncherStats = new System.Windows.Forms.Label();
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Animations = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.FastLaunch = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // InjectorPanel
             // 
             this.InjectorPanel.BackColor = System.Drawing.Color.Transparent;
+            this.InjectorPanel.Controls.Add(this.FastLaunch);
             this.InjectorPanel.Controls.Add(this.Animations);
             this.InjectorPanel.Controls.Add(this.LauncherStats);
             this.InjectorPanel.Controls.Add(this.Version);
@@ -47,9 +49,19 @@
             this.InjectorPanel.Location = new System.Drawing.Point(43, 35);
             this.InjectorPanel.Name = "InjectorPanel";
             this.InjectorPanel.ShadowDecoration.Depth = 0;
-            this.InjectorPanel.Size = new System.Drawing.Size(190, 115);
+            this.InjectorPanel.Size = new System.Drawing.Size(190, 123);
             this.InjectorPanel.TabIndex = 0;
             this.InjectorPanel.UseTransparentBackground = true;
+            // 
+            // Animations
+            // 
+            this.Animations.BackColor = System.Drawing.Color.Transparent;
+            this.Animations.ForeColor = System.Drawing.Color.LightGray;
+            this.Animations.Location = new System.Drawing.Point(6, 63);
+            this.Animations.Name = "Animations";
+            this.Animations.Size = new System.Drawing.Size(97, 17);
+            this.Animations.TabIndex = 3;
+            this.Animations.Text = "Animations: <b><span style=\"color:green;\">True</span></b>";
             // 
             // LauncherStats
             // 
@@ -65,7 +77,7 @@
             // 
             this.Version.BackColor = System.Drawing.Color.Transparent;
             this.Version.ForeColor = System.Drawing.Color.LightGray;
-            this.Version.Location = new System.Drawing.Point(6, 44);
+            this.Version.Location = new System.Drawing.Point(6, 42);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(81, 15);
             this.Version.TabIndex = 1;
@@ -75,21 +87,21 @@
             // 
             this.Launches.BackColor = System.Drawing.Color.Transparent;
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
-            this.Launches.Location = new System.Drawing.Point(6, 23);
+            this.Launches.Location = new System.Drawing.Point(6, 21);
             this.Launches.Name = "Launches";
             this.Launches.Size = new System.Drawing.Size(63, 15);
             this.Launches.TabIndex = 0;
             this.Launches.Text = "Launches: <b>0</b>";
             // 
-            // Animations
+            // FastLaunch
             // 
-            this.Animations.BackColor = System.Drawing.Color.Transparent;
-            this.Animations.ForeColor = System.Drawing.Color.LightGray;
-            this.Animations.Location = new System.Drawing.Point(6, 65);
-            this.Animations.Name = "Animations";
-            this.Animations.Size = new System.Drawing.Size(94, 17);
-            this.Animations.TabIndex = 3;
-            this.Animations.Text = "Animations: <b><span style=\"color:green;\">true</span></b>";
+            this.FastLaunch.BackColor = System.Drawing.Color.Transparent;
+            this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
+            this.FastLaunch.Location = new System.Drawing.Point(6, 84);
+            this.FastLaunch.Name = "FastLaunch";
+            this.FastLaunch.Size = new System.Drawing.Size(104, 17);
+            this.FastLaunch.TabIndex = 4;
+            this.FastLaunch.Text = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
             // 
             // Home
             // 
@@ -114,5 +126,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel Launches;
         private System.Windows.Forms.Label LauncherStats;
         private Guna.UI2.WinForms.Guna2HtmlLabel Animations;
+        private Guna.UI2.WinForms.Guna2HtmlLabel FastLaunch;
     }
 }

@@ -8,8 +8,13 @@ namespace KaffeeUtility.Tabs
 {
     public partial class Home : UserControl
     {
-        private static readonly string animsTrue = $"Animations: <b><span style=\"color:green;\">true</span></b>";
-        private static readonly string animsFalse = "Animations: <b><span style=\"color:red;\">false</span></b>";
+        #region Variables
+        private static readonly string animsTrue = $"Animations: <b><span style=\"color:green;\">True</span></b>";
+        private static readonly string animsFalse = "Animations: <b><span style=\"color:red;\">False</span></b>";
+        private static readonly string fastlaunchFalse = $"FastLaunch: <b><span style=\"color:red;\">False</span></b>";
+        private static readonly string fastlaunchTrue = $"FastLaunch: <b><span style=\"color:green;\">True</span></b>";
+        #endregion
+
         public Home() =>
             InitializeComponent();
 
@@ -39,6 +44,7 @@ namespace KaffeeUtility.Tabs
                 Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
                 Version.Text = $"File Version: <b>{Globals.Version}</b>";
                 Animations.Text = GetConfig().UseAnimations ? animsTrue : animsFalse;
+                FastLaunch.Text = GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse;
             });
         }
     }
