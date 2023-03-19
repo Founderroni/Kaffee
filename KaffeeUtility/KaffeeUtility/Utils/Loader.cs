@@ -66,6 +66,13 @@ namespace KaffeeUtility.Utils
                     string name = parts[0];
                     string url = parts[1];
                     string version = parts[2];
+                    if (Network.IsUrl(version))
+                    {
+                        string versionContent = await Network.GetString(version);
+                        string[] versionContentLines = versionContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                        version = versionContentLines[0];
+                        Logging.Log($"Version was a url for client {name}, got {version}");
+                    }
                     string fileName = parts[3];
                     Logging.Log($"Adding {name} {version} from {url} to ClientList");
                     Globals.ClientList.Add(new Models.ClientListStruct(name, url, version, fileName));
