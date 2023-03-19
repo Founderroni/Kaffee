@@ -10,7 +10,7 @@ namespace KaffeeUtility
 
         private async void Main_Load(object sender, EventArgs e)
         {
-            var LoaderTask = await Utils.Loader.LoaderTask();
+            string LoaderTask = await Utils.Loader.LoaderTask();
             if (LoaderTask == "Complete")
             {
                 Hide();
