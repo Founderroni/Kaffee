@@ -49,13 +49,17 @@ namespace KaffeeUtility.Tabs
                     }
                 }
 
+                #region Launcher Stats
                 Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
                 Version.Text = $"File Version: <b>{Globals.Version}</b>";
                 Animations.Text = GetConfig().UseAnimations ? animsTrue : animsFalse;
                 FastLaunch.Text = GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse;
                 Logging.Text = GetConfig().Logging ? loggingTrue : loggingFalse;
+                #endregion
 
+                #region Inject Stats
                 Injections.Text = $"Injections: <b>{GetConfig().Injections}</b>";
+                #endregion
             });
         }
     }
