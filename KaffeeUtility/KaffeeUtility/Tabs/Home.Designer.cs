@@ -63,7 +63,7 @@
             // 
             this.Animations.BackColor = System.Drawing.Color.Transparent;
             this.Animations.ForeColor = System.Drawing.Color.LightGray;
-            this.Animations.Location = new System.Drawing.Point(6, 66);
+            this.Animations.Location = new System.Drawing.Point(3, 67);
             this.Animations.Name = "Animations";
             this.Animations.Size = new System.Drawing.Size(97, 17);
             this.Animations.TabIndex = 3;
@@ -83,27 +83,27 @@
             // 
             this.Version.BackColor = System.Drawing.Color.Transparent;
             this.Version.ForeColor = System.Drawing.Color.LightGray;
-            this.Version.Location = new System.Drawing.Point(6, 45);
+            this.Version.Location = new System.Drawing.Point(3, 46);
             this.Version.Name = "Version";
-            this.Version.Size = new System.Drawing.Size(81, 15);
+            this.Version.Size = new System.Drawing.Size(91, 17);
             this.Version.TabIndex = 1;
-            this.Version.Text = "File Version: <b>1.0</b>";
+            this.Version.Text = "File Version: <b><span>1.0</span></b>";
             // 
             // Launches
             // 
             this.Launches.BackColor = System.Drawing.Color.Transparent;
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
-            this.Launches.Location = new System.Drawing.Point(6, 24);
+            this.Launches.Location = new System.Drawing.Point(3, 25);
             this.Launches.Name = "Launches";
-            this.Launches.Size = new System.Drawing.Size(63, 15);
+            this.Launches.Size = new System.Drawing.Size(71, 17);
             this.Launches.TabIndex = 0;
-            this.Launches.Text = "Launches: <b>0</b>";
+            this.Launches.Text = "Launches: <b><span>0</span></b>";
             // 
             // FastLaunch
             // 
             this.FastLaunch.BackColor = System.Drawing.Color.Transparent;
             this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
-            this.FastLaunch.Location = new System.Drawing.Point(6, 87);
+            this.FastLaunch.Location = new System.Drawing.Point(3, 88);
             this.FastLaunch.Name = "FastLaunch";
             this.FastLaunch.Size = new System.Drawing.Size(104, 17);
             this.FastLaunch.TabIndex = 4;
@@ -113,7 +113,7 @@
             // 
             this.Logging.BackColor = System.Drawing.Color.Transparent;
             this.Logging.ForeColor = System.Drawing.Color.LightGray;
-            this.Logging.Location = new System.Drawing.Point(6, 110);
+            this.Logging.Location = new System.Drawing.Point(3, 109);
             this.Logging.Name = "Logging";
             this.Logging.Size = new System.Drawing.Size(103, 17);
             this.Logging.TabIndex = 5;
@@ -146,11 +146,11 @@
             // 
             this.Injections.BackColor = System.Drawing.Color.Transparent;
             this.Injections.ForeColor = System.Drawing.Color.LightGray;
-            this.Injections.Location = new System.Drawing.Point(6, 24);
+            this.Injections.Location = new System.Drawing.Point(3, 25);
             this.Injections.Name = "Injections";
             this.Injections.Size = new System.Drawing.Size(69, 17);
             this.Injections.TabIndex = 0;
-            this.Injections.Text = "Injections: <b>0</b>";
+            this.Injections.Text = "Injections: <b><span>0</span></b>";
             // 
             // Home
             // 
