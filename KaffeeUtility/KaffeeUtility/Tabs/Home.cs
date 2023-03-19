@@ -34,13 +34,19 @@ namespace KaffeeUtility.Tabs
 
                     Task.Delay(500).ContinueWith(t =>
                     {
-                        InjectorPanel.ShadowDecoration.Enabled = true;
-                        Handlers.Animator.Linear(InjectorPanel.ShadowDecoration, "Depth", 30, 300);
+                        foreach (Guna.UI2.WinForms.Guna2Panel panel in Controls)
+                        {
+                            panel.ShadowDecoration.Enabled = true;
+                            Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 300);
+                        }
                     });
                 } else
                 {
-                    InjectorPanel.ShadowDecoration.Enabled = true;
-                    InjectorPanel.ShadowDecoration.Depth = 30;
+                    foreach (Guna.UI2.WinForms.Guna2Panel panel in Controls)
+                    {
+                        panel.ShadowDecoration.Enabled = true;
+                        panel.ShadowDecoration.Depth = 30;
+                    }
                 }
 
                 Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
@@ -48,6 +54,8 @@ namespace KaffeeUtility.Tabs
                 Animations.Text = GetConfig().UseAnimations ? animsTrue : animsFalse;
                 FastLaunch.Text = GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse;
                 Logging.Text = GetConfig().Logging ? loggingTrue : loggingFalse;
+
+                Injections.Text = $"Injections: <b>{GetConfig().Injections}</b>";
             });
         }
     }

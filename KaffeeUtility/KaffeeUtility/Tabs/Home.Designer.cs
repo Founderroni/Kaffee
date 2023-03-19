@@ -28,32 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.InjectorPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.LauncherPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.Animations = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.LauncherStats = new System.Windows.Forms.Label();
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FastLaunch = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Logging = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.InjectorPanel.SuspendLayout();
+            this.InjectPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InjectStats = new System.Windows.Forms.Label();
+            this.Injections = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.LauncherPanel.SuspendLayout();
+            this.InjectPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // InjectorPanel
+            // LauncherPanel
             // 
-            this.InjectorPanel.BackColor = System.Drawing.Color.Transparent;
-            this.InjectorPanel.Controls.Add(this.Logging);
-            this.InjectorPanel.Controls.Add(this.FastLaunch);
-            this.InjectorPanel.Controls.Add(this.Animations);
-            this.InjectorPanel.Controls.Add(this.LauncherStats);
-            this.InjectorPanel.Controls.Add(this.Version);
-            this.InjectorPanel.Controls.Add(this.Launches);
-            this.InjectorPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.InjectorPanel.Location = new System.Drawing.Point(43, 35);
-            this.InjectorPanel.Name = "InjectorPanel";
-            this.InjectorPanel.ShadowDecoration.Depth = 0;
-            this.InjectorPanel.Size = new System.Drawing.Size(190, 151);
-            this.InjectorPanel.TabIndex = 0;
-            this.InjectorPanel.UseTransparentBackground = true;
+            this.LauncherPanel.BackColor = System.Drawing.Color.Transparent;
+            this.LauncherPanel.Controls.Add(this.Logging);
+            this.LauncherPanel.Controls.Add(this.FastLaunch);
+            this.LauncherPanel.Controls.Add(this.Animations);
+            this.LauncherPanel.Controls.Add(this.LauncherStats);
+            this.LauncherPanel.Controls.Add(this.Version);
+            this.LauncherPanel.Controls.Add(this.Launches);
+            this.LauncherPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.LauncherPanel.Location = new System.Drawing.Point(200, 35);
+            this.LauncherPanel.Name = "LauncherPanel";
+            this.LauncherPanel.ShadowDecoration.Depth = 0;
+            this.LauncherPanel.Size = new System.Drawing.Size(190, 151);
+            this.LauncherPanel.TabIndex = 0;
+            this.LauncherPanel.UseTransparentBackground = true;
             // 
             // Animations
             // 
@@ -115,30 +119,69 @@
             this.Logging.TabIndex = 5;
             this.Logging.Text = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
             // 
+            // InjectPanel
+            // 
+            this.InjectPanel.BackColor = System.Drawing.Color.Transparent;
+            this.InjectPanel.Controls.Add(this.InjectStats);
+            this.InjectPanel.Controls.Add(this.Injections);
+            this.InjectPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.InjectPanel.Location = new System.Drawing.Point(420, 35);
+            this.InjectPanel.Name = "InjectPanel";
+            this.InjectPanel.ShadowDecoration.Depth = 0;
+            this.InjectPanel.Size = new System.Drawing.Size(190, 151);
+            this.InjectPanel.TabIndex = 6;
+            this.InjectPanel.UseTransparentBackground = true;
+            // 
+            // InjectStats
+            // 
+            this.InjectStats.AutoSize = true;
+            this.InjectStats.ForeColor = System.Drawing.Color.Gray;
+            this.InjectStats.Location = new System.Drawing.Point(62, 0);
+            this.InjectStats.Name = "InjectStats";
+            this.InjectStats.Size = new System.Drawing.Size(67, 15);
+            this.InjectStats.TabIndex = 2;
+            this.InjectStats.Text = "Inject Stats";
+            // 
+            // Injections
+            // 
+            this.Injections.BackColor = System.Drawing.Color.Transparent;
+            this.Injections.ForeColor = System.Drawing.Color.LightGray;
+            this.Injections.Location = new System.Drawing.Point(6, 24);
+            this.Injections.Name = "Injections";
+            this.Injections.Size = new System.Drawing.Size(69, 17);
+            this.Injections.TabIndex = 0;
+            this.Injections.Text = "Injections: <b>0</b>";
+            // 
             // Home
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.Controls.Add(this.InjectorPanel);
+            this.Controls.Add(this.InjectPanel);
+            this.Controls.Add(this.LauncherPanel);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Name = "Home";
             this.Size = new System.Drawing.Size(811, 548);
             this.Load += new System.EventHandler(this.Home_Load);
-            this.InjectorPanel.ResumeLayout(false);
-            this.InjectorPanel.PerformLayout();
+            this.LauncherPanel.ResumeLayout(false);
+            this.LauncherPanel.PerformLayout();
+            this.InjectPanel.ResumeLayout(false);
+            this.InjectPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel InjectorPanel;
+        private Guna.UI2.WinForms.Guna2Panel LauncherPanel;
         private Guna.UI2.WinForms.Guna2HtmlLabel Version;
         private Guna.UI2.WinForms.Guna2HtmlLabel Launches;
         private System.Windows.Forms.Label LauncherStats;
         private Guna.UI2.WinForms.Guna2HtmlLabel Animations;
         private Guna.UI2.WinForms.Guna2HtmlLabel FastLaunch;
         private Guna.UI2.WinForms.Guna2HtmlLabel Logging;
+        private Guna.UI2.WinForms.Guna2Panel InjectPanel;
+        private System.Windows.Forms.Label InjectStats;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Injections;
     }
 }
