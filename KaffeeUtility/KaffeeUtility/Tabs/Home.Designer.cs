@@ -34,12 +34,14 @@
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FastLaunch = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Logging = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // InjectorPanel
             // 
             this.InjectorPanel.BackColor = System.Drawing.Color.Transparent;
+            this.InjectorPanel.Controls.Add(this.Logging);
             this.InjectorPanel.Controls.Add(this.FastLaunch);
             this.InjectorPanel.Controls.Add(this.Animations);
             this.InjectorPanel.Controls.Add(this.LauncherStats);
@@ -49,7 +51,7 @@
             this.InjectorPanel.Location = new System.Drawing.Point(43, 35);
             this.InjectorPanel.Name = "InjectorPanel";
             this.InjectorPanel.ShadowDecoration.Depth = 0;
-            this.InjectorPanel.Size = new System.Drawing.Size(190, 123);
+            this.InjectorPanel.Size = new System.Drawing.Size(190, 151);
             this.InjectorPanel.TabIndex = 0;
             this.InjectorPanel.UseTransparentBackground = true;
             // 
@@ -57,7 +59,7 @@
             // 
             this.Animations.BackColor = System.Drawing.Color.Transparent;
             this.Animations.ForeColor = System.Drawing.Color.LightGray;
-            this.Animations.Location = new System.Drawing.Point(6, 63);
+            this.Animations.Location = new System.Drawing.Point(6, 66);
             this.Animations.Name = "Animations";
             this.Animations.Size = new System.Drawing.Size(97, 17);
             this.Animations.TabIndex = 3;
@@ -77,7 +79,7 @@
             // 
             this.Version.BackColor = System.Drawing.Color.Transparent;
             this.Version.ForeColor = System.Drawing.Color.LightGray;
-            this.Version.Location = new System.Drawing.Point(6, 42);
+            this.Version.Location = new System.Drawing.Point(6, 45);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(81, 15);
             this.Version.TabIndex = 1;
@@ -87,7 +89,7 @@
             // 
             this.Launches.BackColor = System.Drawing.Color.Transparent;
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
-            this.Launches.Location = new System.Drawing.Point(6, 21);
+            this.Launches.Location = new System.Drawing.Point(6, 24);
             this.Launches.Name = "Launches";
             this.Launches.Size = new System.Drawing.Size(63, 15);
             this.Launches.TabIndex = 0;
@@ -97,11 +99,21 @@
             // 
             this.FastLaunch.BackColor = System.Drawing.Color.Transparent;
             this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
-            this.FastLaunch.Location = new System.Drawing.Point(6, 84);
+            this.FastLaunch.Location = new System.Drawing.Point(6, 87);
             this.FastLaunch.Name = "FastLaunch";
             this.FastLaunch.Size = new System.Drawing.Size(104, 17);
             this.FastLaunch.TabIndex = 4;
             this.FastLaunch.Text = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
+            // 
+            // Logging
+            // 
+            this.Logging.BackColor = System.Drawing.Color.Transparent;
+            this.Logging.ForeColor = System.Drawing.Color.LightGray;
+            this.Logging.Location = new System.Drawing.Point(6, 110);
+            this.Logging.Name = "Logging";
+            this.Logging.Size = new System.Drawing.Size(103, 17);
+            this.Logging.TabIndex = 5;
+            this.Logging.Text = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
             // 
             // Home
             // 
@@ -127,5 +139,6 @@
         private System.Windows.Forms.Label LauncherStats;
         private Guna.UI2.WinForms.Guna2HtmlLabel Animations;
         private Guna.UI2.WinForms.Guna2HtmlLabel FastLaunch;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Logging;
     }
 }

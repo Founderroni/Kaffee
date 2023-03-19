@@ -9,10 +9,12 @@ namespace KaffeeUtility.Tabs
     public partial class Home : UserControl
     {
         #region Variables
-        private static readonly string animsTrue = $"Animations: <b><span style=\"color:green;\">True</span></b>";
+        private static readonly string animsTrue = "Animations: <b><span style=\"color:green;\">True</span></b>";
         private static readonly string animsFalse = "Animations: <b><span style=\"color:red;\">False</span></b>";
-        private static readonly string fastlaunchFalse = $"FastLaunch: <b><span style=\"color:red;\">False</span></b>";
-        private static readonly string fastlaunchTrue = $"FastLaunch: <b><span style=\"color:green;\">True</span></b>";
+        private static readonly string fastlaunchFalse = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
+        private static readonly string fastlaunchTrue = "FastLaunch: <b><span style=\"color:green;\">True</span></b>";
+        private static readonly string loggingTrue = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
+        private static readonly string loggingFalse = "Debug Logs: <b><span style=\"color:red;\">False</span></b>";
         #endregion
 
         public Home() =>
@@ -45,6 +47,7 @@ namespace KaffeeUtility.Tabs
                 Version.Text = $"File Version: <b>{Globals.Version}</b>";
                 Animations.Text = GetConfig().UseAnimations ? animsTrue : animsFalse;
                 FastLaunch.Text = GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse;
+                Logging.Text = GetConfig().Logging ? loggingTrue : loggingFalse;
             });
         }
     }
