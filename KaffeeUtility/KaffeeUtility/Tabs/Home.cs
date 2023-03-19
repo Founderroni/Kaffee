@@ -24,31 +24,6 @@ namespace KaffeeUtility.Tabs
         {
             Task.Run(() =>
             {
-                if (GetConfig().UseAnimations)
-                {
-                    foreach (Control ctrl in Controls)
-                    {
-                        ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
-                        Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
-                    }
-
-                    Task.Delay(500).ContinueWith(t =>
-                    {
-                        foreach (Guna.UI2.WinForms.Guna2Panel panel in Controls)
-                        {
-                            panel.ShadowDecoration.Enabled = true;
-                            Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 300);
-                        }
-                    });
-                } else
-                {
-                    foreach (Guna.UI2.WinForms.Guna2Panel panel in Controls)
-                    {
-                        panel.ShadowDecoration.Enabled = true;
-                        panel.ShadowDecoration.Depth = 30;
-                    }
-                }
-
                 #region Launcher Stats
                 Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
                 Version.Text = $"File Version: <b>{Globals.Version}</b>";

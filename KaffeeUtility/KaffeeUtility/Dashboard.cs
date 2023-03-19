@@ -38,6 +38,31 @@ namespace KaffeeUtility
             {
                 TabContainer.Controls.Clear();
                 TabContainer.Controls.Add(tab);
+                if (Utils.Config.GetConfig().UseAnimations)
+                {
+                    foreach (Control ctrl in tab.Controls)
+                    {
+                        ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
+                        Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
+                    }
+
+                    Task.Delay(300).ContinueWith(t =>
+                    {
+                        foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
+                        {
+                            panel.ShadowDecoration.Enabled = true;
+                            Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 300);
+                        }
+                    });
+                }
+                else
+                {
+                    foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
+                    {
+                        panel.ShadowDecoration.Enabled = true;
+                        panel.ShadowDecoration.Depth = 30;
+                    }
+                }
             }
         }
         #endregion
@@ -61,7 +86,7 @@ namespace KaffeeUtility
             OpenTab(new Tabs.Home());
 
         private void Injector_Click(object sender, EventArgs e) =>
-            OpenTab();
+            OpenTab(new Tabs.Injector());
 
         private void Directory_Click(object sender, EventArgs e)
         {

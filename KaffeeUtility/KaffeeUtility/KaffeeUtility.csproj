@@ -295,6 +295,12 @@
     <Compile Include="Tabs\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\Injector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\Injector.Designer.cs">
+      <DependentUpon>Injector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Config.cs" />
     <Compile Include="Utils\Loader.cs" />
     <Compile Include="Utils\Log.cs" />
@@ -318,6 +324,9 @@
     </Compile>
     <EmbeddedResource Include="Tabs\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\Injector.resx">
+      <DependentUpon>Injector.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

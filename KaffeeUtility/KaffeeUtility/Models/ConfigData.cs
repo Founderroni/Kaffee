@@ -18,15 +18,15 @@ namespace KaffeeUtility.Models
         bool UseTulpepNotifications { get; set; }
         #endregion
 
-        #region Home Tab
+        #region Stats
+        [Option(DefaultValue = 0)]
+        int Launches { get; set; }
+
         [Option(DefaultValue = 0)]
         int Injections { get; set; }
 
         [Option(DefaultValue = 0)]
         int Spoofs { get; set; }
-
-        [Option(DefaultValue = 0)]
-        int Launches { get; set; }
         #endregion
     }
 }
