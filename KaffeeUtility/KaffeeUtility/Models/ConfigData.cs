@@ -28,5 +28,13 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = 0)]
         int Spoofs { get; set; }
         #endregion
+
+        #region Injector Settings
+        [Option(DefaultValue = 0)]
+        int InjectDelay { get; set; }
+
+        [Option(DefaultValue = 0)]
+        int ClientIndex { get; set; }
+        #endregion
     }
 }

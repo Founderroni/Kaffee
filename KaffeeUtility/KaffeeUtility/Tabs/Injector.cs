@@ -20,6 +20,8 @@ namespace KaffeeUtility.Tabs
                     Utils.Logging.Log("Added " + Instance.displayName + " to Client List");
                 }
                 ClientList.StartIndex = 0;
+                InjectDelay.Value = Utils.Config.GetConfig().InjectDelay;
+                ClientList.SelectedIndex = Utils.Config.GetConfig().ClientIndex;
             });
         }
 
@@ -29,7 +31,11 @@ namespace KaffeeUtility.Tabs
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)
                     if (Instance.displayName == ClientList.Text)
-                        VersionSupport.Text = $"Supported Version: <b>{Instance.versionSupported}</b>";
+                    {
+                        //VersionSupport.Text = $"Supported Version: <b>{Instance.versionSupported}</b>";
+                        Handlers.Animator.Linear(VersionSupport, "Text", $"Supported Version: <b>{Instance.versionSupported}</b>", 300);
+                    }
+                Utils.Config.GetConfig().ClientIndex = ClientList.SelectedIndex;
             });
         }
 
@@ -38,6 +44,14 @@ namespace KaffeeUtility.Tabs
             Task.Run(() =>
             {
                 
+            });
+        }
+
+        private void InjectDelay_ValueChanged(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                Utils.Config.GetConfig().InjectDelay = (int)InjectDelay.Value;
             });
         }
     }

@@ -41,6 +41,7 @@ namespace KaffeeUtility
                 TabContainer.Controls.Add(tab);
                 if (Utils.Config.GetConfig().UseAnimations)
                 {
+                    /*
                     foreach (Control ctrl in tab.Controls)
                     {
                         ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y - 10);
@@ -53,6 +54,19 @@ namespace KaffeeUtility
                         {
                             panel.ShadowDecoration.Enabled = true;
                             Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 300);
+                        }
+                    });*/
+
+                    
+                    tab.Location = new Point(tab.Location.X, tab.Location.Y - 10);
+                    Handlers.Animator.Linear(tab, "Top", tab.Location.Y + 10, 500);
+
+                    Task.Run(() =>
+                    {
+                        foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
+                        {
+                            panel.ShadowDecoration.Enabled = true;
+                            Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 500);
                         }
                     });
                 }
