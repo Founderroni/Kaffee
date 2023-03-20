@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using KaffeeUtility.Models;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +10,19 @@ namespace KaffeeUtility.Tabs
         public Injector()
         {
             InitializeComponent();
+        }
+
+        private void Injector_Load(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                foreach (ClientListStruct Instance in Globals.ClientList)
+                {
+                    ClientList.Items.Add(Instance.displayName);
+                    Utils.Logging.Log("Added " + Instance.displayName + " to Client List");
+                }
+                ClientList.StartIndex = 0;
+            });
         }
     }
 }

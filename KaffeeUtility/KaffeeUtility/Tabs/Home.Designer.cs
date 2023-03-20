@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.LauncherPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Logging = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.FastLaunch = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Animations = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.LauncherStats = new System.Windows.Forms.Label();
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.FastLaunch = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Logging = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.InjectStats = new System.Windows.Forms.Label();
             this.Injections = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -59,18 +59,39 @@
             this.LauncherPanel.TabIndex = 0;
             this.LauncherPanel.UseTransparentBackground = true;
             // 
+            // Logging
+            // 
+            this.Logging.BackColor = System.Drawing.Color.Transparent;
+            this.Logging.ForeColor = System.Drawing.Color.LightGray;
+            this.Logging.Location = new System.Drawing.Point(3, 109);
+            this.Logging.Name = "Logging";
+            this.Logging.Size = new System.Drawing.Size(93, 15);
+            this.Logging.TabIndex = 5;
+            this.Logging.Text = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
+            // 
+            // FastLaunch
+            // 
+            this.FastLaunch.BackColor = System.Drawing.Color.Transparent;
+            this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
+            this.FastLaunch.Location = new System.Drawing.Point(3, 88);
+            this.FastLaunch.Name = "FastLaunch";
+            this.FastLaunch.Size = new System.Drawing.Size(95, 15);
+            this.FastLaunch.TabIndex = 4;
+            this.FastLaunch.Text = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
+            // 
             // Animations
             // 
             this.Animations.BackColor = System.Drawing.Color.Transparent;
             this.Animations.ForeColor = System.Drawing.Color.LightGray;
             this.Animations.Location = new System.Drawing.Point(3, 67);
             this.Animations.Name = "Animations";
-            this.Animations.Size = new System.Drawing.Size(97, 17);
+            this.Animations.Size = new System.Drawing.Size(86, 15);
             this.Animations.TabIndex = 3;
             this.Animations.Text = "Animations: <b><span style=\"color:green;\">True</span></b>";
             // 
             // LauncherStats
             // 
+            this.LauncherStats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.LauncherStats.AutoSize = true;
             this.LauncherStats.ForeColor = System.Drawing.Color.Gray;
             this.LauncherStats.Location = new System.Drawing.Point(50, 0);
@@ -85,7 +106,7 @@
             this.Version.ForeColor = System.Drawing.Color.LightGray;
             this.Version.Location = new System.Drawing.Point(3, 46);
             this.Version.Name = "Version";
-            this.Version.Size = new System.Drawing.Size(91, 17);
+            this.Version.Size = new System.Drawing.Size(81, 15);
             this.Version.TabIndex = 1;
             this.Version.Text = "File Version: <b><span>1.0</span></b>";
             // 
@@ -95,29 +116,9 @@
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
             this.Launches.Location = new System.Drawing.Point(3, 25);
             this.Launches.Name = "Launches";
-            this.Launches.Size = new System.Drawing.Size(71, 17);
+            this.Launches.Size = new System.Drawing.Size(63, 15);
             this.Launches.TabIndex = 0;
             this.Launches.Text = "Launches: <b><span>0</span></b>";
-            // 
-            // FastLaunch
-            // 
-            this.FastLaunch.BackColor = System.Drawing.Color.Transparent;
-            this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
-            this.FastLaunch.Location = new System.Drawing.Point(3, 88);
-            this.FastLaunch.Name = "FastLaunch";
-            this.FastLaunch.Size = new System.Drawing.Size(104, 17);
-            this.FastLaunch.TabIndex = 4;
-            this.FastLaunch.Text = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
-            // 
-            // Logging
-            // 
-            this.Logging.BackColor = System.Drawing.Color.Transparent;
-            this.Logging.ForeColor = System.Drawing.Color.LightGray;
-            this.Logging.Location = new System.Drawing.Point(3, 109);
-            this.Logging.Name = "Logging";
-            this.Logging.Size = new System.Drawing.Size(103, 17);
-            this.Logging.TabIndex = 5;
-            this.Logging.Text = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
             // 
             // InjectPanel
             // 
@@ -134,6 +135,7 @@
             // 
             // InjectStats
             // 
+            this.InjectStats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.InjectStats.AutoSize = true;
             this.InjectStats.ForeColor = System.Drawing.Color.Gray;
             this.InjectStats.Location = new System.Drawing.Point(62, 0);
@@ -148,7 +150,7 @@
             this.Injections.ForeColor = System.Drawing.Color.LightGray;
             this.Injections.Location = new System.Drawing.Point(3, 25);
             this.Injections.Name = "Injections";
-            this.Injections.Size = new System.Drawing.Size(69, 17);
+            this.Injections.Size = new System.Drawing.Size(61, 15);
             this.Injections.TabIndex = 0;
             this.Injections.Text = "Injections: <b><span>0</span></b>";
             // 
