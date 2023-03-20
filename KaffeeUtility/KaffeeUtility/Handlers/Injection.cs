@@ -68,6 +68,7 @@ namespace KaffeeUtility.Handlers
                         }
                         else
                         {
+                            Utils.Config.GetConfig().FailedInjections++;
                             Logging.Log("Injection failed, client version does not match game version");
                             Misc.Notify("Client does not support the Minecraft version you are on");
                         }

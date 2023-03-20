@@ -33,6 +33,7 @@ namespace KaffeeUtility.Tabs
 
                 #region Inject Stats
                 Injections.Text = $"Injections: <b>{GetConfig().Injections}</b>";
+                FailedInjects.Text = $"Failed Injections: <b><span>{GetConfig().FailedInjections}</span></b>";
                 InjectDelay.Text = $"Inject Delay: <b><span>{GetConfig().InjectDelay}</span></b>";
                 #endregion
             });

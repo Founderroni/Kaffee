@@ -36,9 +36,10 @@
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InjectDelay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectStats = new System.Windows.Forms.Label();
             this.Injections = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.InjectDelay = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.FailedInjects = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.LauncherPanel.SuspendLayout();
             this.InjectPanel.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             this.Logging.ForeColor = System.Drawing.Color.LightGray;
             this.Logging.Location = new System.Drawing.Point(3, 118);
             this.Logging.Name = "Logging";
-            this.Logging.Size = new System.Drawing.Size(103, 17);
+            this.Logging.Size = new System.Drawing.Size(93, 15);
             this.Logging.TabIndex = 5;
             this.Logging.Text = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
             // 
@@ -76,7 +77,7 @@
             this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
             this.FastLaunch.Location = new System.Drawing.Point(3, 95);
             this.FastLaunch.Name = "FastLaunch";
-            this.FastLaunch.Size = new System.Drawing.Size(104, 17);
+            this.FastLaunch.Size = new System.Drawing.Size(95, 15);
             this.FastLaunch.TabIndex = 4;
             this.FastLaunch.Text = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
             // 
@@ -86,7 +87,7 @@
             this.Animations.ForeColor = System.Drawing.Color.LightGray;
             this.Animations.Location = new System.Drawing.Point(3, 72);
             this.Animations.Name = "Animations";
-            this.Animations.Size = new System.Drawing.Size(97, 17);
+            this.Animations.Size = new System.Drawing.Size(86, 15);
             this.Animations.TabIndex = 3;
             this.Animations.Text = "Animations: <b><span style=\"color:green;\">True</span></b>";
             // 
@@ -107,7 +108,7 @@
             this.Version.ForeColor = System.Drawing.Color.LightGray;
             this.Version.Location = new System.Drawing.Point(3, 49);
             this.Version.Name = "Version";
-            this.Version.Size = new System.Drawing.Size(91, 17);
+            this.Version.Size = new System.Drawing.Size(81, 15);
             this.Version.TabIndex = 1;
             this.Version.Text = "File Version: <b><span>1.0</span></b>";
             // 
@@ -117,13 +118,14 @@
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
             this.Launches.Location = new System.Drawing.Point(3, 26);
             this.Launches.Name = "Launches";
-            this.Launches.Size = new System.Drawing.Size(71, 17);
+            this.Launches.Size = new System.Drawing.Size(63, 15);
             this.Launches.TabIndex = 0;
             this.Launches.Text = "Launches: <b><span>0</span></b>";
             // 
             // InjectPanel
             // 
             this.InjectPanel.BackColor = System.Drawing.Color.Transparent;
+            this.InjectPanel.Controls.Add(this.FailedInjects);
             this.InjectPanel.Controls.Add(this.InjectDelay);
             this.InjectPanel.Controls.Add(this.InjectStats);
             this.InjectPanel.Controls.Add(this.Injections);
@@ -134,6 +136,16 @@
             this.InjectPanel.Size = new System.Drawing.Size(190, 151);
             this.InjectPanel.TabIndex = 6;
             this.InjectPanel.UseTransparentBackground = true;
+            // 
+            // InjectDelay
+            // 
+            this.InjectDelay.BackColor = System.Drawing.Color.Transparent;
+            this.InjectDelay.ForeColor = System.Drawing.Color.LightGray;
+            this.InjectDelay.Location = new System.Drawing.Point(3, 68);
+            this.InjectDelay.Name = "InjectDelay";
+            this.InjectDelay.Size = new System.Drawing.Size(72, 15);
+            this.InjectDelay.TabIndex = 3;
+            this.InjectDelay.Text = "Inject Delay: <b><span>0</span></b>";
             // 
             // InjectStats
             // 
@@ -152,19 +164,19 @@
             this.Injections.ForeColor = System.Drawing.Color.LightGray;
             this.Injections.Location = new System.Drawing.Point(3, 26);
             this.Injections.Name = "Injections";
-            this.Injections.Size = new System.Drawing.Size(69, 17);
+            this.Injections.Size = new System.Drawing.Size(61, 15);
             this.Injections.TabIndex = 0;
             this.Injections.Text = "Injections: <b><span>0</span></b>";
             // 
-            // InjectDelay
+            // FailedInjects
             // 
-            this.InjectDelay.BackColor = System.Drawing.Color.Transparent;
-            this.InjectDelay.ForeColor = System.Drawing.Color.LightGray;
-            this.InjectDelay.Location = new System.Drawing.Point(3, 49);
-            this.InjectDelay.Name = "InjectDelay";
-            this.InjectDelay.Size = new System.Drawing.Size(79, 17);
-            this.InjectDelay.TabIndex = 3;
-            this.InjectDelay.Text = "Inject Delay: <b><span>0</span></b>";
+            this.FailedInjects.BackColor = System.Drawing.Color.Transparent;
+            this.FailedInjects.ForeColor = System.Drawing.Color.LightGray;
+            this.FailedInjects.Location = new System.Drawing.Point(3, 47);
+            this.FailedInjects.Name = "FailedInjects";
+            this.FailedInjects.Size = new System.Drawing.Size(106, 17);
+            this.FailedInjects.TabIndex = 4;
+            this.FailedInjects.Text = "Failed Injections: <b><span>0</span></b>";
             // 
             // Home
             // 
@@ -198,5 +210,6 @@
         private System.Windows.Forms.Label InjectStats;
         private Guna.UI2.WinForms.Guna2HtmlLabel Injections;
         private Guna.UI2.WinForms.Guna2HtmlLabel InjectDelay;
+        private Guna.UI2.WinForms.Guna2HtmlLabel FailedInjects;
     }
 }
