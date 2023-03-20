@@ -64,7 +64,7 @@
             // 
             this.Logging.BackColor = System.Drawing.Color.Transparent;
             this.Logging.ForeColor = System.Drawing.Color.LightGray;
-            this.Logging.Location = new System.Drawing.Point(44, 118);
+            this.Logging.Location = new System.Drawing.Point(3, 118);
             this.Logging.Name = "Logging";
             this.Logging.Size = new System.Drawing.Size(103, 17);
             this.Logging.TabIndex = 5;
@@ -74,7 +74,7 @@
             // 
             this.FastLaunch.BackColor = System.Drawing.Color.Transparent;
             this.FastLaunch.ForeColor = System.Drawing.Color.LightGray;
-            this.FastLaunch.Location = new System.Drawing.Point(43, 95);
+            this.FastLaunch.Location = new System.Drawing.Point(3, 95);
             this.FastLaunch.Name = "FastLaunch";
             this.FastLaunch.Size = new System.Drawing.Size(104, 17);
             this.FastLaunch.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             this.Animations.BackColor = System.Drawing.Color.Transparent;
             this.Animations.ForeColor = System.Drawing.Color.LightGray;
-            this.Animations.Location = new System.Drawing.Point(47, 72);
+            this.Animations.Location = new System.Drawing.Point(3, 72);
             this.Animations.Name = "Animations";
             this.Animations.Size = new System.Drawing.Size(97, 17);
             this.Animations.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             this.Version.BackColor = System.Drawing.Color.Transparent;
             this.Version.ForeColor = System.Drawing.Color.LightGray;
-            this.Version.Location = new System.Drawing.Point(50, 49);
+            this.Version.Location = new System.Drawing.Point(3, 49);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(91, 17);
             this.Version.TabIndex = 1;
@@ -115,7 +115,7 @@
             // 
             this.Launches.BackColor = System.Drawing.Color.Transparent;
             this.Launches.ForeColor = System.Drawing.Color.LightGray;
-            this.Launches.Location = new System.Drawing.Point(60, 26);
+            this.Launches.Location = new System.Drawing.Point(3, 26);
             this.Launches.Name = "Launches";
             this.Launches.Size = new System.Drawing.Size(71, 17);
             this.Launches.TabIndex = 0;
@@ -150,7 +150,7 @@
             // 
             this.Injections.BackColor = System.Drawing.Color.Transparent;
             this.Injections.ForeColor = System.Drawing.Color.LightGray;
-            this.Injections.Location = new System.Drawing.Point(61, 26);
+            this.Injections.Location = new System.Drawing.Point(3, 26);
             this.Injections.Name = "Injections";
             this.Injections.Size = new System.Drawing.Size(69, 17);
             this.Injections.TabIndex = 0;
@@ -160,7 +160,7 @@
             // 
             this.InjectDelay.BackColor = System.Drawing.Color.Transparent;
             this.InjectDelay.ForeColor = System.Drawing.Color.LightGray;
-            this.InjectDelay.Location = new System.Drawing.Point(56, 49);
+            this.InjectDelay.Location = new System.Drawing.Point(3, 49);
             this.InjectDelay.Name = "InjectDelay";
             this.InjectDelay.Size = new System.Drawing.Size(79, 17);
             this.InjectDelay.TabIndex = 3;
