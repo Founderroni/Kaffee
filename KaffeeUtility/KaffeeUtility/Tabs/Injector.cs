@@ -31,10 +31,7 @@ namespace KaffeeUtility.Tabs
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)
                     if (Instance.displayName == ClientList.Text)
-                    {
-                        //VersionSupport.Text = $"Supported Version: <b>{Instance.versionSupported}</b>";
                         Handlers.Animator.Linear(VersionSupport, "Text", $"Supported Version: <b>{Instance.versionSupported}</b>", 300);
-                    }
                 Utils.Config.GetConfig().ClientIndex = ClientList.SelectedIndex;
             });
         }
