@@ -48,33 +48,34 @@ namespace KaffeeUtility.Handlers
         {
             try
             {
-                Utils.Logging.Log($"Attempting to Inject {client}");
+                Logging.Log($"Attempting to Inject {client}");
                 Thread.Sleep(delay * 1000);
                 foreach (ClientListStruct Instance in Globals.ClientList)
                 {
                     if (client == Instance.displayName)
                     {
-                        Utils.Logging.Log("Client name matches displayName from ClientList");
+                        Logging.Log("Client name matches displayName from ClientList");
                         Memory.CheckInject();
                         if (Memory.GetVersion().StartsWith(Instance.versionSupported))
                         {
-                            Utils.Logging.Log($@"Version matches ({Instance.versionSupported}). Attempting to find {Globals.DataDir}\{Instance.fileName}.dll");
+                            Logging.Log($@"Version matches ({Instance.versionSupported}). Attempting to find {Globals.DataDir}\{Instance.fileName}.dll");
                             if (File.Exists($@"{Globals.DataDir}\{Instance.fileName}.dll"))
                             {
-                                Utils.Logging.Log($"{client} found at {Globals.DataDir}\\{Instance.fileName}.dll, injecting");
+                                Logging.Log($"{client} found at {Globals.DataDir}\\{Instance.fileName}.dll, injecting");
                                 InjectDLL($@"{Globals.DataDir}\{Instance.fileName}.dll");
+                                Utils.Config.GetConfig().Injections++;
                             }
                         }
                         else
                         {
                             Logging.Log("Injection failed, client version does not match game version");
-                            Utils.Misc.Notify("Client does not support the Minecraft version you are on");
+                            Misc.Notify("Client does not support the Minecraft version you are on");
                         }
                     }
                 }
             } catch (Exception ex)
             {
-                Utils.Misc.Notify("Inject Error:\n" + ex.Message);
+                Misc.Notify("Inject Error:\n" + ex.Message);
             }
         }
 
