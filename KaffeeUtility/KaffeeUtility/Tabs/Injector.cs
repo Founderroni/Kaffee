@@ -7,10 +7,8 @@ namespace KaffeeUtility.Tabs
 {
     public partial class Injector : UserControl
     {
-        public Injector()
-        {
+        public Injector() =>
             InitializeComponent();
-        }
 
         private void Injector_Load(object sender, EventArgs e)
         {
@@ -22,6 +20,24 @@ namespace KaffeeUtility.Tabs
                     Utils.Logging.Log("Added " + Instance.displayName + " to Client List");
                 }
                 ClientList.StartIndex = 0;
+            });
+        }
+
+        private void ClientList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                foreach (ClientListStruct Instance in Globals.ClientList)
+                    if (Instance.displayName == ClientList.Text)
+                        VersionSupport.Text = $"Supported Version: <b>{Instance.versionSupported}</b>";
+            });
+        }
+
+        private void Inject_Click(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                
             });
         }
     }

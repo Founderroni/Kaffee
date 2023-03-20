@@ -32,17 +32,19 @@
             this.ClientLabel = new System.Windows.Forms.Label();
             this.ClientList = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Inject = new Guna.UI2.WinForms.Guna2Button();
+            this.VersionSupport = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ClientPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ClientPanel
             // 
             this.ClientPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ClientPanel.Controls.Add(this.VersionSupport);
             this.ClientPanel.Controls.Add(this.Inject);
             this.ClientPanel.Controls.Add(this.ClientList);
             this.ClientPanel.Controls.Add(this.ClientLabel);
             this.ClientPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientPanel.Location = new System.Drawing.Point(279, 91);
+            this.ClientPanel.Location = new System.Drawing.Point(255, 91);
             this.ClientPanel.Name = "ClientPanel";
             this.ClientPanel.ShadowDecoration.Depth = 0;
             this.ClientPanel.Size = new System.Drawing.Size(301, 141);
@@ -77,6 +79,7 @@
             this.ClientList.Size = new System.Drawing.Size(179, 36);
             this.ClientList.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.ClientList.TabIndex = 3;
+            this.ClientList.SelectedIndexChanged += new System.EventHandler(this.ClientList_SelectedIndexChanged);
             // 
             // Inject
             // 
@@ -91,12 +94,25 @@
             this.Inject.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Inject.ForeColor = System.Drawing.Color.White;
             this.Inject.Image = global::KaffeeUtility.Properties.Resources.syringe_48px;
-            this.Inject.ImageSize = new System.Drawing.Size(26, 26);
+            this.Inject.ImageSize = new System.Drawing.Size(24, 24);
             this.Inject.Location = new System.Drawing.Point(225, 42);
             this.Inject.Name = "Inject";
             this.Inject.Size = new System.Drawing.Size(36, 36);
             this.Inject.TabIndex = 4;
             this.Inject.UseTransparentBackground = true;
+            this.Inject.Click += new System.EventHandler(this.Inject_Click);
+            // 
+            // VersionSupport
+            // 
+            this.VersionSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.VersionSupport.AutoSize = false;
+            this.VersionSupport.BackColor = System.Drawing.Color.Transparent;
+            this.VersionSupport.Location = new System.Drawing.Point(3, 106);
+            this.VersionSupport.Name = "VersionSupport";
+            this.VersionSupport.Size = new System.Drawing.Size(295, 17);
+            this.VersionSupport.TabIndex = 5;
+            this.VersionSupport.Text = "Supported Version: <b>N/A</b>";
+            this.VersionSupport.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Injector
             // 
@@ -120,5 +136,6 @@
         private System.Windows.Forms.Label ClientLabel;
         private Guna.UI2.WinForms.Guna2ComboBox ClientList;
         private Guna.UI2.WinForms.Guna2Button Inject;
+        private Guna.UI2.WinForms.Guna2HtmlLabel VersionSupport;
     }
 }
