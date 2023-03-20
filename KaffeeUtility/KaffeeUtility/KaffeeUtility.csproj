@@ -277,6 +277,8 @@
     </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Handlers\Animator.cs" />
+    <Compile Include="Handlers\Injection.cs" />
+    <Compile Include="Handlers\Memory.cs" />
     <Compile Include="Loader.cs">
       <SubType>Form</SubType>
     </Compile>

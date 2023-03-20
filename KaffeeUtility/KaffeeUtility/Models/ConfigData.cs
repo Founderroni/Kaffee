@@ -33,8 +33,14 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = 0)]
         int InjectDelay { get; set; }
 
+        [Option(DefaultValue = 10)]
+        int LaunchDelay { get; set; }
+
         [Option(DefaultValue = 0)]
         int ClientIndex { get; set; }
+
+        [Option(DefaultValue = false)]
+        bool AutoOpenMc { get; set; }
         #endregion
     }
 }

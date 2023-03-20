@@ -40,7 +40,7 @@ namespace KaffeeUtility.Tabs
         {
             Task.Run(() =>
             {
-                
+                Handlers.Injection.InjectClient(ClientList.Text, (int)InjectDelay.Value);
             });
         }
 
