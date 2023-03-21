@@ -103,6 +103,9 @@ namespace KaffeeUtility
         private void Injector_Click(object sender, EventArgs e) =>
             OpenTab(new Tabs.Injector());
 
+        private void Spoofer_Click(object sender, EventArgs e) =>
+            OpenTab(new Tabs.Spoofer());
+
         private void Directory_Click(object sender, EventArgs e)
         {
             try

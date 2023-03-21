@@ -279,6 +279,7 @@
     <Compile Include="Handlers\Animator.cs" />
     <Compile Include="Handlers\Injection.cs" />
     <Compile Include="Handlers\Memory.cs" />
+    <Compile Include="Handlers\Spoof.cs" />
     <Compile Include="Loader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +303,12 @@
     </Compile>
     <Compile Include="Tabs\Injector.Designer.cs">
       <DependentUpon>Injector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\Spoofer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\Spoofer.Designer.cs">
+      <DependentUpon>Spoofer.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Config.cs" />
     <Compile Include="Utils\Loader.cs" />
@@ -330,6 +337,9 @@
     <EmbeddedResource Include="Tabs\Injector.resx">
       <DependentUpon>Injector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\Spoofer.resx">
+      <DependentUpon>Spoofer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -346,6 +356,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kaffee.ico" />
+    <None Include="Resources\anonymous_mask_pressed.png" />
+    <None Include="Resources\anonymous_mask_48px.png" />
+    <None Include="Resources\shuffle_48px.png" />
     <None Include="Resources\folder_48px.png" />
     <None Include="Resources\settings_pressed.png" />
     <None Include="Resources\settings_48px.png" />

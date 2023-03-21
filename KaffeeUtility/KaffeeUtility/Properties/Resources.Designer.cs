@@ -63,6 +63,26 @@ namespace KaffeeUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anonymous_mask_48px {
+            get {
+                object obj = ResourceManager.GetObject("anonymous_mask_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap anonymous_mask_pressed {
+            get {
+                object obj = ResourceManager.GetObject("anonymous_mask_pressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap folder_48px {
             get {
                 object obj = ResourceManager.GetObject("folder_48px", resourceCulture);
@@ -146,6 +166,16 @@ namespace KaffeeUtility.Properties {
         internal static System.Drawing.Bitmap settings_pressed {
             get {
                 object obj = ResourceManager.GetObject("settings_pressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shuffle_48px {
+            get {
+                object obj = ResourceManager.GetObject("shuffle_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
