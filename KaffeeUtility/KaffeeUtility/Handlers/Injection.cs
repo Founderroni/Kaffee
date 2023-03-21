@@ -100,7 +100,7 @@ namespace KaffeeUtility.Handlers
                 UIntPtr bytesWritten;
                 WriteProcessMemory(procHandle, allocMemAddress, Encoding.Default.GetBytes(path), (uint)((path.Length + 1) * Marshal.SizeOf(typeof(char))), out bytesWritten);
                 CreateRemoteThread(procHandle, IntPtr.Zero, 0, loadLibraryAddr, allocMemAddress, 0, IntPtr.Zero);
-                Utils.Logging.Log("Client Injected");
+                Logging.Log("Client Injected");
             }
             else
             {
@@ -112,8 +112,8 @@ namespace KaffeeUtility.Handlers
                 }
                 else
                 {
-                    Utils.Misc.Notify("Injection", "Minecraft is currently closed (or not detected)");
-                    Utils.Logging.Log("Attempted to Inject but 'Auto Focus Minecraft' is Disabled");
+                    Misc.Notify("Injection", "Minecraft is currently closed (or not detected)");
+                    Logging.Log("Attempted to Inject but 'Auto Focus Minecraft' is Disabled");
                 }
             }
         }
