@@ -356,6 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kaffee.ico" />
+    <None Include="Resources\restart_48px.png" />
     <None Include="Resources\anonymous_mask_pressed.png" />
     <None Include="Resources\anonymous_mask_48px.png" />
     <None Include="Resources\shuffle_48px.png" />
