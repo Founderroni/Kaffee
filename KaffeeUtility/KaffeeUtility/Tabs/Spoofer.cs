@@ -2,6 +2,7 @@
 using KaffeeUtility.Models;
 using KaffeeUtility.Utils;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,7 +23,19 @@ namespace KaffeeUtility.Tabs
                 Task.Run(() =>
                 {
                     SpoofSupport.Text = "Supported Spoof: <b>CID</b>";
+                    string[] lines = File.ReadAllLines(Globals.McpeDirectory + "options.txt");
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        if (lines[i].StartsWith("mp_username"))
+                        {
+                            string[] parts = lines[i].Split(':');
+                            Username.Text = $"MP_Username: <b>{parts[1]}</b>";
+                            continue;
+                        }
+                    }
+
                     Memory.CheckInject();
+                    MCVersion.Text = $"MC Version: <b>{Memory.GetVersion()}</b>";
                     foreach (SpoofPointersStruct Instance in Globals.SpoofList)
                     {
                         if (Memory.GetVersion().StartsWith(Instance.version))

@@ -39,6 +39,8 @@
             this.PlayerInfo = new System.Windows.Forms.Label();
             this.CID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MCID = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Username = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MCVersion = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ClientPanel.SuspendLayout();
             this.InjectPanel.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +155,8 @@
             // InjectPanel
             // 
             this.InjectPanel.BackColor = System.Drawing.Color.Transparent;
+            this.InjectPanel.Controls.Add(this.MCVersion);
+            this.InjectPanel.Controls.Add(this.Username);
             this.InjectPanel.Controls.Add(this.DID);
             this.InjectPanel.Controls.Add(this.MCID);
             this.InjectPanel.Controls.Add(this.PlayerInfo);
@@ -161,7 +165,7 @@
             this.InjectPanel.Location = new System.Drawing.Point(235, 299);
             this.InjectPanel.Name = "InjectPanel";
             this.InjectPanel.ShadowDecoration.Depth = 0;
-            this.InjectPanel.Size = new System.Drawing.Size(340, 110);
+            this.InjectPanel.Size = new System.Drawing.Size(340, 146);
             this.InjectPanel.TabIndex = 9;
             this.InjectPanel.UseTransparentBackground = true;
             // 
@@ -169,7 +173,7 @@
             // 
             this.DID.BackColor = System.Drawing.Color.Transparent;
             this.DID.ForeColor = System.Drawing.Color.LightGray;
-            this.DID.Location = new System.Drawing.Point(3, 47);
+            this.DID.Location = new System.Drawing.Point(3, 92);
             this.DID.Name = "DID";
             this.DID.Size = new System.Drawing.Size(49, 17);
             this.DID.TabIndex = 4;
@@ -190,7 +194,7 @@
             // 
             this.CID.BackColor = System.Drawing.Color.Transparent;
             this.CID.ForeColor = System.Drawing.Color.LightGray;
-            this.CID.Location = new System.Drawing.Point(3, 26);
+            this.CID.Location = new System.Drawing.Point(3, 70);
             this.CID.Name = "CID";
             this.CID.Size = new System.Drawing.Size(49, 17);
             this.CID.TabIndex = 0;
@@ -200,11 +204,31 @@
             // 
             this.MCID.BackColor = System.Drawing.Color.Transparent;
             this.MCID.ForeColor = System.Drawing.Color.LightGray;
-            this.MCID.Location = new System.Drawing.Point(3, 68);
+            this.MCID.Location = new System.Drawing.Point(3, 114);
             this.MCID.Name = "MCID";
             this.MCID.Size = new System.Drawing.Size(58, 17);
             this.MCID.TabIndex = 3;
             this.MCID.Text = "MCID: <b>N/A</b>";
+            // 
+            // Username
+            // 
+            this.Username.BackColor = System.Drawing.Color.Transparent;
+            this.Username.ForeColor = System.Drawing.Color.LightGray;
+            this.Username.Location = new System.Drawing.Point(3, 26);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(111, 17);
+            this.Username.TabIndex = 5;
+            this.Username.Text = "MP_Username: <b>N/A</b>";
+            // 
+            // MCVersion
+            // 
+            this.MCVersion.BackColor = System.Drawing.Color.Transparent;
+            this.MCVersion.ForeColor = System.Drawing.Color.LightGray;
+            this.MCVersion.Location = new System.Drawing.Point(3, 48);
+            this.MCVersion.Name = "MCVersion";
+            this.MCVersion.Size = new System.Drawing.Size(91, 17);
+            this.MCVersion.TabIndex = 6;
+            this.MCVersion.Text = "MC Version: <b>N/A</b>";
             // 
             // Spoofer
             // 
@@ -238,5 +262,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel MCID;
         private System.Windows.Forms.Label PlayerInfo;
         private Guna.UI2.WinForms.Guna2HtmlLabel CID;
+        private Guna.UI2.WinForms.Guna2HtmlLabel MCVersion;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Username;
     }
 }
