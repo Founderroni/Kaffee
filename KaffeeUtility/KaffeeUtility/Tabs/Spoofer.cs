@@ -59,17 +59,12 @@ namespace KaffeeUtility.Tabs
                             }
                             SpoofSupport.Text = $"Supported Spoof: <b>{SupportedSpoofTypes}</b>";
                         }
-                        else
-                        {
-                            Logging.Log("Minecraft version is not supported");
-                            Misc.Notify("Spoofer does not support the Minecraft version you are on");
-                        }
                     }
                 });
             }
             catch (Exception ex)
             {
-                Misc.Notify("Restart/Re-Inject Error:\n" + ex.Message);
+                Misc.Notify("Update Player Info Error:\n" + ex.Message);
             }
         }
         #endregion
@@ -98,11 +93,6 @@ namespace KaffeeUtility.Tabs
                             Spoof.SpoofIds(DidText, Instance.didPtr, Instance.mcidPtr);
                             Utils.Config.GetConfig().Spoofs++;
                             UpdatePlayerInfo();
-                        }
-                        else
-                        {
-                            Logging.Log("Spoof failed, Minecraft version is not supported");
-                            Misc.Notify("Spoofer does not support the Minecraft version you are on");
                         }
                     }
                 });
