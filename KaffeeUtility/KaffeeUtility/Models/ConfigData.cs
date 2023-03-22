@@ -45,5 +45,10 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = false)]
         bool AutoOpenMc { get; set; }
         #endregion
+
+        #region Spoofer
+        [Option(DefaultValue = "")]
+        string CustomDid { get; set; }
+        #endregion
     }
 }

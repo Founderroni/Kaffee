@@ -20,53 +20,50 @@ namespace KaffeeUtility.Tabs
         {
             try
             {
-                Task.Run(() =>
+                SupportedSpoofTypes = "CID";
+                string[] lines = File.ReadAllLines(Globals.McpeDirectory + "options.txt");
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    SupportedSpoofTypes = "CID";
-                    string[] lines = File.ReadAllLines(Globals.McpeDirectory + "options.txt");
-                    for (int i = 0; i < lines.Length; i++)
+                    if (lines[i].StartsWith("mp_username"))
                     {
-                        if (lines[i].StartsWith("mp_username"))
+                        string[] parts = lines[i].Split(':');
+                        Username.Text = $"MP_Username: <b>{parts[1]}</b>";
+                        continue;
+                    }
+                }
+
+                if (File.Exists(Globals.McpeDirectory + "clientId.txt"))
+                {
+                    string[] cidLines = File.ReadAllLines(Globals.McpeDirectory + "clientId.txt");
+                    CID.Text = $"CID: <b>{cidLines[0]}</b>";
+                }
+
+                Memory.CheckInject();
+                MCVersion.Text = $"MC Version: <b>{Memory.GetVersion()}</b>";
+                foreach (SpoofPointersStruct Instance in Globals.SpoofList)
+                {
+                    if (Memory.GetVersion().StartsWith(Instance.version))
+                    {
+                        Logging.Log($@"Version matches ({Instance.version})");
+                        if (Instance.didPtr != "null")
                         {
-                            string[] parts = lines[i].Split(':');
-                            Username.Text = $"MP_Username: <b>{parts[1]}</b>";
-                            continue;
+                            SupportedSpoofTypes += ", DID";
+
+                            long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(Instance.didPtr), Memory.GetSubOffsets(Instance.didPtr));
+                            string DidString = Memory.ReadMemory_str(addr, false);
+                            DID.Text = $"DID: <b>{DidString}</b>";
                         }
-                    }
-
-                    if (File.Exists(Globals.McpeDirectory + "clientId.txt"))
-                    {
-                        string[] cidLines = File.ReadAllLines(Globals.McpeDirectory + "clientId.txt");
-                        CID.Text = $"CID: <b>{cidLines[0]}</b>";
-                    }
-
-                    Memory.CheckInject();
-                    MCVersion.Text = $"MC Version: <b>{Memory.GetVersion()}</b>";
-                    foreach (SpoofPointersStruct Instance in Globals.SpoofList)
-                    {
-                        if (Memory.GetVersion().StartsWith(Instance.version))
+                        if (Instance.mcidPtr != "null")
                         {
-                            Logging.Log($@"Version matches ({Instance.version})");
-                            if (Instance.didPtr != "null")
-                            {
-                                SupportedSpoofTypes += ", DID";
+                            SupportedSpoofTypes += ", MCID";
 
-                                long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(Instance.didPtr), Memory.GetSubOffsets(Instance.didPtr));
-                                string DidString = Memory.ReadMemory_str(addr, false);
-                                DID.Text = $"DID: <b>{DidString}</b>";
-                            }
-                            if (Instance.mcidPtr != "null")
-                            {
-                                SupportedSpoofTypes += ", MCID";
-
-                                long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(Instance.mcidPtr), Memory.GetSubOffsets(Instance.mcidPtr));
-                                string McidString = Memory.ReadMemory_str(addr, false);
-                                MCID.Text = $"MCID: <b>{McidString}</b>";
-                            }
-                            SpoofSupport.Text = $"Supported Spoof: <b>{SupportedSpoofTypes}</b>";
+                            long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(Instance.mcidPtr), Memory.GetSubOffsets(Instance.mcidPtr));
+                            string McidString = Memory.ReadMemory_str(addr, false);
+                            MCID.Text = $"MCID: <b>{McidString}</b>";
                         }
+                        SpoofSupport.Text = $"Supported Spoof: <b>{SupportedSpoofTypes}</b>";
                     }
-                });
+                }
             }
             catch (Exception ex)
             {
@@ -77,8 +74,14 @@ namespace KaffeeUtility.Tabs
         public Spoofer() =>
             InitializeComponent();
 
-        private void Spoofer_Load(object sender, EventArgs e) =>
-            UpdatePlayerInfo();
+        private void Spoofer_Load(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                CustomDid.Text = Utils.Config.GetConfig().CustomDid;
+                UpdatePlayerInfo();
+            });
+        }
 
         private void Randomize_Click(object sender, EventArgs e)
         {
@@ -88,6 +91,8 @@ namespace KaffeeUtility.Tabs
                 {
                     Randomize.Enabled = false;
                     Guid NewGuid = Guid.NewGuid();
+                    DidText = CustomDid.Text;
+                    Utils.Config.GetConfig().CustomDid = CustomDid.Text;
                     if (string.IsNullOrEmpty(CustomDid.Text)) DidText = NewGuid.ToString().ToLower();
                     if (string.IsNullOrWhiteSpace(CustomDid.Text)) DidText = NewGuid.ToString().ToLower();
 
@@ -111,7 +116,12 @@ namespace KaffeeUtility.Tabs
             }
         }
 
-        private void Restart_Click(object sender, EventArgs e) =>
-            UpdatePlayerInfo();
+        private void Restart_Click(object sender, EventArgs e)
+        {
+            Task.Run(() =>
+            {
+                UpdatePlayerInfo();
+            });
+        }
     }
 }
