@@ -12,8 +12,8 @@ namespace KaffeeUtility.Handlers
             {
                 if (File.Exists(Globals.McpeDirectory + "clientId.txt"))
                 {
-                    File.Delete(Globals.McpeDirectory + "clientId.txt");
-                    Utils.Logging.Log("Deleted clientId file");
+                    File.WriteAllText(Globals.McpeDirectory + "clientId.txt", Utils.Misc.RandomString(19, false, true));
+                    Utils.Logging.Log("Modified clientId file");
                 }
 
                 if (File.Exists(Globals.McpeDirectory + "telemetry_info.json"))

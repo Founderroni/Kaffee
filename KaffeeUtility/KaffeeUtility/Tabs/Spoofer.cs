@@ -22,7 +22,7 @@ namespace KaffeeUtility.Tabs
             {
                 Task.Run(() =>
                 {
-                    SpoofSupport.Text = "Supported Spoof: <b>CID</b>";
+                    SupportedSpoofTypes = "CID";
                     string[] lines = File.ReadAllLines(Globals.McpeDirectory + "options.txt");
                     for (int i = 0; i < lines.Length; i++)
                     {
@@ -32,6 +32,12 @@ namespace KaffeeUtility.Tabs
                             Username.Text = $"MP_Username: <b>{parts[1]}</b>";
                             continue;
                         }
+                    }
+
+                    if (File.Exists(Globals.McpeDirectory + "clientId.txt"))
+                    {
+                        string[] cidLines = File.ReadAllLines(Globals.McpeDirectory + "clientId.txt");
+                        CID.Text = $"CID: <b>{cidLines[0]}</b>";
                     }
 
                     Memory.CheckInject();
@@ -80,25 +86,28 @@ namespace KaffeeUtility.Tabs
             {
                 Task.Run(() =>
                 {
-                    if (string.IsNullOrEmpty(CustomDid.Text)) DidText = new Guid().ToString().ToLower();
-                    if (string.IsNullOrWhiteSpace(CustomDid.Text)) DidText = new Guid().ToString().ToLower();
-                    MessageBox.Show(DidText.Length.ToString());
+                    Randomize.Enabled = false;
+                    Guid NewGuid = Guid.NewGuid();
+                    if (string.IsNullOrEmpty(CustomDid.Text)) DidText = NewGuid.ToString().ToLower();
+                    if (string.IsNullOrWhiteSpace(CustomDid.Text)) DidText = NewGuid.ToString().ToLower();
 
                     Memory.CheckInject();
                     foreach (SpoofPointersStruct Instance in Globals.SpoofList)
                     {
                         if (Memory.GetVersion().StartsWith(Instance.version))
                         {
-                            Logging.Log($@"Version matches ({Instance.version})");
+                            Logging.Log($"Version matches ({Instance.version})");
                             Spoof.SpoofIds(DidText, Instance.didPtr, Instance.mcidPtr);
                             Utils.Config.GetConfig().Spoofs++;
                             UpdatePlayerInfo();
                         }
                     }
+                    Randomize.Enabled = true;
                 });
             } catch (Exception ex)
             {
                 Misc.Notify("Spoof Error:\n" + ex.Message);
+                Randomize.Enabled = true;
             }
         }
 

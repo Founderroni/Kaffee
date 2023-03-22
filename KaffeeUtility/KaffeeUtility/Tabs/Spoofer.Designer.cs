@@ -101,6 +101,7 @@
             this.CustomDid.ForeColor = System.Drawing.Color.White;
             this.CustomDid.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
             this.CustomDid.Location = new System.Drawing.Point(36, 42);
+            this.CustomDid.MaxLength = 36;
             this.CustomDid.Name = "CustomDid";
             this.CustomDid.PasswordChar = '\0';
             this.CustomDid.PlaceholderForeColor = System.Drawing.Color.DimGray;
