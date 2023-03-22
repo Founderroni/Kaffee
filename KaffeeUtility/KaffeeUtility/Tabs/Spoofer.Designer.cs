@@ -139,7 +139,7 @@
             this.Randomize.BorderRadius = 17;
             this.Randomize.DisabledState.BorderColor = System.Drawing.Color.Black;
             this.Randomize.DisabledState.CustomBorderColor = System.Drawing.Color.Black;
-            this.Randomize.DisabledState.FillColor = System.Drawing.Color.DimGray;
+            this.Randomize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.Randomize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Randomize.FillColor = System.Drawing.Color.Transparent;
             this.Randomize.Font = new System.Drawing.Font("Segoe UI", 9F);
