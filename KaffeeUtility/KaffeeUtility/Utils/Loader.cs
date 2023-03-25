@@ -114,6 +114,14 @@ namespace KaffeeUtility.Utils
                 Logging.Log("Finished SpoofList");
 
 
+                UpdateProgress("Initializing Discord RPC");
+                if (Config.GetConfig().RpcEnabled && !Handlers.Discord.IsRPCRunning)
+                {
+                    Handlers.Discord.StartRpc(Config.GetConfig().RpcDetail, Config.GetConfig().RpcState);
+                    Logging.Log("RPC Started");
+                }
+
+
                 UpdateProgress("Updating Launches");
                 Config.GetConfig().Launches += 1;
                 Logging.Log("+1 Launch");

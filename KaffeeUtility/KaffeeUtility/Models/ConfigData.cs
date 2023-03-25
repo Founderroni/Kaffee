@@ -50,5 +50,16 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = "")]
         string CustomDid { get; set; }
         #endregion
+
+        #region Discord
+        [Option(DefaultValue = "Using Faded Injector V3")]
+        string RpcDetail { get; set; }
+
+        [Option(DefaultValue = "Committing Large Amounts Of Trolling")]
+        string RpcState { get; set; }
+
+        [Option(DefaultValue = true)]
+        bool RpcEnabled { get; set; }
+        #endregion
     }
 }
