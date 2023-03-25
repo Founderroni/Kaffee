@@ -36,12 +36,18 @@
             this.Version = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Launches = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.FailedInjects = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectDelay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InjectStats = new System.Windows.Forms.Label();
             this.Injections = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.FailedInjects = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Username = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.CID = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SpoofStats = new System.Windows.Forms.Label();
+            this.Spoofs = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.LauncherPanel.SuspendLayout();
             this.InjectPanel.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LauncherPanel
@@ -137,6 +143,16 @@
             this.InjectPanel.TabIndex = 6;
             this.InjectPanel.UseTransparentBackground = true;
             // 
+            // FailedInjects
+            // 
+            this.FailedInjects.BackColor = System.Drawing.Color.Transparent;
+            this.FailedInjects.ForeColor = System.Drawing.Color.LightGray;
+            this.FailedInjects.Location = new System.Drawing.Point(3, 47);
+            this.FailedInjects.Name = "FailedInjects";
+            this.FailedInjects.Size = new System.Drawing.Size(92, 15);
+            this.FailedInjects.TabIndex = 4;
+            this.FailedInjects.Text = "Failed Injections: <b><span>0</span></b>";
+            // 
             // InjectDelay
             // 
             this.InjectDelay.BackColor = System.Drawing.Color.Transparent;
@@ -168,20 +184,67 @@
             this.Injections.TabIndex = 0;
             this.Injections.Text = "Injections: <b><span>0</span></b>";
             // 
-            // FailedInjects
+            // guna2Panel1
             // 
-            this.FailedInjects.BackColor = System.Drawing.Color.Transparent;
-            this.FailedInjects.ForeColor = System.Drawing.Color.LightGray;
-            this.FailedInjects.Location = new System.Drawing.Point(3, 47);
-            this.FailedInjects.Name = "FailedInjects";
-            this.FailedInjects.Size = new System.Drawing.Size(106, 17);
-            this.FailedInjects.TabIndex = 4;
-            this.FailedInjects.Text = "Failed Injections: <b><span>0</span></b>";
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.Username);
+            this.guna2Panel1.Controls.Add(this.CID);
+            this.guna2Panel1.Controls.Add(this.SpoofStats);
+            this.guna2Panel1.Controls.Add(this.Spoofs);
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(203, 192);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Depth = 0;
+            this.guna2Panel1.Size = new System.Drawing.Size(190, 151);
+            this.guna2Panel1.TabIndex = 7;
+            this.guna2Panel1.UseTransparentBackground = true;
+            // 
+            // Username
+            // 
+            this.Username.BackColor = System.Drawing.Color.Transparent;
+            this.Username.ForeColor = System.Drawing.Color.LightGray;
+            this.Username.Location = new System.Drawing.Point(3, 47);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(108, 17);
+            this.Username.TabIndex = 4;
+            this.Username.Text = "MP_Username <b><span>N/A</span></b>";
+            // 
+            // CID
+            // 
+            this.CID.BackColor = System.Drawing.Color.Transparent;
+            this.CID.ForeColor = System.Drawing.Color.LightGray;
+            this.CID.Location = new System.Drawing.Point(3, 68);
+            this.CID.Name = "CID";
+            this.CID.Size = new System.Drawing.Size(49, 17);
+            this.CID.TabIndex = 3;
+            this.CID.Text = "CID: <b><span>N/A</span></b>";
+            // 
+            // SpoofStats
+            // 
+            this.SpoofStats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.SpoofStats.AutoSize = true;
+            this.SpoofStats.ForeColor = System.Drawing.Color.Gray;
+            this.SpoofStats.Location = new System.Drawing.Point(62, 0);
+            this.SpoofStats.Name = "SpoofStats";
+            this.SpoofStats.Size = new System.Drawing.Size(70, 15);
+            this.SpoofStats.TabIndex = 2;
+            this.SpoofStats.Text = "Spoof Stats";
+            // 
+            // Spoofs
+            // 
+            this.Spoofs.BackColor = System.Drawing.Color.Transparent;
+            this.Spoofs.ForeColor = System.Drawing.Color.LightGray;
+            this.Spoofs.Location = new System.Drawing.Point(3, 26);
+            this.Spoofs.Name = "Spoofs";
+            this.Spoofs.Size = new System.Drawing.Size(55, 17);
+            this.Spoofs.TabIndex = 0;
+            this.Spoofs.Text = "Spoofs: <b><span>0</span></b>";
             // 
             // Home
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.InjectPanel);
             this.Controls.Add(this.LauncherPanel);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,6 +256,8 @@
             this.LauncherPanel.PerformLayout();
             this.InjectPanel.ResumeLayout(false);
             this.InjectPanel.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +276,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel Injections;
         private Guna.UI2.WinForms.Guna2HtmlLabel InjectDelay;
         private Guna.UI2.WinForms.Guna2HtmlLabel FailedInjects;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Username;
+        private Guna.UI2.WinForms.Guna2HtmlLabel CID;
+        private System.Windows.Forms.Label SpoofStats;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Spoofs;
     }
 }

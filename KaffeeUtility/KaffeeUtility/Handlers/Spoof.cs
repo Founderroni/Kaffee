@@ -22,7 +22,7 @@ namespace KaffeeUtility.Handlers
                     Utils.Logging.Log("Deleted telemetry_info file");
                 }
 
-                string[] lines = File.ReadAllLines(Globals.McpeDirectory + "options.txt");
+                string[] lines = File.ReadAllLines(Globals.OptionsFile);
                 for (int i = 0; i < lines.Length; i++)
                 {
                     if (lines[i].StartsWith("mp_username"))
@@ -62,7 +62,7 @@ namespace KaffeeUtility.Handlers
                         continue;
                     }
                 }
-                File.WriteAllLines(Globals.McpeDirectory + "options.txt", lines);
+                File.WriteAllLines(Globals.OptionsFile, lines);
             }
 
             if (didPtr  != "null")

@@ -320,6 +320,7 @@
     <Compile Include="Utils\Config.cs" />
     <Compile Include="Utils\Loader.cs" />
     <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\Minecraft.cs" />
     <Compile Include="Utils\Misc.cs" />
     <Compile Include="Utils\Network.cs" />
     <EmbeddedResource Include="Dashboard.resx">

@@ -2,7 +2,6 @@
 using KaffeeUtility.Models;
 using KaffeeUtility.Utils;
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,22 +20,9 @@ namespace KaffeeUtility.Tabs
             try
             {
                 SupportedSpoofTypes = "CID";
-                string[] lines = File.ReadAllLines(Globals.McpeDirectory + "options.txt");
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    if (lines[i].StartsWith("mp_username"))
-                    {
-                        string[] parts = lines[i].Split(':');
-                        Username.Text = $"MP_Username: <b>{parts[1]}</b>";
-                        continue;
-                    }
-                }
 
-                if (File.Exists(Globals.McpeDirectory + "clientId.txt"))
-                {
-                    string[] cidLines = File.ReadAllLines(Globals.McpeDirectory + "clientId.txt");
-                    CID.Text = $"CID: <b>{cidLines[0]}</b>";
-                }
+                Username.Text = $"MP_Username: <b>{Minecraft.GetMPUsername()}</b>";
+                CID.Text = $"CID: <b>{Minecraft.GetCID()}</b>";
 
                 Memory.CheckInject();
                 MCVersion.Text = $"MC Version: <b>{Memory.GetVersion()}</b>";

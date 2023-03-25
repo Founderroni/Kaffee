@@ -36,6 +36,12 @@ namespace KaffeeUtility.Tabs
                 FailedInjects.Text = $"Failed Injections: <b><span>{GetConfig().FailedInjections}</span></b>";
                 InjectDelay.Text = $"Inject Delay: <b><span>{GetConfig().InjectDelay}</span></b>";
                 #endregion
+
+                #region Spoof Stats
+                Spoofs.Text = $"Spoofs: <b><span>{GetConfig().Spoofs}</span></b>";
+                Username.Text = $"MP_Username <b><span>{Utils.Minecraft.GetMPUsername()}</span></b>";
+                CID.Text = $"CID: <b><span>{Utils.Minecraft.GetCID()}</span></b>";
+                #endregion
             });
         }
     }
