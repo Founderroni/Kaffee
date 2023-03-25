@@ -90,6 +90,7 @@ namespace KaffeeUtility
 
         private void Exit_Click(object sender, EventArgs e)
         {
+            Handlers.Discord.ClearRpc(false);
             Dispose();
             Application.Exit();
         }
