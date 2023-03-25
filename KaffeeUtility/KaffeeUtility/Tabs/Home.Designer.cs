@@ -192,7 +192,7 @@
             this.guna2Panel1.Controls.Add(this.SpoofStats);
             this.guna2Panel1.Controls.Add(this.Spoofs);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(203, 192);
+            this.guna2Panel1.Location = new System.Drawing.Point(310, 216);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Depth = 0;
             this.guna2Panel1.Size = new System.Drawing.Size(190, 151);
