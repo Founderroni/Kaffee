@@ -117,6 +117,7 @@ namespace KaffeeUtility.Utils
                 UpdateProgress("Initializing Discord RPC");
                 if (Config.GetConfig().RpcEnabled && !Handlers.Discord.IsRPCRunning)
                 {
+                    UpdateProgress("Initializing Discord RPC", 0, "Starting RPC");
                     Handlers.Discord.StartRpc(Config.GetConfig().RpcDetail, Config.GetConfig().RpcState);
                     Logging.Log("RPC Started");
                 }
