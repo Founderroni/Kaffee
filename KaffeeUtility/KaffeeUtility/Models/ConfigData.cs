@@ -52,7 +52,7 @@ namespace KaffeeUtility.Models
         #endregion
 
         #region Discord
-        [Option(DefaultValue = "Using Faded Injector V3")]
+        [Option(DefaultValue = "Using Kaffee Utility")]
         string RpcDetail { get; set; }
 
         [Option(DefaultValue = "Committing Large Amounts Of Trolling")]
