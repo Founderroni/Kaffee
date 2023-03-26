@@ -77,11 +77,11 @@ namespace KaffeeUtility.Tabs
                 Task.Run(() =>
                 {
                     Randomize.Enabled = false;
-                    Guid NewGuid = Guid.NewGuid();
+                    string NewGuid = Guid.NewGuid().ToString();
                     DidText = CustomDid.Text;
                     Utils.Config.GetConfig().CustomDid = CustomDid.Text;
-                    if (string.IsNullOrEmpty(CustomDid.Text)) DidText = NewGuid.ToString().ToLower();
-                    if (string.IsNullOrWhiteSpace(CustomDid.Text)) DidText = NewGuid.ToString().ToLower();
+                    if (string.IsNullOrEmpty(CustomDid.Text)) DidText = NewGuid;
+                    if (string.IsNullOrWhiteSpace(CustomDid.Text)) DidText = NewGuid;
 
                     Memory.CheckInject();
                     foreach (SpoofPointersStruct Instance in Globals.SpoofList)
