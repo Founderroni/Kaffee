@@ -9,6 +9,19 @@ namespace KaffeeUtility.Tabs
     {
         public Injector() =>
             InitializeComponent();
+        #region Functions
+        private void UpdateVersionLabel(bool disableCheck = false) // Might remove
+        {
+            if (disableCheck)
+                VersionSupport.Text = "Supported Version: <b>Version Check Disabled</b>";
+            foreach (ClientListStruct Instance in Globals.ClientList)
+                if (Instance.displayName == ClientList.Text)
+                {
+                    Handlers.Animator.Linear(VersionSupport, "Text", $"Supported Version: <b>{Instance.versionSupported}</b>", 300);
+                    break;
+                }
+        }
+        #endregion
 
         private void Injector_Load(object sender, EventArgs e)
         {
@@ -30,10 +43,8 @@ namespace KaffeeUtility.Tabs
         {
             Task.Run(() =>
             {
-                foreach (ClientListStruct Instance in Globals.ClientList)
-                    if (Instance.displayName == ClientList.Text)
-                        Handlers.Animator.Linear(VersionSupport, "Text", $"Supported Version: <b>{Instance.versionSupported}</b>", 300);
                 Utils.Config.GetConfig().ClientIndex = ClientList.SelectedIndex;
+                UpdateVersionLabel(DisableVersionCheck.Checked);
             });
         }
 
@@ -53,7 +64,10 @@ namespace KaffeeUtility.Tabs
             });
         }
 
-        private void DisableVersionCheck_CheckedChanged(object sender, EventArgs e) =>
+        private void DisableVersionCheck_CheckedChanged(object sender, EventArgs e)
+        {
             Utils.Config.GetConfig().DisableVersionCheck = DisableVersionCheck.Checked;
+            UpdateVersionLabel(DisableVersionCheck.Checked);
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace KaffeeUtility.Tabs
                             MCID.Text = $"MCID: <b>{McidString}</b>";
                         }
                         SpoofSupport.Text = $"Supported Spoof: <b>{SupportedSpoofTypes}</b>";
-                        continue;
+                        break;
                     }
                 }
             }
@@ -92,7 +92,7 @@ namespace KaffeeUtility.Tabs
                             Spoof.SpoofIds(DidText, Instance.didPtr, Instance.mcidPtr);
                             Utils.Config.GetConfig().Spoofs++;
                             UpdatePlayerInfo();
-                            continue;
+                            break;
                         }
                     }
                     Randomize.Enabled = true;

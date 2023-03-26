@@ -59,7 +59,7 @@ namespace KaffeeUtility.Handlers
                         parts[1] = Utils.Misc.RandomString();
                         lines[i] = string.Join(":", parts);
                         Utils.Logging.Log("Replaced last_minecraft_id with " + parts[1]);
-                        continue;
+                        break;
                     }
                 }
                 File.WriteAllLines(Globals.OptionsFile, lines);

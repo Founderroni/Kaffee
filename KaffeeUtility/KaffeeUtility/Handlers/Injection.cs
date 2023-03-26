@@ -64,7 +64,7 @@ namespace KaffeeUtility.Handlers
                                 InjectDLL($@"{Globals.DataDir}\{Instance.fileName}.dll");
                                 Utils.Config.GetConfig().Injections++;
                             }
-                            continue;
+                            break;
                         }
                         // System is kinda retarded but it works
                         if (Memory.GetVersion().StartsWith(Instance.versionSupported))
@@ -83,7 +83,7 @@ namespace KaffeeUtility.Handlers
                             Logging.Log("Injection failed, client version does not match game version");
                             Misc.Notify("Client does not support the Minecraft version you are on");
                         }
-                        continue;
+                        break;
                     }
                 }
             } catch (Exception ex)
