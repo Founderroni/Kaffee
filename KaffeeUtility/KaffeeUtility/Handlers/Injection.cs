@@ -44,7 +44,7 @@ namespace KaffeeUtility.Handlers
         const uint MEM_RESERVE = 0x00002000;
         const uint PAGE_READWRITE = 4;
 
-        public static void InjectClient(string client, int delay = 0)
+        public static void InjectClient(string client, int delay = 0, bool ignoreCheck = false)
         {
             try
             {
@@ -56,6 +56,17 @@ namespace KaffeeUtility.Handlers
                     {
                         Logging.Log("Client name matches displayName from ClientList");
                         Memory.CheckInject();
+                        if (ignoreCheck)
+                        {
+                            if (File.Exists($@"{Globals.DataDir}\{Instance.fileName}.dll"))
+                            {
+                                Logging.Log($"{client} found at {Globals.DataDir}\\{Instance.fileName}.dll, injecting");
+                                InjectDLL($@"{Globals.DataDir}\{Instance.fileName}.dll");
+                                Utils.Config.GetConfig().Injections++;
+                            }
+                            continue;
+                        }
+                        // System is kinda retarded but it works
                         if (Memory.GetVersion().StartsWith(Instance.versionSupported))
                         {
                             Logging.Log($@"Version matches ({Instance.versionSupported}). Attempting to find {Globals.DataDir}\{Instance.fileName}.dll");
@@ -72,6 +83,7 @@ namespace KaffeeUtility.Handlers
                             Logging.Log("Injection failed, client version does not match game version");
                             Misc.Notify("Client does not support the Minecraft version you are on");
                         }
+                        continue;
                     }
                 }
             } catch (Exception ex)

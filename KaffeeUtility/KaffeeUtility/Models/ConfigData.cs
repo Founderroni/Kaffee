@@ -44,6 +44,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = false)]
         bool AutoOpenMc { get; set; }
+
+        [Option(DefaultValue = false)]
+        bool DisableVersionCheck { get; set; }
         #endregion
 
         #region Spoofer
@@ -52,10 +55,10 @@ namespace KaffeeUtility.Models
         #endregion
 
         #region Discord
-        [Option(DefaultValue = "Using Kaffee Utility")]
+        [Option(DefaultValue = "")]
         string RpcDetail { get; set; }
 
-        [Option(DefaultValue = "Committing Large Amounts Of Trolling")]
+        [Option(DefaultValue = "")]
         string RpcState { get; set; }
 
         [Option(DefaultValue = true)]

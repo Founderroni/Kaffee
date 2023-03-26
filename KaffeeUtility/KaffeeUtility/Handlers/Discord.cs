@@ -10,16 +10,20 @@ namespace KaffeeUtility.Handlers
 
         private static DiscordRpcClient client;
         public static bool IsRPCRunning { get; private set; } = false;
+        public static string DefaultDetail { get; private set; } = "Using Kaffee Utility";
+        public static string DefaultState { get; private set; } = "Committing Large Amounts Of Trolling";
 
         public static void StartRpc(string detail, string state)
         {
             try
             {
-                if (string.IsNullOrEmpty(detail)) detail = "Using Kaffee Utility";
-                if (string.IsNullOrEmpty(state)) state = "Committing Large Amounts Of Trolling";
+                if (string.IsNullOrEmpty(detail)) detail = $"{DefaultDetail} v{Globals.Version}";
+                if (string.IsNullOrEmpty(state)) state = $"{DefaultState} v{Globals.Version}";
 
-                Config.RpcDetail = detail;
-                Config.RpcState = state;
+                if (!detail.Contains(DefaultDetail))
+                    Config.RpcDetail = detail;
+                if (!detail.Contains(DefaultState))
+                    Config.RpcState = state;
 
                 if (!IsRPCRunning)
                 {
@@ -55,11 +59,13 @@ namespace KaffeeUtility.Handlers
         {
             try
             {
-                if (string.IsNullOrEmpty(detail)) detail = "Using Kaffee Utility";
-                if (string.IsNullOrEmpty(state)) state = "Committing Large Amounts Of Trolling";
+                if (string.IsNullOrEmpty(detail)) detail = $"{DefaultDetail} v{Globals.Version}";
+                if (string.IsNullOrEmpty(state)) state = $"{DefaultState} v{Globals.Version}";
 
-                Config.RpcDetail = detail;
-                Config.RpcState = state;
+                if (!detail.Contains(DefaultDetail))
+                    Config.RpcDetail = detail;
+                if (!detail.Contains(DefaultState))
+                    Config.RpcState = state;
 
                 if (IsRPCRunning)
                 {
@@ -85,9 +91,7 @@ namespace KaffeeUtility.Handlers
             try
             {
                 if (IsRPCRunning)
-                {
                     client.ClearPresence();
-                }
                 if (disableRpcInConfig)
                 {
                     Config.RpcEnabled = false;

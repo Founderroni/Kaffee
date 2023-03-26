@@ -34,9 +34,10 @@
             this.ClientList = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ClientLabel = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.InjectSettings = new System.Windows.Forms.Label();
-            this.InjectDelay = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.InjectDelayLabel = new System.Windows.Forms.Label();
+            this.InjectDelay = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.InjectSettings = new System.Windows.Forms.Label();
+            this.DisableVersionCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             this.ClientPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InjectDelay)).BeginInit();
@@ -124,6 +125,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.DisableVersionCheck);
             this.guna2Panel1.Controls.Add(this.InjectDelayLabel);
             this.guna2Panel1.Controls.Add(this.InjectDelay);
             this.guna2Panel1.Controls.Add(this.InjectSettings);
@@ -131,20 +133,20 @@
             this.guna2Panel1.Location = new System.Drawing.Point(264, 289);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Depth = 0;
-            this.guna2Panel1.Size = new System.Drawing.Size(282, 141);
+            this.guna2Panel1.Size = new System.Drawing.Size(282, 161);
             this.guna2Panel1.TabIndex = 8;
             this.guna2Panel1.UseTransparentBackground = true;
             // 
-            // InjectSettings
+            // InjectDelayLabel
             // 
-            this.InjectSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.InjectSettings.AutoSize = true;
-            this.InjectSettings.ForeColor = System.Drawing.Color.Gray;
-            this.InjectSettings.Location = new System.Drawing.Point(99, 0);
-            this.InjectSettings.Name = "InjectSettings";
-            this.InjectSettings.Size = new System.Drawing.Size(84, 15);
-            this.InjectSettings.TabIndex = 2;
-            this.InjectSettings.Text = "Inject Settings";
+            this.InjectDelayLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.InjectDelayLabel.AutoSize = true;
+            this.InjectDelayLabel.ForeColor = System.Drawing.Color.Gray;
+            this.InjectDelayLabel.Location = new System.Drawing.Point(55, 37);
+            this.InjectDelayLabel.Name = "InjectDelayLabel";
+            this.InjectDelayLabel.Size = new System.Drawing.Size(70, 15);
+            this.InjectDelayLabel.TabIndex = 4;
+            this.InjectDelayLabel.Text = "Inject Delay";
             // 
             // InjectDelay
             // 
@@ -157,7 +159,7 @@
             this.InjectDelay.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
             this.InjectDelay.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InjectDelay.ForeColor = System.Drawing.Color.LightGray;
-            this.InjectDelay.Location = new System.Drawing.Point(58, 61);
+            this.InjectDelay.Location = new System.Drawing.Point(57, 55);
             this.InjectDelay.Maximum = new decimal(new int[] {
             20,
             0,
@@ -170,16 +172,36 @@
             this.InjectDelay.UseTransparentBackground = true;
             this.InjectDelay.ValueChanged += new System.EventHandler(this.InjectDelay_ValueChanged);
             // 
-            // InjectDelayLabel
+            // InjectSettings
             // 
-            this.InjectDelayLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.InjectDelayLabel.AutoSize = true;
-            this.InjectDelayLabel.ForeColor = System.Drawing.Color.Gray;
-            this.InjectDelayLabel.Location = new System.Drawing.Point(55, 43);
-            this.InjectDelayLabel.Name = "InjectDelayLabel";
-            this.InjectDelayLabel.Size = new System.Drawing.Size(70, 15);
-            this.InjectDelayLabel.TabIndex = 4;
-            this.InjectDelayLabel.Text = "Inject Delay";
+            this.InjectSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.InjectSettings.AutoSize = true;
+            this.InjectSettings.ForeColor = System.Drawing.Color.Gray;
+            this.InjectSettings.Location = new System.Drawing.Point(99, 0);
+            this.InjectSettings.Name = "InjectSettings";
+            this.InjectSettings.Size = new System.Drawing.Size(84, 15);
+            this.InjectSettings.TabIndex = 2;
+            this.InjectSettings.Text = "Inject Settings";
+            // 
+            // DisableVersionCheck
+            // 
+            this.DisableVersionCheck.Animated = true;
+            this.DisableVersionCheck.AutoSize = true;
+            this.DisableVersionCheck.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
+            this.DisableVersionCheck.CheckedState.BorderRadius = 0;
+            this.DisableVersionCheck.CheckedState.BorderThickness = 0;
+            this.DisableVersionCheck.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
+            this.DisableVersionCheck.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisableVersionCheck.Location = new System.Drawing.Point(58, 105);
+            this.DisableVersionCheck.Name = "DisableVersionCheck";
+            this.DisableVersionCheck.Size = new System.Drawing.Size(153, 19);
+            this.DisableVersionCheck.TabIndex = 5;
+            this.DisableVersionCheck.Text = "Disable Version Check";
+            this.DisableVersionCheck.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.DisableVersionCheck.UncheckedState.BorderRadius = 0;
+            this.DisableVersionCheck.UncheckedState.BorderThickness = 0;
+            this.DisableVersionCheck.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.DisableVersionCheck.CheckedChanged += new System.EventHandler(this.DisableVersionCheck_CheckedChanged);
             // 
             // Injector
             // 
@@ -212,5 +234,6 @@
         private System.Windows.Forms.Label InjectSettings;
         private Guna.UI2.WinForms.Guna2NumericUpDown InjectDelay;
         private System.Windows.Forms.Label InjectDelayLabel;
+        private Guna.UI2.WinForms.Guna2CheckBox DisableVersionCheck;
     }
 }
