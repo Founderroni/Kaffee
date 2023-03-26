@@ -13,7 +13,10 @@ namespace KaffeeUtility.Tabs
         private void UpdateVersionLabel(bool disableCheck = false) // Might remove
         {
             if (disableCheck)
-                VersionSupport.Text = "Supported Version: <b>Version Check Disabled</b>";
+            {
+                Handlers.Animator.Linear(VersionSupport, "Text", "Supported Version: <b>Version Check Disabled</b>", 300);
+                return;
+            }
             foreach (ClientListStruct Instance in Globals.ClientList)
                 if (Instance.displayName == ClientList.Text)
                 {
