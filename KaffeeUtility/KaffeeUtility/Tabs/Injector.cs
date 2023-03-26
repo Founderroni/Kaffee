@@ -28,6 +28,7 @@ namespace KaffeeUtility.Tabs
 
         private void Injector_Load(object sender, EventArgs e)
         {
+            DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
             Task.Run(() =>
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)
@@ -38,7 +39,6 @@ namespace KaffeeUtility.Tabs
                 ClientList.StartIndex = 0;
                 InjectDelay.Value = Utils.Config.GetConfig().InjectDelay;
                 ClientList.SelectedIndex = Utils.Config.GetConfig().ClientIndex;
-                DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
             });
         }
 
