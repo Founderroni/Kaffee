@@ -16,32 +16,39 @@ namespace KaffeeUtility.Tabs
         private static readonly string loggingFalse = "Debug Logs: <b><span style=\"color:red;\">False</span></b>";
         #endregion
 
+        #region Functions
+        private void UpdateLabel(Guna.UI2.WinForms.Guna2HtmlLabel label, string text)
+        {
+            if (label.InvokeRequired)
+                label.Invoke(new Action(() => label.Text = text));
+            else
+                label.Text = text;
+        }
+        #endregion
+
         public Home() =>
             InitializeComponent();
 
-        private void Home_Load(object sender, EventArgs e)
+        private async void Home_Load(object sender, EventArgs e)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
-                #region Launcher Stats
-                Launches.Text = $"Launches: <b>{GetConfig().Launches}</b>";
-                Version.Text = $"File Version: <b>{Globals.Version}</b>";
-                Animations.Text = GetConfig().UseAnimations ? animsTrue : animsFalse;
-                FastLaunch.Text = GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse;
-                Logging.Text = GetConfig().Logging ? loggingTrue : loggingFalse;
-                #endregion
+                // Update Launcher Stats
+                UpdateLabel(Launches, $"Launches: <b>{GetConfig().Launches}</b>");
+                UpdateLabel(Version, $"File Version: <b>{Globals.Version}</b>");
+                UpdateLabel(Animations, GetConfig().UseAnimations ? animsTrue : animsFalse);
+                UpdateLabel(FastLaunch, GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse);
+                UpdateLabel(Logging, GetConfig().Logging ? loggingTrue : loggingFalse);
 
-                #region Inject Stats
-                Injections.Text = $"Injections: <b>{GetConfig().Injections}</b>";
-                FailedInjects.Text = $"Failed Injections: <b><span>{GetConfig().FailedInjections}</span></b>";
-                InjectDelay.Text = $"Inject Delay: <b><span>{GetConfig().InjectDelay}</span></b>";
-                #endregion
+                // Update Inject Stats
+                UpdateLabel(Injections, $"Injections: <b>{GetConfig().Injections}</b>");
+                UpdateLabel(FailedInjects, $"Failed Injections: <b><span>{GetConfig().FailedInjections}</span></b>");
+                UpdateLabel(InjectDelay, $"Inject Delay: <b><span>{GetConfig().InjectDelay}</span></b>");
 
-                #region Spoof Stats
-                Spoofs.Text = $"Spoofs: <b><span>{GetConfig().Spoofs}</span></b>";
-                Username.Text = $"MP_Username <b><span>{Utils.Minecraft.GetMPUsername()}</span></b>";
-                CID.Text = $"CID: <b><span>{Utils.Minecraft.GetCID()}</span></b>";
-                #endregion
+                // Update Spoof Stats
+                UpdateLabel(Spoofs, $"Spoofs: <b><span>{GetConfig().Spoofs}</span></b>");
+                UpdateLabel(Username, $"MP_Username <b><span>{Utils.Minecraft.GetMPUsername()}</span></b>");
+                UpdateLabel(CID, $"CID: <b><span>{Utils.Minecraft.GetCID()}</span></b>");
             });
         }
     }

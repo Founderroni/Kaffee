@@ -34,10 +34,10 @@
             this.ClientList = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ClientLabel = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.DisableVersionCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             this.InjectDelayLabel = new System.Windows.Forms.Label();
             this.InjectDelay = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.InjectSettings = new System.Windows.Forms.Label();
-            this.DisableVersionCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             this.ClientPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InjectDelay)).BeginInit();
@@ -51,7 +51,7 @@
             this.ClientPanel.Controls.Add(this.ClientList);
             this.ClientPanel.Controls.Add(this.ClientLabel);
             this.ClientPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientPanel.Location = new System.Drawing.Point(255, 118);
+            this.ClientPanel.Location = new System.Drawing.Point(255, 108);
             this.ClientPanel.Name = "ClientPanel";
             this.ClientPanel.ShadowDecoration.Depth = 0;
             this.ClientPanel.Size = new System.Drawing.Size(301, 141);
@@ -130,12 +130,32 @@
             this.guna2Panel1.Controls.Add(this.InjectDelay);
             this.guna2Panel1.Controls.Add(this.InjectSettings);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(264, 289);
+            this.guna2Panel1.Location = new System.Drawing.Point(264, 279);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Depth = 0;
             this.guna2Panel1.Size = new System.Drawing.Size(282, 161);
             this.guna2Panel1.TabIndex = 8;
             this.guna2Panel1.UseTransparentBackground = true;
+            // 
+            // DisableVersionCheck
+            // 
+            this.DisableVersionCheck.Animated = true;
+            this.DisableVersionCheck.AutoSize = true;
+            this.DisableVersionCheck.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
+            this.DisableVersionCheck.CheckedState.BorderRadius = 0;
+            this.DisableVersionCheck.CheckedState.BorderThickness = 0;
+            this.DisableVersionCheck.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
+            this.DisableVersionCheck.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisableVersionCheck.Location = new System.Drawing.Point(58, 105);
+            this.DisableVersionCheck.Name = "DisableVersionCheck";
+            this.DisableVersionCheck.Size = new System.Drawing.Size(153, 19);
+            this.DisableVersionCheck.TabIndex = 5;
+            this.DisableVersionCheck.Text = "Disable Version Check";
+            this.DisableVersionCheck.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.DisableVersionCheck.UncheckedState.BorderRadius = 0;
+            this.DisableVersionCheck.UncheckedState.BorderThickness = 0;
+            this.DisableVersionCheck.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.DisableVersionCheck.CheckedChanged += new System.EventHandler(this.DisableVersionCheck_CheckedChanged);
             // 
             // InjectDelayLabel
             // 
@@ -182,26 +202,6 @@
             this.InjectSettings.Size = new System.Drawing.Size(84, 15);
             this.InjectSettings.TabIndex = 2;
             this.InjectSettings.Text = "Inject Settings";
-            // 
-            // DisableVersionCheck
-            // 
-            this.DisableVersionCheck.Animated = true;
-            this.DisableVersionCheck.AutoSize = true;
-            this.DisableVersionCheck.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
-            this.DisableVersionCheck.CheckedState.BorderRadius = 0;
-            this.DisableVersionCheck.CheckedState.BorderThickness = 0;
-            this.DisableVersionCheck.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
-            this.DisableVersionCheck.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisableVersionCheck.Location = new System.Drawing.Point(58, 105);
-            this.DisableVersionCheck.Name = "DisableVersionCheck";
-            this.DisableVersionCheck.Size = new System.Drawing.Size(153, 19);
-            this.DisableVersionCheck.TabIndex = 5;
-            this.DisableVersionCheck.Text = "Disable Version Check";
-            this.DisableVersionCheck.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.DisableVersionCheck.UncheckedState.BorderRadius = 0;
-            this.DisableVersionCheck.UncheckedState.BorderThickness = 0;
-            this.DisableVersionCheck.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.DisableVersionCheck.CheckedChanged += new System.EventHandler(this.DisableVersionCheck_CheckedChanged);
             // 
             // Injector
             // 

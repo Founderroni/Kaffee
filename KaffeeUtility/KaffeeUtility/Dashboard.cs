@@ -27,7 +27,7 @@ namespace KaffeeUtility
             });
         }
 
-        private void OpenTab(UserControl tab = null)
+        private async void OpenTab(UserControl tab = null)
         {
             if (tab == null)
             {
@@ -48,20 +48,19 @@ namespace KaffeeUtility
                         Handlers.Animator.Linear(ctrl, "Top", ctrl.Location.Y + 10, 500);
                     }
 
-                    Task.Delay(300).ContinueWith(t =>
-                    {
-                        foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
-                        {
-                            panel.ShadowDecoration.Enabled = true;
-                            Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 300);
-                        }
-                    });*/
+                    await Task.Delay(300);
 
-                    
+                    foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
+                    {
+                        panel.ShadowDecoration.Enabled = true;
+                        Handlers.Animator.Linear(panel.ShadowDecoration, "Depth", 30, 300);
+                    }
+                    */
+
                     tab.Location = new Point(tab.Location.X, tab.Location.Y - 10);
                     Handlers.Animator.Linear(tab, "Top", tab.Location.Y + 10, 500);
 
-                    Task.Run(() =>
+                    await Task.Run(() =>
                     {
                         foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
                         {
@@ -72,11 +71,15 @@ namespace KaffeeUtility
                 }
                 else
                 {
-                    foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
+                    await Task.Run(() =>
                     {
-                        panel.ShadowDecoration.Enabled = true;
-                        panel.ShadowDecoration.Depth = 30;
-                    }
+                        foreach (Guna.UI2.WinForms.Guna2Panel panel in tab.Controls)
+                        {
+                            panel.ShadowDecoration.Enabled = true;
+                            panel.ShadowDecoration.Depth = 30;
+                        }
+                    });
+
                 }
             }
         }
