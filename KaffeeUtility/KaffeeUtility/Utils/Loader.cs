@@ -63,7 +63,9 @@ namespace KaffeeUtility.Utils
                 if (float.Parse(LatestVersion) > Globals.Version)
                 {
                     UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");
-                    await Network.DownloadFile("https://cdn.discordapp.com/attachments/1052763313718693908/1088992973359956008/JnzuKw1.exe", $"{Globals.AppDir}/temp.exe");
+                    if (!FastLaunch) // Just so people have time to read the message
+                        await Task.Delay(300);
+                    await Network.DownloadFile($"https://github.com/Founderroni/Kaffee/releases/tag/{LatestVersion}", $"{Globals.AppDir}/temp.exe");
                     UpdateProgress("Checking for Updates", 0, "Installing Update");
 
                     File.Move(Globals.AppPath, Path.ChangeExtension(Globals.AppPath, "old"));
