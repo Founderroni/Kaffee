@@ -18,7 +18,7 @@ namespace KaffeeUtility.Handlers
             try
             {
                 if (string.IsNullOrEmpty(detail)) detail = $"{DefaultDetail} v{Globals.Version}";
-                if (string.IsNullOrEmpty(state)) state = $"{DefaultState} v{Globals.Version}";
+                if (string.IsNullOrEmpty(state)) state = DefaultState;
 
                 if (!detail.Contains(DefaultDetail))
                     Config.RpcDetail = detail;
@@ -60,7 +60,7 @@ namespace KaffeeUtility.Handlers
             try
             {
                 if (string.IsNullOrEmpty(detail)) detail = $"{DefaultDetail} v{Globals.Version}";
-                if (string.IsNullOrEmpty(state)) state = $"{DefaultState} v{Globals.Version}";
+                if (string.IsNullOrEmpty(state)) state = DefaultState;
 
                 if (!detail.Contains(DefaultDetail))
                     Config.RpcDetail = detail;
