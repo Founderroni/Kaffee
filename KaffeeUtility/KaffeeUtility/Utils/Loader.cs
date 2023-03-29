@@ -152,7 +152,7 @@ namespace KaffeeUtility.Utils
                 return "Complete";
             } catch (Exception ex)
             {
-                return ex.Message;
+                return $"An error occured, restart the application:\n{ex.Message}";
             }
         }
     }
