@@ -7,7 +7,6 @@ namespace KaffeeUtility.Handlers
     internal class Discord
     {
         private static ConfigData Config = Utils.Config.GetConfig();
-
         private static DiscordRpcClient client;
         public static bool IsRPCRunning { get; private set; } = false;
         public static string DefaultDetail { get; private set; } = "Using Kaffee Utility";

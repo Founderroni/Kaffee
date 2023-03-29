@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace KaffeeUtility
@@ -12,9 +11,9 @@ namespace KaffeeUtility
             InitializeComponent();
 
         #region Dashboard Functions
-        private void AnimateControls()
+        private async void AnimateControls()
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 foreach (Control ctrl in SidePanel.Controls)
                 {
@@ -85,7 +84,7 @@ namespace KaffeeUtility
         }
         #endregion
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        private async void Dashboard_Load(object sender, EventArgs e)
         {
             if (Utils.Config.GetConfig().UseAnimations)
                 AnimateControls();
