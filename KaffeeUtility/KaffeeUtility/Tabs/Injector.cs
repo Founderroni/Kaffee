@@ -26,10 +26,10 @@ namespace KaffeeUtility.Tabs
         }
         #endregion
 
-        private void Injector_Load(object sender, EventArgs e)
+        private async void Injector_Load(object sender, EventArgs e)
         {
             DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)
                 {
@@ -42,35 +42,33 @@ namespace KaffeeUtility.Tabs
             });
         }
 
-        private void ClientList_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ClientList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 Utils.Config.GetConfig().ClientIndex = ClientList.SelectedIndex;
                 UpdateVersionLabel(DisableVersionCheck.Checked);
             });
         }
 
-        private void Inject_Click(object sender, EventArgs e)
+        private async void Inject_Click(object sender, EventArgs e)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 Handlers.Injection.InjectClient(ClientList.Text, (int)InjectDelay.Value, DisableVersionCheck.Checked);
             });
         }
 
-        private void InjectDelay_ValueChanged(object sender, EventArgs e)
-        {
-            Task.Run(() =>
-            {
+        private void InjectDelay_ValueChanged(object sender, EventArgs e) =>
                 Utils.Config.GetConfig().InjectDelay = (int)InjectDelay.Value;
-            });
-        }
 
-        private void DisableVersionCheck_CheckedChanged(object sender, EventArgs e)
+        private async void DisableVersionCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Utils.Config.GetConfig().DisableVersionCheck = DisableVersionCheck.Checked;
-            UpdateVersionLabel(DisableVersionCheck.Checked);
+            await Task.Run(() =>
+            {
+                Utils.Config.GetConfig().DisableVersionCheck = DisableVersionCheck.Checked;
+                UpdateVersionLabel(DisableVersionCheck.Checked);
+            });
         }
     }
 }
