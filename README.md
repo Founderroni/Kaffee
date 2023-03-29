@@ -29,12 +29,11 @@ Kaffee utility is an open source injector and multi-tool for MCBE. It features c
     2. Utils has functions that are used in multiple places and making coding easier.
 
 * What Nuget Packages are used?
-    1. [memory.dll by erfg12](https://github.com/erfg12/memory.dll) - Used for the spoofer and memory patcher
+    1. [MinecraftMemoryReader](https://github.com/Laamy/MinecraftMemoryReader) - Used for the spoofer
     2. [Guna.Ui2](https://gunaui.com/) - Used for the GUI
     3. [Config.Net](https://github.com/aloneguid/config) - Used for Configs/Settings
     4. [Costura.Fody](https://github.com/Fody/Costura) - Used to package all the DLLs into the exe
-    5. [Tulpep.NotificationWindow](https://github.com/Tulpep/Notification-Popup-Window) - Used for popup notifications
-    6. [dot-net-transitions](https://github.com/UweKeim/dot-net-transitions) - Used for animations
+    5. [dot-net-transitions](https://github.com/UweKeim/dot-net-transitions) - Used for animations
 
 ## Credits
 * [EchoHackCMD](https://github.com/EchoHackCmd) - Injection Method

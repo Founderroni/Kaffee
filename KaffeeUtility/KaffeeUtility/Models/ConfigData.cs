@@ -16,9 +16,6 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = true)]
         bool UseAnimations { get; set; }
-
-        [Option(DefaultValue = true)]
-        bool UseTulpepNotifications { get; set; }
         #endregion
 
         #region Stats

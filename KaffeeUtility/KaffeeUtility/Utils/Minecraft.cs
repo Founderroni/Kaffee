@@ -29,5 +29,13 @@ namespace KaffeeUtility.Utils
 
             return File.ReadAllLines(Globals.McpeDirectory + "clientId.txt")[0];
         }
+
+        public static string GetOGDID()
+        {
+            if (!File.Exists(Globals.McpeDirectory + "hs.txt"))
+                return "N/A";
+
+            return File.ReadAllLines(Globals.McpeDirectory + "hs.txt")[1];
+        }
     }
 }
