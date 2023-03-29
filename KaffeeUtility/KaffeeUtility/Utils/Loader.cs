@@ -57,12 +57,22 @@ namespace KaffeeUtility.Utils
                 Logging.Log("Confirmed LogFile");
 
                 UpdateProgress("Checking for Updates");
-                /*
-                 Check for Launcher Update
-                - Compare Launcher version from github version
-                - Download updated Launcher as Temp
-                - Close, Delete, then Rename and Launch
-                */
+                if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
+                    File.Delete($"{Globals.AppDir}/Kaffee.old");
+                string LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
+                if (float.Parse(LatestVersion) > Globals.Version)
+                {
+                    UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");
+                    await Network.DownloadFile("https://cdn.discordapp.com/attachments/1052763313718693908/1088992973359956008/JnzuKw1.exe", $"{Globals.AppDir}/temp.exe");
+                    UpdateProgress("Checking for Updates", 0, "Installing Update");
+
+                    File.Move(Globals.AppPath, Path.ChangeExtension(Globals.AppPath, "old"));
+                    //File.Delete(Globals.AppPath);
+
+                    File.Move($"{Globals.AppDir}/temp.exe", $"{Globals.AppDir}/Kaffee.exe");
+                    Misc.OpenProcess($"{Globals.AppDir}/Kaffee.exe");
+                    Application.Exit();
+                }
                 Logging.Log("Checked for Updates");
 
 
