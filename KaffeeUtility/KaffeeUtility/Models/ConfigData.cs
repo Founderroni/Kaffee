@@ -11,7 +11,7 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = false)]
         bool FastLaunch { get; set; }
 
-        [Option(DefaultValue = true)]
+        [Option(DefaultValue = false)]
         bool SkipUpdateCheck { get; set; }
 
         [Option(DefaultValue = true)]
