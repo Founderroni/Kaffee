@@ -12,6 +12,9 @@ namespace KaffeeUtility.Models
         bool FastLaunch { get; set; }
 
         [Option(DefaultValue = true)]
+        bool SkipUpdateCheck { get; set; }
+
+        [Option(DefaultValue = true)]
         bool UseAnimations { get; set; }
 
         [Option(DefaultValue = true)]

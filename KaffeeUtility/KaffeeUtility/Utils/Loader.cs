@@ -57,23 +57,26 @@ namespace KaffeeUtility.Utils
                 Logging.Log("Confirmed LogFile");
 
 
-                UpdateProgress("Checking for Updates");
-                if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
-                    File.Delete($"{Globals.AppDir}/Kaffee.old");
-                string LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
-                if (float.Parse(LatestVersion) > Globals.Version)
+                if (!Config.GetConfig().SkipUpdateCheck)
                 {
-                    UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");
-                    if (!FastLaunch) // Just so people have time to read the message
-                        await Task.Delay(300);
-                    await Network.DownloadFile($"https://github.com/Founderroni/Kaffee/releases/tag/{LatestVersion}", $"{Globals.AppDir}/temp.exe");
-                    UpdateProgress("Checking for Updates", 0, "Installing Update");
-                    File.Move(Globals.AppPath, Path.ChangeExtension(Globals.AppPath, "old"));
-                    File.Move($"{Globals.AppDir}/temp.exe", $"{Globals.AppDir}/Kaffee.exe");
-                    Misc.OpenProcess($"{Globals.AppDir}/Kaffee.exe");
-                    Application.Exit();
+                    UpdateProgress("Checking for Updates");
+                    if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
+                        File.Delete($"{Globals.AppDir}/Kaffee.old");
+                    string LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
+                    if (float.Parse(LatestVersion) > Globals.Version)
+                    {
+                        UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");
+                        if (!FastLaunch) // Just so people have time to read the message
+                            await Task.Delay(300);
+                        await Network.DownloadFile($"https://github.com/Founderroni/Kaffee/releases/tag/{LatestVersion}", $"{Globals.AppDir}/temp.exe");
+                        UpdateProgress("Checking for Updates", 0, "Installing Update");
+                        File.Move(Globals.AppPath, Path.ChangeExtension(Globals.AppPath, "old"));
+                        File.Move($"{Globals.AppDir}/temp.exe", $"{Globals.AppDir}/Kaffee.exe");
+                        Misc.OpenProcess($"{Globals.AppDir}/Kaffee.exe");
+                        Application.Exit();
+                    }
+                    Logging.Log("Checked for Updates");
                 }
-                Logging.Log("Checked for Updates");
 
 
                 UpdateProgress("Getting Client List");
