@@ -28,7 +28,7 @@ namespace KaffeeUtility
 
         private async void OpenTab(UserControl tab = null)
         {
-            if (tab == null)
+            if (tab is null)
             {
                 TabContainer.Controls.Clear();
                 return;
@@ -84,7 +84,7 @@ namespace KaffeeUtility
         }
         #endregion
 
-        private async void Dashboard_Load(object sender, EventArgs e)
+        private void Dashboard_Load(object sender, EventArgs e)
         {
             if (Utils.Config.GetConfig().UseAnimations)
                 AnimateControls();
