@@ -62,6 +62,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdsJumboWinForm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d4c9423ef164f081, processorArchitecture=MSIL">
+      <HintPath>..\packages\AdsJumbo.WinForm.WPF.1.5.0\lib\net462\AdsJumboWinForm.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.5.0.0\lib\net462\Castle.Core.dll</HintPath>
     </Reference>
@@ -363,7 +366,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CloseButton.png" />
     <Content Include="Kaffee.ico" />
+    <Content Include="VisualStudioToolsManifest.xml" />
     <None Include="Resources\restart_48px.png" />
     <None Include="Resources\anonymous_mask_pressed.png" />
     <None Include="Resources\anonymous_mask_48px.png" />

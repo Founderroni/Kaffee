@@ -7,8 +7,11 @@ namespace KaffeeUtility
 {
     public partial class Dashboard : Form
     {
-        public Dashboard() =>
+        public Dashboard()
+        {
             InitializeComponent();
+            interstitialAd.ShowInterstitialAd("ydeziejgr7ko");
+        }
 
         #region Dashboard Functions
         private async void AnimateControls()

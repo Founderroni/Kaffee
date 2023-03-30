@@ -32,20 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.ModifyForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.SidePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.Separator = new Guna.UI2.WinForms.Guna2Separator();
-            this.Watermark = new System.Windows.Forms.Label();
-            this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Spoofer = new Guna.UI2.WinForms.Guna2Button();
             this.Directory = new Guna.UI2.WinForms.Guna2Button();
             this.Settings = new Guna.UI2.WinForms.Guna2Button();
             this.Injector = new Guna.UI2.WinForms.Guna2Button();
+            this.Separator = new Guna.UI2.WinForms.Guna2Separator();
+            this.Watermark = new System.Windows.Forms.Label();
             this.Logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.HomeBtn = new Guna.UI2.WinForms.Guna2Button();
             this.Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.Exit = new Guna.UI2.WinForms.Guna2Button();
+            this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.interstitialAd = new AdsJumboWinForm.InterstitialAd();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            this.TabContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // ModifyForm
@@ -75,43 +77,6 @@
             this.SidePanel.ShadowDecoration.Enabled = true;
             this.SidePanel.Size = new System.Drawing.Size(155, 548);
             this.SidePanel.TabIndex = 0;
-            // 
-            // Separator
-            // 
-            this.Separator.BackColor = System.Drawing.Color.Transparent;
-            this.Separator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Separator.Location = new System.Drawing.Point(6, 84);
-            this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(143, 10);
-            this.Separator.TabIndex = 6;
-            this.Separator.UseTransparentBackground = true;
-            // 
-            // Watermark
-            // 
-            this.Watermark.AutoSize = true;
-            this.Watermark.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Watermark.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Watermark.Location = new System.Drawing.Point(69, 48);
-            this.Watermark.Name = "Watermark";
-            this.Watermark.Size = new System.Drawing.Size(60, 23);
-            this.Watermark.TabIndex = 5;
-            this.Watermark.Text = "Kaffee";
-            // 
-            // TabContainer
-            // 
-            this.TabContainer.BackColor = System.Drawing.Color.Transparent;
-            this.TabContainer.FillColor = System.Drawing.Color.Transparent;
-            this.TabContainer.Location = new System.Drawing.Point(161, 0);
-            this.TabContainer.Name = "TabContainer";
-            this.TabContainer.Size = new System.Drawing.Size(811, 548);
-            this.TabContainer.TabIndex = 1;
-            this.TabContainer.UseTransparentBackground = true;
-            // 
-            // DragSidePanel
-            // 
-            this.DragSidePanel.DockIndicatorTransparencyValue = 0.6D;
-            this.DragSidePanel.TargetControl = this.SidePanel;
-            this.DragSidePanel.UseTransparentDrag = true;
             // 
             // Spoofer
             // 
@@ -207,6 +172,27 @@
             this.Injector.UseTransparentBackground = true;
             this.Injector.Click += new System.EventHandler(this.Injector_Click);
             // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.Color.Transparent;
+            this.Separator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Separator.Location = new System.Drawing.Point(6, 84);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(143, 10);
+            this.Separator.TabIndex = 6;
+            this.Separator.UseTransparentBackground = true;
+            // 
+            // Watermark
+            // 
+            this.Watermark.AutoSize = true;
+            this.Watermark.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Watermark.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Watermark.Location = new System.Drawing.Point(69, 48);
+            this.Watermark.Name = "Watermark";
+            this.Watermark.Size = new System.Drawing.Size(60, 23);
+            this.Watermark.TabIndex = 5;
+            this.Watermark.Text = "Kaffee";
+            // 
             // Logo
             // 
             this.Logo.BackColor = System.Drawing.Color.Transparent;
@@ -285,6 +271,35 @@
             this.Exit.UseTransparentBackground = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // TabContainer
+            // 
+            this.TabContainer.BackColor = System.Drawing.Color.Transparent;
+            this.TabContainer.Controls.Add(this.interstitialAd);
+            this.TabContainer.FillColor = System.Drawing.Color.Transparent;
+            this.TabContainer.Location = new System.Drawing.Point(161, 0);
+            this.TabContainer.Name = "TabContainer";
+            this.TabContainer.Size = new System.Drawing.Size(811, 548);
+            this.TabContainer.TabIndex = 1;
+            this.TabContainer.UseTransparentBackground = true;
+            // 
+            // DragSidePanel
+            // 
+            this.DragSidePanel.DockIndicatorTransparencyValue = 0.6D;
+            this.DragSidePanel.TargetControl = this.SidePanel;
+            this.DragSidePanel.UseTransparentDrag = true;
+            // 
+            // interstitialAd
+            // 
+            this.interstitialAd.ApplicationId = null;
+            this.interstitialAd.BackColor = System.Drawing.Color.Black;
+            this.interstitialAd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.interstitialAd.Location = new System.Drawing.Point(0, 0);
+            this.interstitialAd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.interstitialAd.Name = "interstitialAd";
+            this.interstitialAd.Size = new System.Drawing.Size(811, 548);
+            this.interstitialAd.TabIndex = 0;
+            this.interstitialAd.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -304,6 +319,7 @@
             this.SidePanel.ResumeLayout(false);
             this.SidePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            this.TabContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -324,5 +340,6 @@
         private Guna.UI2.WinForms.Guna2Button Settings;
         private Guna.UI2.WinForms.Guna2Button Directory;
         private Guna.UI2.WinForms.Guna2Button Spoofer;
+        private AdsJumboWinForm.InterstitialAd interstitialAd;
     }
 }
