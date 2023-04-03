@@ -10,7 +10,14 @@ namespace KaffeeUtility
         public Dashboard()
         {
             InitializeComponent();
-            interstitialAd.ShowInterstitialAd("ydeziejgr7ko");
+            try
+            {
+                interstitialAd.ShowInterstitialAd("ydeziejgr7ko");
+            }
+            catch (Exception ex)
+            {
+                Utils.Logging.Log("Ad failed to load: " + ex.Message);
+            }
         }
 
         #region Dashboard Functions
