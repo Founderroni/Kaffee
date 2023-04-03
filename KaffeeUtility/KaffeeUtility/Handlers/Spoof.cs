@@ -73,7 +73,7 @@ namespace KaffeeUtility.Handlers
             if (mcidPtr != "null")
             {
                 long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(mcidPtr), Memory.GetSubOffsets(mcidPtr));
-                Memory.WriteMemory_str(addr, Utils.Misc.RandomString(16), false);
+                Memory.WriteMemory_str(addr, Utils.Misc.RandomString(16, true, true).ToUpper(), false);
             }
         }
     }
