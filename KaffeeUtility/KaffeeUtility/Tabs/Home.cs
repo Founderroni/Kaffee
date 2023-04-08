@@ -7,15 +7,6 @@ namespace KaffeeUtility.Tabs
 {
     public partial class Home : UserControl
     {
-        #region Variables
-        private static readonly string animsTrue = "Animations: <b><span style=\"color:green;\">True</span></b>";
-        private static readonly string animsFalse = "Animations: <b><span style=\"color:red;\">False</span></b>";
-        private static readonly string fastlaunchFalse = "FastLaunch: <b><span style=\"color:red;\">False</span></b>";
-        private static readonly string fastlaunchTrue = "FastLaunch: <b><span style=\"color:green;\">True</span></b>";
-        private static readonly string loggingTrue = "Debug Logs: <b><span style=\"color:green;\">True</span></b>";
-        private static readonly string loggingFalse = "Debug Logs: <b><span style=\"color:red;\">False</span></b>";
-        #endregion
-
         #region Functions
         private void UpdateLabel(Label label, string text)
         {

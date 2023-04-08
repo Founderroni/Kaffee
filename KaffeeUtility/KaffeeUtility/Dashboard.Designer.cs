@@ -44,10 +44,8 @@
             this.Exit = new Guna.UI2.WinForms.Guna2Button();
             this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.interstitialAd = new AdsJumboWinForm.InterstitialAd();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
-            this.TabContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // ModifyForm
@@ -274,7 +272,6 @@
             // TabContainer
             // 
             this.TabContainer.BackColor = System.Drawing.Color.Transparent;
-            this.TabContainer.Controls.Add(this.interstitialAd);
             this.TabContainer.FillColor = System.Drawing.Color.Transparent;
             this.TabContainer.Location = new System.Drawing.Point(161, 0);
             this.TabContainer.Name = "TabContainer";
@@ -287,18 +284,6 @@
             this.DragSidePanel.DockIndicatorTransparencyValue = 0.6D;
             this.DragSidePanel.TargetControl = this.SidePanel;
             this.DragSidePanel.UseTransparentDrag = true;
-            // 
-            // interstitialAd
-            // 
-            this.interstitialAd.ApplicationId = null;
-            this.interstitialAd.BackColor = System.Drawing.Color.Black;
-            this.interstitialAd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.interstitialAd.Location = new System.Drawing.Point(0, 0);
-            this.interstitialAd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.interstitialAd.Name = "interstitialAd";
-            this.interstitialAd.Size = new System.Drawing.Size(811, 548);
-            this.interstitialAd.TabIndex = 0;
-            this.interstitialAd.Visible = false;
             // 
             // Dashboard
             // 
@@ -319,7 +304,6 @@
             this.SidePanel.ResumeLayout(false);
             this.SidePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
-            this.TabContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -340,6 +324,5 @@
         private Guna.UI2.WinForms.Guna2Button Settings;
         private Guna.UI2.WinForms.Guna2Button Directory;
         private Guna.UI2.WinForms.Guna2Button Spoofer;
-        private AdsJumboWinForm.InterstitialAd interstitialAd;
     }
 }

@@ -7,18 +7,8 @@ namespace KaffeeUtility
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
-        {
+        public Dashboard() =>
             InitializeComponent();
-            try
-            {
-                interstitialAd.ShowInterstitialAd("ydeziejgr7ko");
-            }
-            catch (Exception ex)
-            {
-                Utils.Logging.Log("Ad failed to load: " + ex.Message);
-            }
-        }
 
         #region Dashboard Functions
         private async void AnimateControls()
