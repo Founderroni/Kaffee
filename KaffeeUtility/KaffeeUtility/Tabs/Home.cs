@@ -38,7 +38,7 @@ namespace KaffeeUtility.Tabs
                 UpdateLabel(Version, Globals.Version.ToString());
 
                 // Update Spoof Stats
-                UpdateLabel(CID, Utils.Minecraft.GetCID());
+                UpdateLabel(CID, GetConfig().CidSpoofs.ToString());
                 UpdateLabel(DID, GetConfig().DidSpoofs.ToString());
                 UpdateLabel(MCID, GetConfig().McidSpoofs.ToString());
 
