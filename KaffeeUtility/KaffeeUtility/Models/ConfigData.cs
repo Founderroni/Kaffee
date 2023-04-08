@@ -29,7 +29,13 @@ namespace KaffeeUtility.Models
         int FailedInjections { get; set; }
 
         [Option(DefaultValue = 0)]
-        int Spoofs { get; set; }
+        int CidSpoofs { get; set; }
+
+        [Option(DefaultValue = 0)]
+        int DidSpoofs { get; set; }
+
+        [Option(DefaultValue = 0)]
+        int McidSpoofs { get; set; }
         #endregion
 
         #region Injector Settings

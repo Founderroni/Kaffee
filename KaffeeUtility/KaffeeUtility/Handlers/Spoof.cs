@@ -14,6 +14,7 @@ namespace KaffeeUtility.Handlers
                 {
                     File.WriteAllText(Globals.McpeDirectory + "clientId.txt", Utils.Misc.RandomString(19, false, true));
                     Utils.Logging.Log("Modified clientId file");
+                    Utils.Config.GetConfig().CidSpoofs++;
                 }
 
                 if (File.Exists(Globals.McpeDirectory + "telemetry_info.json"))
@@ -69,11 +70,13 @@ namespace KaffeeUtility.Handlers
             {
                 long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(didPtr), Memory.GetSubOffsets(didPtr));
                 Memory.WriteMemory_str(addr, customDid, false);
+                Utils.Config.GetConfig().DidSpoofs++;
             }
             if (mcidPtr != "null")
             {
                 long addr = Memory.GetMultiLevelPtr(Memory.GetOffset(mcidPtr), Memory.GetSubOffsets(mcidPtr));
                 Memory.WriteMemory_str(addr, Utils.Misc.RandomString(16, true, true).ToUpper(), false);
+                Utils.Config.GetConfig().McidSpoofs++;
             }
         }
     }

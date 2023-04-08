@@ -90,7 +90,6 @@ namespace KaffeeUtility.Tabs
                         {
                             Logging.Log($"Version matches ({Instance.version})");
                             Spoof.SpoofIds(DidText, Instance.didPtr, Instance.mcidPtr);
-                            Utils.Config.GetConfig().Spoofs++;
                             UpdatePlayerInfo();
                             break;
                         }

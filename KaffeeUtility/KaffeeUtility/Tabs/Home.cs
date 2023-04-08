@@ -17,7 +17,7 @@ namespace KaffeeUtility.Tabs
         #endregion
 
         #region Functions
-        private void UpdateLabel(Guna.UI2.WinForms.Guna2HtmlLabel label, string text)
+        private void UpdateLabel(Label label, string text)
         {
             if (label.InvokeRequired)
                 label.Invoke(new Action(() => label.Text = text));
@@ -34,21 +34,18 @@ namespace KaffeeUtility.Tabs
             await Task.Run(() =>
             {
                 // Update Launcher Stats
-                UpdateLabel(Launches, $"Launches: <b>{GetConfig().Launches}</b>");
-                UpdateLabel(Version, $"File Version: <b>{Globals.Version}</b>");
-                UpdateLabel(Animations, GetConfig().UseAnimations ? animsTrue : animsFalse);
-                UpdateLabel(FastLaunch, GetConfig().FastLaunch ? fastlaunchTrue : fastlaunchFalse);
-                UpdateLabel(Logging, GetConfig().Logging ? loggingTrue : loggingFalse);
-
-                // Update Inject Stats
-                UpdateLabel(Injections, $"Injections: <b>{GetConfig().Injections}</b>");
-                UpdateLabel(FailedInjects, $"Failed Injections: <b><span>{GetConfig().FailedInjections}</span></b>");
-                UpdateLabel(InjectDelay, $"Inject Delay: <b><span>{GetConfig().InjectDelay}</span></b>");
+                UpdateLabel(Launches, GetConfig().Launches.ToString());
+                UpdateLabel(Version, Globals.Version.ToString());
 
                 // Update Spoof Stats
-                UpdateLabel(Spoofs, $"Spoofs: <b><span>{GetConfig().Spoofs}</span></b>");
-                UpdateLabel(Username, $"MP_Username <b><span>{Utils.Minecraft.GetMPUsername()}</span></b>");
-                UpdateLabel(CID, $"CID: <b><span>{Utils.Minecraft.GetCID()}</span></b>");
+                UpdateLabel(CID, Utils.Minecraft.GetCID());
+                UpdateLabel(DID, GetConfig().DidSpoofs.ToString());
+                UpdateLabel(MCID, GetConfig().McidSpoofs.ToString());
+
+                // Update Inject Stats
+                UpdateLabel(Injections, GetConfig().Injections.ToString());
+                UpdateLabel(Failed, GetConfig().FailedInjections.ToString());
+                UpdateLabel(InjectionDelay, GetConfig().InjectDelay.ToString());
             });
         }
     }
