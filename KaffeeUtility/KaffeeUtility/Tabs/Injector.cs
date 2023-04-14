@@ -92,7 +92,7 @@ namespace KaffeeUtility.Tabs
                 }
                 else
                 {
-                    Utils.Misc.Notify("Developer", "You did not specify a DLL");
+                    Utils.Misc.Notify("You did not specify a DLL", "Custom DLL");
                 }
             }
         }
