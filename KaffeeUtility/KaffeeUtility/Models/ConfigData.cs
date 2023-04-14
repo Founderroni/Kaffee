@@ -48,6 +48,9 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = 0)]
         int ClientIndex { get; set; }
 
+        [Option(DefaultValue = "")]
+        string CustomDllPath { get; set; }
+
         [Option(DefaultValue = false)]
         bool AutoOpenMc { get; set; }
 

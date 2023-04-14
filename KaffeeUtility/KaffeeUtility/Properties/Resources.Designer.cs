@@ -113,6 +113,16 @@ namespace KaffeeUtility.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap input_48px {
+            get {
+                object obj = ResourceManager.GetObject("input_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kaffee {
             get {
                 object obj = ResourceManager.GetObject("Kaffee", resourceCulture);

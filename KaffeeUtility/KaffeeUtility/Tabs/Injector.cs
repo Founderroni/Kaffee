@@ -7,6 +7,8 @@ namespace KaffeeUtility.Tabs
 {
     public partial class Injector : UserControl
     {
+        private static string FilePath;
+
         public Injector() =>
             InitializeComponent();
         #region Functions
@@ -39,6 +41,11 @@ namespace KaffeeUtility.Tabs
                 ClientList.StartIndex = 0;
                 InjectDelay.Value = Utils.Config.GetConfig().InjectDelay;
                 ClientList.SelectedIndex = Utils.Config.GetConfig().ClientIndex;
+                if (!string.IsNullOrEmpty(Utils.Config.GetConfig().CustomDllPath))
+                {
+                    DllPath.Text = $"Path: <b>{Utils.Config.GetConfig().CustomDllPath}</b>";
+                    FilePath = Utils.Config.GetConfig().CustomDllPath;
+                }
             });
         }
 
@@ -68,6 +75,35 @@ namespace KaffeeUtility.Tabs
             {
                 Utils.Config.GetConfig().DisableVersionCheck = DisableVersionCheck.Checked;
                 UpdateVersionLabel(DisableVersionCheck.Checked);
+            });
+        }
+
+        private void SelectDll_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog FileIn = new OpenFileDialog();
+            FileIn.Filter = "dll |*.dll";
+            if (FileIn.ShowDialog() == DialogResult.OK)
+            {
+                if (FileIn.SafeFileName.ToLower().EndsWith(".dll"))
+                {
+                    FilePath = FileIn.FileName;
+                    DllPath.Text = $"Path: <b>{Utils.Config.GetConfig().CustomDllPath}</b>";
+                    Utils.Config.GetConfig().CustomDllPath = FilePath;
+                }
+                else
+                {
+                    Utils.Misc.Notify("Developer", "You did not specify a DLL");
+                }
+            }
+        }
+
+        private async void InjectDll_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(FilePath)) return;
+
+            await Task.Run(() =>
+            {
+                Handlers.Injection.InjectDLL(FilePath);
             });
         }
     }
