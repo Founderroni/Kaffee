@@ -9,8 +9,6 @@ namespace KaffeeUtility.Tabs
     {
         private static string FilePath;
 
-        public Injector() =>
-            InitializeComponent();
         #region Functions
         private void UpdateVersionLabel(bool disableCheck = false) // Might remove
         {
@@ -27,6 +25,9 @@ namespace KaffeeUtility.Tabs
                 }
         }
         #endregion
+
+        public Injector() =>
+            InitializeComponent();
 
         private async void Injector_Load(object sender, EventArgs e)
         {
