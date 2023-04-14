@@ -88,7 +88,7 @@ namespace KaffeeUtility.Tabs
                 if (FileIn.SafeFileName.ToLower().EndsWith(".dll"))
                 {
                     FilePath = FileIn.FileName;
-                    DllPath.Text = $"Path: <b>{Utils.Config.GetConfig().CustomDllPath}</b>";
+                    DllPath.Text = $"Path: <b>{FilePath}</b>";
                     Utils.Config.GetConfig().CustomDllPath = FilePath;
                 }
                 else
