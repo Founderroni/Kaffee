@@ -29,6 +29,7 @@ namespace KaffeeUtility.Utils
         {
             try
             {
+                if (!Directory.Exists(RootDataDir)) return;
                 if (!File.Exists(LogFile)) return;
                 if (!Config.GetConfig().Logging) return;
 

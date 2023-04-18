@@ -57,9 +57,9 @@ namespace KaffeeUtility.Utils
                 Logging.Log("Confirmed LogFile");
 
 
+                UpdateProgress("Checking for Updates");
                 if (!Config.GetConfig().SkipUpdateCheck)
                 {
-                    UpdateProgress("Checking for Updates");
                     if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
                         File.Delete($"{Globals.AppDir}/Kaffee.old");
                     string LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
