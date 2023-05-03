@@ -1,17 +1,16 @@
-<p align="center">
-<img src="https://raw.githubusercontent.com/Founderroni/Assets/main/Images/Kaffee.png">
-</p>
-
 # Kaffee Utility
-Kaffee utility is an open source injector and multi-tool for MCBE. It features client injection, custom dll injection, ID (CID, DID and MCID) spoof, and more.
 
+![Kaffe Logo](https://raw.githubusercontent.com/Founderroni/Assets/main/Images/Kaffee.png)
+
+Kaffee utility is an open source injector and multi-tool for MCBE. It features client injection, custom DLL injection, ID (CID, DID and MCID) spoof, and more.
 
 ## FAQ
+
 * Why is it not launching?
     1. You might need to install the latest [Dotnet Framework](https://dotnet.microsoft.com/en-us/download/dotnet-framework)
 
 * Where is the data stored (DLLs and such)
-    1. They are stored in "C:\Users\YOURUSER\AppData\Local\FadedSolutions\Kaffee" - You could also press the folder icon inside the app to automatically open up file explorer to that directory.
+    1. They are stored in "%localappdata%\FadedSolutions\Kaffee" - You could also press the folder icon inside the app to automatically open up file explorer to that directory.
 
 * Does it support version X.XX?
     1. The Client Injector will support whatever version the client supports. If it doesn't support the version you're using then you'll have to wait for an update by the client owner.
@@ -36,5 +35,6 @@ Kaffee utility is an open source injector and multi-tool for MCBE. It features c
     5. [dot-net-transitions](https://github.com/UweKeim/dot-net-transitions) - Used for animations
 
 ## Credits
+
 * [EchoHackCMD](https://github.com/EchoHackCmd) - Injection Method
 * [Yeemi](https://github.com/Laamy) - MMR (MinecraftMemoryReader)
