@@ -56,6 +56,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = false)]
         bool DisableVersionCheck { get; set; }
+
+        [Option(DefaultValue = false)]
+        bool UseCustomDll { get; set; }
         #endregion
 
         #region Spoofer

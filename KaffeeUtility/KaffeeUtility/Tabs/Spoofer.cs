@@ -61,20 +61,20 @@ namespace KaffeeUtility.Tabs
         public Spoofer() =>
             InitializeComponent();
 
-        private void Spoofer_Load(object sender, EventArgs e)
+        private async void Spoofer_Load(object sender, EventArgs e)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 CustomDid.Text = Utils.Config.GetConfig().CustomDid;
                 UpdatePlayerInfo();
             });
         }
 
-        private void Randomize_Click(object sender, EventArgs e)
+        private async void Randomize_Click(object sender, EventArgs e)
         {
             try
             {
-                Task.Run(() =>
+                await Task.Run(() =>
                 {
                     Randomize.Enabled = false;
                     string NewGuid = Guid.NewGuid().ToString();
@@ -103,9 +103,9 @@ namespace KaffeeUtility.Tabs
             }
         }
 
-        private void Restart_Click(object sender, EventArgs e)
+        private async void Restart_Click(object sender, EventArgs e)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 UpdatePlayerInfo();
             });

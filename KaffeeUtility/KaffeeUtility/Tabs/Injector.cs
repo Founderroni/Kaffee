@@ -24,6 +24,23 @@ namespace KaffeeUtility.Tabs
                     break;
                 }
         }
+
+        private void UpdatePathLabel()
+        {
+            if (UseCustomDll.Checked)
+            {
+                DllPath.Text = $"Path: <b>{Utils.Config.GetConfig().CustomDllPath}</b>";
+                VersionSupport.Text = $"Supported Version: <b>Using Custom DLL</b>";
+            } else
+            {
+                foreach (ClientListStruct Instance in Globals.ClientList)
+                    if (Instance.displayName == ClientList.Text)
+                    {
+                        Handlers.Animator.Linear(DllPath, "Text", $"Path: <b>{Globals.DataDir}\\{Instance.fileName}.dll</b>", 300);
+                        break;
+                    }
+            }
+        }
         #endregion
 
         public Injector() =>
@@ -32,6 +49,7 @@ namespace KaffeeUtility.Tabs
         private async void Injector_Load(object sender, EventArgs e)
         {
             DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
+            UseCustomDll.Checked = Utils.Config.GetConfig().UseCustomDll;
             await Task.Run(() =>
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)
@@ -47,7 +65,23 @@ namespace KaffeeUtility.Tabs
                     DllPath.Text = $"Path: <b>{Utils.Config.GetConfig().CustomDllPath}</b>";
                     FilePath = Utils.Config.GetConfig().CustomDllPath;
                 }
+                if (Utils.Config.GetConfig().UseCustomDll)
+                {
+                    ClientList.Enabled = false;
+                    SelectDll.Enabled = true;
+                } else
+                {
+                    ClientList.Enabled = true;
+                    SelectDll.Enabled = false;
+                }
+                UpdatePathLabel();
             });
+        }
+
+        private void DllPath_OnMouseHover(object sender, EventArgs e)
+        {
+            PathToolTip.ToolTipTitle = "File Path";
+            PathToolTip.SetToolTip(DllPath, DllPath.Text);
         }
 
         private async void ClientList_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +90,7 @@ namespace KaffeeUtility.Tabs
             {
                 Utils.Config.GetConfig().ClientIndex = ClientList.SelectedIndex;
                 UpdateVersionLabel(DisableVersionCheck.Checked);
+                UpdatePathLabel();
             });
         }
 
@@ -63,7 +98,10 @@ namespace KaffeeUtility.Tabs
         {
             await Task.Run(() =>
             {
-                Handlers.Injection.InjectClient(ClientList.Text, (int)InjectDelay.Value, DisableVersionCheck.Checked);
+                if (!UseCustomDll.Checked)
+                    Handlers.Injection.InjectClient(ClientList.Text, (int)InjectDelay.Value, DisableVersionCheck.Checked);
+                else
+                    Handlers.Injection.InjectDLL(FilePath);
             });
         }
 
@@ -104,8 +142,28 @@ namespace KaffeeUtility.Tabs
 
             await Task.Run(() =>
             {
-                Handlers.Injection.InjectDLL(FilePath);
+                if (!UseCustomDll.Checked)
+                    Handlers.Injection.InjectDLL(FilePath);
+                else
+                    Handlers.Injection.InjectDLL(FilePath);
             });
+        }
+
+        private void UseCustomDll_CheckedChanged(object sender, EventArgs e)
+        {
+            Utils.Config.GetConfig().UseCustomDll = UseCustomDll.Checked;
+            if (UseCustomDll.Checked)
+            {
+                ClientList.Enabled = false;
+                SelectDll.Enabled = true;
+            }
+            else
+            {
+                ClientList.Enabled = true;
+                SelectDll.Enabled = false;
+            }
+            UpdateVersionLabel(DisableVersionCheck.Checked);
+            UpdatePathLabel();
         }
     }
 }

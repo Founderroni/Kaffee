@@ -66,7 +66,7 @@ namespace KaffeeUtility.Handlers
                             }
                             break;
                         }
-                        // System is kinda retarded but it works
+                        // System is kinda stupid but it works
                         if (Memory.GetVersion().StartsWith(Instance.versionSupported))
                         {
                             Logging.Log($@"Version matches ({Instance.versionSupported}). Attempting to find {Globals.DataDir}\{Instance.fileName}.dll");
