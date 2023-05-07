@@ -5,6 +5,9 @@ namespace KaffeeUtility.Models
     public interface ConfigData
     {
         #region Application
+        [Option(DefaultValue = "%localappdata%\\FadedSolutions\\Kaffee")]
+        string RootDirectory { get; set; }
+
         [Option(DefaultValue = true)]
         bool Logging { get; set; }
 

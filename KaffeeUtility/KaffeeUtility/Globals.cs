@@ -9,12 +9,12 @@ namespace KaffeeUtility
     {
         public static readonly float Version = 0.4F;
         public readonly static string McpeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\minecraftpe\";
-        public static readonly string RootDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\FadedSolutions";
-        public static readonly string DataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\FadedSolutions\Kaffee";
+        public static string RootDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\FadedSolutions";
+        public static readonly string DataDir = RootDataDir + "\\Kaffee";
         public static readonly string AppDir = AppDomain.CurrentDomain.BaseDirectory;
         public static readonly string AppPath = Assembly.GetExecutingAssembly().Location;
-        public static readonly string LogFile = $@"{DataDir}\Log.txt";
-        public static readonly string ConfigFile = $@"{DataDir}\Config.json";
+        public static readonly string LogFile = $"{DataDir}\\Log.txt";
+        public static readonly string ConfigFile = $"{DataDir}\\Config.json";
         public static string OptionsFile = McpeDirectory + "options.txt";
 
         public static List<ClientListStruct> ClientList = new List<ClientListStruct>();

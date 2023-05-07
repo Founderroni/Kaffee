@@ -25,39 +25,93 @@ namespace KaffeeUtility.Utils
 
         public static async Task<string> LoaderTask()
         {
+            Globals.RootDataDir = Config.GetConfig().RootDirectory;
+            UpdateProgress("Clearing Log");
             try
             {
-                UpdateProgress("Clearing Log");
                 Logging.Clear();
+            }
+            catch (Exception ex)
+            {
+                return $"Could not clear logs:\n{ex.Message}";
+            }
 
-
+            try
+            {
                 UpdateProgress("Checking Root Directory");
                 if (!Directory.Exists(Globals.RootDataDir))
                     Directory.CreateDirectory(Globals.RootDataDir);
-                Logging.Log("Confirmed RootDataDir");
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show("Couldn't create or check for Root Directory, do you want to set the Root Directory to a newly created folder in the same directory?", "Fix Attempt", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                switch (result)
+                {
+                    case DialogResult.Yes:
+                        if (Config.GetConfig().RootDirectory == $"{Globals.AppDir}\\FadedSolutions")
+                        {
+                            return $"Couldn't create or check for Root Directory and cannot use local directory:\n{ex.Message}";
+                        }
+                        else
+                        {
+                            try
+                            {
+                                Config.GetConfig().RootDirectory = $"{Globals.AppDir}\\FadedSolutions";
+                                if (!Directory.Exists(Globals.RootDataDir))
+                                    Directory.CreateDirectory(Globals.RootDataDir);
+                            } catch (Exception wtf)
+                            {
+                                return $"Couldn't create local Root Directory:\n{wtf.Message}";
+                            }
+                        }
+                        break;
+                    case DialogResult.No:
+                        return $"Couldn't create or check for Root Directory:\n{ex.Message}";
+                    default:
+                        return $"Couldn't create or check for Root Directory:\n{ex.Message}";
+                }
+            }
+            Logging.Log("Confirmed RootDataDir");
 
 
-                if (!FastLaunch)
-                    await Task.Delay(100);
+            if (!FastLaunch)
+                await Task.Delay(100);
 
 
-                UpdateProgress("Checking Data Directory");
+            UpdateProgress("Checking Data Directory");
+            try
+            {
                 if (!Directory.Exists(Globals.DataDir))
                     Directory.CreateDirectory(Globals.DataDir);
-                Logging.Log("Confirmed DataDir");
+            }
+            catch (Exception ex)
+            {
+                return $"Couldn't create or check for Data Directory:\n{ex.Message}";
+            }
+            Logging.Log("Confirmed DataDir");
 
 
-                if (!FastLaunch)
-                    await Task.Delay(100);
+            if (!FastLaunch)
+                await Task.Delay(100);
 
 
-                UpdateProgress("Checking Log File");
+            UpdateProgress("Checking Log File");
+            try
+            {
                 if (!File.Exists(Globals.LogFile))
                     File.Create(Globals.LogFile);
                 Logging.Log("Confirmed LogFile");
+            }
+            catch (Exception ex)
+            {
+                return $"Couldn't create or check for log file:\n{ex.Message}";
+            }
 
 
-                UpdateProgress("Checking for Updates");
+            UpdateProgress("Checking for Updates");
+            try
+            {
                 if (!Config.GetConfig().SkipUpdateCheck)
                 {
                     if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
@@ -77,9 +131,16 @@ namespace KaffeeUtility.Utils
                     }
                     Logging.Log("Checked for Updates");
                 }
+            }
+            catch (Exception ex)
+            {
+                return $"Couldn't check for updates:\n{ex.Message}";
+            }
 
 
-                UpdateProgress("Getting Client List");
+            UpdateProgress("Downloading Client List");
+            try
+            {
                 string clientListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/ClientList.txt");
                 string[] lines = clientListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var line in lines)
@@ -104,14 +165,21 @@ namespace KaffeeUtility.Utils
 
                 foreach (var client in Globals.ClientList)
                 {
-                    UpdateProgress("Getting Client List", 0, $"Downloading {client.displayName}");
+                    UpdateProgress("Downloading Client List", 0, $"Downloading {client.displayName}");
                     Logging.Log($"Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
                     await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
                 }
                 Logging.Log("Finished downloading DLLs");
+            }
+            catch (Exception ex)
+            {
+                return $"Couldn't download client list:\n{ex.Message}";
+            }
 
 
-                UpdateProgress("Getting Spoof Pointers");
+            UpdateProgress("Downloading Spoof Pointers");
+            try
+            {
                 string spoofListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/SpoofPtrs.txt");
                 string[] spoofListLines = spoofListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var line in spoofListLines)
@@ -120,43 +188,51 @@ namespace KaffeeUtility.Utils
                     string version = parts[0];
                     string didPtr = parts[1];
                     string mcidPtr = parts[2];
-                    UpdateProgress("Getting Spoof Pointers", 0, $"Adding Pointer ({version}: {didPtr} - {mcidPtr})");
+                    UpdateProgress("Downloading Spoof Pointers", 0, $"Adding Pointer ({version}: {didPtr} - {mcidPtr})");
                     Logging.Log($"Adding pointers for {version} ({didPtr} - {mcidPtr})");
                     Globals.SpoofList.Add(new Models.SpoofPointersStruct(version, didPtr, mcidPtr));
                 }
                 Logging.Log("Finished SpoofList");
+            }
+            catch (Exception ex)
+            {
+                return $"Couldn't download spoof pointers:\n{ex.Message}";
+            }
 
 
-                UpdateProgress("Initializing Discord RPC");
+            UpdateProgress("Initializing Discord RPC");
+            try
+            {
                 if (Config.GetConfig().RpcEnabled && !Handlers.Discord.IsRPCRunning)
                 {
                     UpdateProgress("Initializing Discord RPC", 0, "Starting RPC");
                     Handlers.Discord.StartRpc(Config.GetConfig().RpcDetail, Config.GetConfig().RpcState);
                     Logging.Log("RPC Started");
                 }
-
-
-                UpdateProgress("Updating Launches");
-                Config.GetConfig().Launches += 1;
-                Logging.Log("+1 Launch");
-
-
-                if (Config.GetConfig().UseAnimations)
-                {
-                    await Task.Delay(FastLaunch ? 1 : 500).ContinueWith(t =>
-                    {
-                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", FastLaunch ? 125 : 300);
-                        Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, FastLaunch ? 225 : 500);
-                    });
-                }
-
-
-                await Task.Delay(FastLaunch ? 235 : 550);
-                return "Complete";
-            } catch (Exception ex)
-            {
-                return $"An error occured, restart the application:\n{ex.Message}";
             }
+            catch (Exception ex)
+            {
+                return $"Couldn't start Discord RPC:\n{ex.Message}";
+            }
+
+
+            UpdateProgress("Updating Launches");
+            Config.GetConfig().Launches += 1;
+            Logging.Log("+1 Launch");
+
+
+            if (Config.GetConfig().UseAnimations)
+            {
+                await Task.Delay(FastLaunch ? 1 : 500).ContinueWith(t =>
+                {
+                    Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", FastLaunch ? 125 : 300);
+                    Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, FastLaunch ? 225 : 500);
+                });
+            }
+
+
+            await Task.Delay(FastLaunch ? 235 : 550);
+            return "Complete";
         }
     }
 }
