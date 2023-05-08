@@ -96,7 +96,7 @@
             this.ClientList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientList.ForeColor = System.Drawing.Color.White;
             this.ClientList.ItemHeight = 30;
-            this.ClientList.Location = new System.Drawing.Point(110, 42);
+            this.ClientList.Location = new System.Drawing.Point(89, 42);
             this.ClientList.Name = "ClientList";
             this.ClientList.Size = new System.Drawing.Size(179, 36);
             this.ClientList.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -250,7 +250,7 @@
             this.Kill.ForeColor = System.Drawing.Color.White;
             this.Kill.Image = global::KaffeeUtility.Properties.Resources.horror_48px;
             this.Kill.ImageSize = new System.Drawing.Size(24, 24);
-            this.Kill.Location = new System.Drawing.Point(379, 42);
+            this.Kill.Location = new System.Drawing.Point(358, 42);
             this.Kill.Name = "Kill";
             this.Kill.Size = new System.Drawing.Size(36, 36);
             this.Kill.TabIndex = 7;
@@ -271,7 +271,7 @@
             this.Inject.ForeColor = System.Drawing.Color.White;
             this.Inject.Image = global::KaffeeUtility.Properties.Resources.syringe_48px;
             this.Inject.ImageSize = new System.Drawing.Size(24, 24);
-            this.Inject.Location = new System.Drawing.Point(337, 42);
+            this.Inject.Location = new System.Drawing.Point(316, 42);
             this.Inject.Name = "Inject";
             this.Inject.Size = new System.Drawing.Size(36, 36);
             this.Inject.TabIndex = 4;
@@ -293,7 +293,7 @@
             this.SelectDll.ForeColor = System.Drawing.Color.White;
             this.SelectDll.Image = global::KaffeeUtility.Properties.Resources.input_48px;
             this.SelectDll.ImageSize = new System.Drawing.Size(24, 24);
-            this.SelectDll.Location = new System.Drawing.Point(295, 42);
+            this.SelectDll.Location = new System.Drawing.Point(274, 42);
             this.SelectDll.Name = "SelectDll";
             this.SelectDll.Size = new System.Drawing.Size(36, 36);
             this.SelectDll.TabIndex = 6;
