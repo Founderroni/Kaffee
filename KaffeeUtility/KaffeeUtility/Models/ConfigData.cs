@@ -65,6 +65,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = false)]
         bool UseCustomDll { get; set; }
+
+        [Option(DefaultValue = true)]
+        bool KillAllInstances { get; set; }
         #endregion
 
         #region Spoofer

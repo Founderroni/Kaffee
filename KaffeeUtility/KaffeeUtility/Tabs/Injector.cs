@@ -1,5 +1,6 @@
 ﻿using KaffeeUtility.Models;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,6 +51,7 @@ namespace KaffeeUtility.Tabs
         {
             DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
             UseCustomDll.Checked = Utils.Config.GetConfig().UseCustomDll;
+            KillAllInstances.Checked = Utils.Config.GetConfig().KillAllInstances;
             await Task.Run(() =>
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)
@@ -164,6 +166,16 @@ namespace KaffeeUtility.Tabs
             }
             UpdateVersionLabel(DisableVersionCheck.Checked);
             UpdatePathLabel();
+        }
+
+        private void Kill_Click(object sender, EventArgs e)
+        {
+            Process[] McProcess = Process.GetProcessesByName("Minecraft.Windows");
+            if (KillAllInstances.Checked)
+                foreach (Process mc in McProcess)
+                    mc.Kill();
+            else
+                McProcess[0].Kill();
         }
     }
 }

@@ -364,6 +364,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kaffee.ico" />
+    <None Include="Resources\horror_48px.png" />
     <None Include="Resources\input_48px.png" />
     <None Include="Resources\restart_48px.png" />
     <None Include="Resources\anonymous_mask_pressed.png" />
