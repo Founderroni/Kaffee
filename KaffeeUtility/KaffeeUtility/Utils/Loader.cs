@@ -36,9 +36,35 @@ namespace KaffeeUtility.Utils
                 return $"Could not clear logs:\n{ex.Message}";
             }
 
+            UpdateProgress("Checking Connection");
+            if (!Config.GetConfig().GithubBlocked) // It's gotta be like this until we have our own hosting or Github gets unblocked
+            {
+                try
+                { // Test if we can connect, if you can then save the version and compare it later
+                    Globals.LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show("Couldn't connect to Github, is it blocked on your device or region?\nClicking Yes will skip tasks that try to connect to Github, but this means you will be missing out on a lot of features (like Spoofer and Client Injection, Custom DLL injection will still work though). If you don't want to miss out, try using a VPN.", "Github Blocked", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    switch (result)
+                    {
+                        case DialogResult.Yes:
+                            Config.GetConfig().SkipUpdateCheck = true;
+                            Config.GetConfig().GithubBlocked = true;
+                            Application.Restart();
+                            break;
+                        case DialogResult.No:
+                            return $"Couldn't check for updates:\n{ex.Message}";
+                        default:
+                            return $"Couldn't check for updates:\n{ex.Message}";
+                    }
+                }
+            }
+
+            UpdateProgress("Checking Root Directory");
             try
             {
-                UpdateProgress("Checking Root Directory");
                 if (!Directory.Exists(Globals.RootDataDir))
                     Directory.CreateDirectory(Globals.RootDataDir);
             }
@@ -60,6 +86,7 @@ namespace KaffeeUtility.Utils
                                 Config.GetConfig().RootDirectory = $"{Globals.AppDir}\\FadedSolutions";
                                 if (!Directory.Exists(Globals.RootDataDir))
                                     Directory.CreateDirectory(Globals.RootDataDir);
+                                Application.Restart();
                             } catch (Exception wtf)
                             {
                                 return $"Couldn't create local Root Directory:\n{wtf.Message}";
@@ -110,93 +137,113 @@ namespace KaffeeUtility.Utils
 
 
             UpdateProgress("Checking for Updates");
-            try
+            if (!Config.GetConfig().GithubBlocked)
             {
-                if (!Config.GetConfig().SkipUpdateCheck)
+                try
                 {
-                    if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
-                        File.Delete($"{Globals.AppDir}/Kaffee.old");
-                    string LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
-                    if (float.Parse(LatestVersion) > Globals.Version)
+                    if (!Config.GetConfig().SkipUpdateCheck)
                     {
-                        UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");
-                        if (!FastLaunch) // Just so people have time to read the message
-                            await Task.Delay(300);
-                        await Network.DownloadFile($"https://github.com/Founderroni/Kaffee/releases/tag/{LatestVersion}", $"{Globals.AppDir}/temp.exe");
-                        UpdateProgress("Checking for Updates", 0, "Installing Update");
-                        File.Move(Globals.AppPath, Path.ChangeExtension(Globals.AppPath, "old"));
-                        File.Move($"{Globals.AppDir}/temp.exe", $"{Globals.AppDir}/Kaffee.exe");
-                        Misc.OpenProcess($"{Globals.AppDir}/Kaffee.exe");
-                        Application.Exit();
+                        if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
+                            File.Delete($"{Globals.AppDir}/Kaffee.old");
+                        if (float.Parse(Globals.LatestVersion) > Globals.Version)
+                        {
+                            UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");
+                            if (!FastLaunch) // Just so people have time to read the message
+                                await Task.Delay(300);
+                            await Network.DownloadFile($"https://github.com/Founderroni/Kaffee/releases/tag/{Globals.LatestVersion}", $"{Globals.AppDir}/temp.exe");
+                            UpdateProgress("Checking for Updates", 0, "Installing Update");
+                            File.Move(Globals.AppPath, Path.ChangeExtension(Globals.AppPath, "old"));
+                            File.Move($"{Globals.AppDir}/temp.exe", $"{Globals.AppDir}/Kaffee.exe");
+                            Misc.OpenProcess($"{Globals.AppDir}/Kaffee.exe");
+                            Application.Exit();
+                        }
+                        Logging.Log("Checked for Updates");
                     }
-                    Logging.Log("Checked for Updates");
                 }
-            }
-            catch (Exception ex)
-            {
-                return $"Couldn't check for updates:\n{ex.Message}";
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show("Couldn't connect to Github, would you like to skip the update check?", "Update Check Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    switch (result)
+                    {
+                        case DialogResult.Yes:
+                            Config.GetConfig().SkipUpdateCheck = true;
+                            Application.Restart();
+                            break;
+                        case DialogResult.No:
+                            return $"Couldn't check for updates:\n{ex.Message}";
+                        default:
+                            return $"Couldn't check for updates:\n{ex.Message}";
+                    }
+                }
             }
 
 
             UpdateProgress("Downloading Client List");
-            try
+            if (!Config.GetConfig().GithubBlocked)
             {
-                string clientListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/ClientList.txt");
-                string[] lines = clientListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var line in lines)
+                try
                 {
-                    string[] parts = line.Split(';');
-                    string name = parts[0];
-                    string url = parts[1];
-                    string version = parts[2];
-                    if (Network.IsUrl(version))
+                    string clientListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/ClientList.txt");
+                    string[] lines = clientListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var line in lines)
                     {
-                        string versionContent = await Network.GetString(version);
-                        string[] versionContentLines = versionContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                        version = versionContentLines[0];
-                        Logging.Log($"Version was a url for client {name}, got {version}");
+                        string[] parts = line.Split(';');
+                        string name = parts[0];
+                        string url = parts[1];
+                        string version = parts[2];
+                        if (Network.IsUrl(version))
+                        {
+                            string versionContent = await Network.GetString(version);
+                            string[] versionContentLines = versionContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                            version = versionContentLines[0];
+                            Logging.Log($"Version was a url for client {name}, got {version}");
+                        }
+                        string fileName = parts[3];
+                        Logging.Log($"Adding {name} {version} from {url} to ClientList");
+                        Globals.ClientList.Add(new Models.ClientListStruct(name, url, version, fileName));
                     }
-                    string fileName = parts[3];
-                    Logging.Log($"Adding {name} {version} from {url} to ClientList");
-                    Globals.ClientList.Add(new Models.ClientListStruct(name, url, version, fileName));
+                    Logging.Log("Finished ClientList");
+
+
+                    foreach (var client in Globals.ClientList)
+                    {
+                        UpdateProgress("Downloading Client List", 0, $"Downloading {client.displayName}");
+                        Logging.Log($"Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
+                        await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
+                    }
+                    Logging.Log("Finished downloading DLLs");
                 }
-                Logging.Log("Finished ClientList");
-
-
-                foreach (var client in Globals.ClientList)
+                catch (Exception ex)
                 {
-                    UpdateProgress("Downloading Client List", 0, $"Downloading {client.displayName}");
-                    Logging.Log($"Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
-                    await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
+                    return $"Couldn't download client list:\n{ex.Message}";
                 }
-                Logging.Log("Finished downloading DLLs");
-            }
-            catch (Exception ex)
-            {
-                return $"Couldn't download client list:\n{ex.Message}";
             }
 
 
             UpdateProgress("Downloading Spoof Pointers");
-            try
+            if (!Config.GetConfig().GithubBlocked)
             {
-                string spoofListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/SpoofPtrs.txt");
-                string[] spoofListLines = spoofListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var line in spoofListLines)
+                try
                 {
-                    string[] parts = line.Split(':');
-                    string version = parts[0];
-                    string didPtr = parts[1];
-                    string mcidPtr = parts[2];
-                    UpdateProgress("Downloading Spoof Pointers", 0, $"Adding Pointer ({version}: {didPtr} - {mcidPtr})");
-                    Logging.Log($"Adding pointers for {version} ({didPtr} - {mcidPtr})");
-                    Globals.SpoofList.Add(new Models.SpoofPointersStruct(version, didPtr, mcidPtr));
+                    string spoofListContent = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Assets/main/Other/SpoofPtrs.txt");
+                    string[] spoofListLines = spoofListContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var line in spoofListLines)
+                    {
+                        string[] parts = line.Split(':');
+                        string version = parts[0];
+                        string didPtr = parts[1];
+                        string mcidPtr = parts[2];
+                        UpdateProgress("Downloading Spoof Pointers", 0, $"Adding Pointer ({version}: {didPtr} - {mcidPtr})");
+                        Logging.Log($"Adding pointers for {version} ({didPtr} - {mcidPtr})");
+                        Globals.SpoofList.Add(new Models.SpoofPointersStruct(version, didPtr, mcidPtr));
+                    }
+                    Logging.Log("Finished SpoofList");
                 }
-                Logging.Log("Finished SpoofList");
-            }
-            catch (Exception ex)
-            {
-                return $"Couldn't download spoof pointers:\n{ex.Message}";
+                catch (Exception ex)
+                {
+                    return $"Couldn't download spoof pointers:\n{ex.Message}";
+                }
             }
 
 

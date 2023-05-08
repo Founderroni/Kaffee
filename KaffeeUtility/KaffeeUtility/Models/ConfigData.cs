@@ -19,6 +19,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = true)]
         bool UseAnimations { get; set; }
+
+        [Option(DefaultValue = false)]
+        bool GithubBlocked { get; set; }
         #endregion
 
         #region Stats
