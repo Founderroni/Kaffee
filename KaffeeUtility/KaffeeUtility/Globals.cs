@@ -7,7 +7,7 @@ namespace KaffeeUtility
 {
     public class Globals
     {
-        public static readonly float Version = 0.4F;
+        public static readonly float Version = 0.5F;
         public static string LatestVersion = "0"; // This should change
         public readonly static string McpeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\minecraftpe\";
         public static string RootDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\FadedSolutions";
