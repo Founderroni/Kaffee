@@ -138,19 +138,6 @@ namespace KaffeeUtility.Tabs
             }
         }
 
-        private async void InjectDll_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(FilePath)) return;
-
-            await Task.Run(() =>
-            {
-                if (!UseCustomDll.Checked)
-                    Handlers.Injection.InjectDLL(FilePath);
-                else
-                    Handlers.Injection.InjectDLL(FilePath);
-            });
-        }
-
         private void UseCustomDll_CheckedChanged(object sender, EventArgs e)
         {
             Utils.Config.GetConfig().UseCustomDll = UseCustomDll.Checked;
