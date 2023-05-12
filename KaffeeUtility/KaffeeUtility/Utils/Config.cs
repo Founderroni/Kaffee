@@ -3,7 +3,7 @@ using KaffeeUtility.Models;
 
 namespace KaffeeUtility.Utils
 {
-    internal class Config
+    internal static class Config
     {
         public static ConfigData GetConfig() => new ConfigurationBuilder<ConfigData>().UseJsonFile(Globals.ConfigFile).Build();
     }

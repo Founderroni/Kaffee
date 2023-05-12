@@ -44,14 +44,16 @@ namespace KaffeeUtility.Tabs
         }
         #endregion
 
-        public Injector() =>
-            InitializeComponent();
-
-        private async void Injector_Load(object sender, EventArgs e)
+        public Injector()
         {
+            InitializeComponent();
             DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
             UseCustomDll.Checked = Utils.Config.GetConfig().UseCustomDll;
             KillAllInstances.Checked = Utils.Config.GetConfig().KillAllInstances;
+        }
+
+        private async void Injector_Load(object sender, EventArgs e)
+        {
             await Task.Run(() =>
             {
                 foreach (ClientListStruct Instance in Globals.ClientList)

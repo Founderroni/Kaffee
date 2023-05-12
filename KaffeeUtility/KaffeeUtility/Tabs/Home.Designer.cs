@@ -35,7 +35,7 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.Launches = new System.Windows.Forms.Label();
             this.LaunchesLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Launcher = new System.Windows.Forms.Label();
             this.SpoofPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.MCID = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.CID = new System.Windows.Forms.Label();
             this.CIDLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Spoof = new System.Windows.Forms.Label();
             this.InjectPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.InjectionDelay = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
             this.Injections = new System.Windows.Forms.Label();
             this.InjectionsLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.Inject = new System.Windows.Forms.Label();
             this.LauncherPanel.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -76,7 +76,7 @@
             this.LauncherPanel.BackColor = System.Drawing.Color.Transparent;
             this.LauncherPanel.Controls.Add(this.guna2Panel4);
             this.LauncherPanel.Controls.Add(this.guna2Panel3);
-            this.LauncherPanel.Controls.Add(this.label1);
+            this.LauncherPanel.Controls.Add(this.Launcher);
             this.LauncherPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.LauncherPanel.Location = new System.Drawing.Point(16, 169);
             this.LauncherPanel.Name = "LauncherPanel";
@@ -156,17 +156,17 @@
             this.LaunchesLabel.Text = "Launches";
             this.LaunchesLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // Launcher
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkGray;
-            this.label1.Location = new System.Drawing.Point(78, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Launcher Stats";
+            this.Launcher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Launcher.AutoSize = true;
+            this.Launcher.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Launcher.ForeColor = System.Drawing.Color.DarkGray;
+            this.Launcher.Location = new System.Drawing.Point(78, 0);
+            this.Launcher.Name = "Launcher";
+            this.Launcher.Size = new System.Drawing.Size(94, 15);
+            this.Launcher.TabIndex = 2;
+            this.Launcher.Text = "Launcher Stats";
             // 
             // SpoofPanel
             // 
@@ -174,7 +174,7 @@
             this.SpoofPanel.Controls.Add(this.guna2Panel8);
             this.SpoofPanel.Controls.Add(this.guna2Panel6);
             this.SpoofPanel.Controls.Add(this.guna2Panel7);
-            this.SpoofPanel.Controls.Add(this.label6);
+            this.SpoofPanel.Controls.Add(this.Spoof);
             this.SpoofPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.SpoofPanel.Location = new System.Drawing.Point(280, 169);
             this.SpoofPanel.Name = "SpoofPanel";
@@ -290,17 +290,17 @@
             this.CIDLabel.Text = "CID";
             this.CIDLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // Spoof
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkGray;
-            this.label6.Location = new System.Drawing.Point(89, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 15);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Spoof Stats";
+            this.Spoof.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Spoof.AutoSize = true;
+            this.Spoof.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Spoof.ForeColor = System.Drawing.Color.DarkGray;
+            this.Spoof.Location = new System.Drawing.Point(89, 0);
+            this.Spoof.Name = "Spoof";
+            this.Spoof.Size = new System.Drawing.Size(73, 15);
+            this.Spoof.TabIndex = 2;
+            this.Spoof.Text = "Spoof Stats";
             // 
             // InjectPanel
             // 
@@ -308,7 +308,7 @@
             this.InjectPanel.Controls.Add(this.guna2Panel10);
             this.InjectPanel.Controls.Add(this.guna2Panel11);
             this.InjectPanel.Controls.Add(this.guna2Panel12);
-            this.InjectPanel.Controls.Add(this.label11);
+            this.InjectPanel.Controls.Add(this.Inject);
             this.InjectPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.InjectPanel.Location = new System.Drawing.Point(544, 169);
             this.InjectPanel.Name = "InjectPanel";
@@ -424,17 +424,17 @@
             this.InjectionsLabel.Text = "Injections";
             this.InjectionsLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // Inject
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(90, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 15);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Inject Stats";
+            this.Inject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Inject.AutoSize = true;
+            this.Inject.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Inject.ForeColor = System.Drawing.Color.DarkGray;
+            this.Inject.Location = new System.Drawing.Point(90, 0);
+            this.Inject.Name = "Inject";
+            this.Inject.Size = new System.Drawing.Size(71, 15);
+            this.Inject.TabIndex = 2;
+            this.Inject.Text = "Inject Stats";
             // 
             // Home
             // 
@@ -447,7 +447,6 @@
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Name = "Home";
             this.Size = new System.Drawing.Size(811, 548);
-            this.Load += new System.EventHandler(this.Home_Load);
             this.LauncherPanel.ResumeLayout(false);
             this.LauncherPanel.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
@@ -470,7 +469,7 @@
         private Guna.UI2.WinForms.Guna2Panel LauncherPanel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label Launches;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Launcher;
         private Guna.UI2.WinForms.Guna2HtmlLabel VersionLabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.Label Version;
@@ -482,7 +481,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private System.Windows.Forms.Label CID;
         private Guna.UI2.WinForms.Guna2HtmlLabel CIDLabel;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Spoof;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private System.Windows.Forms.Label MCID;
         private Guna.UI2.WinForms.Guna2HtmlLabel MCIDLabel;
@@ -496,6 +495,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
         private System.Windows.Forms.Label Injections;
         private Guna.UI2.WinForms.Guna2HtmlLabel InjectionsLabel;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label Inject;
     }
 }

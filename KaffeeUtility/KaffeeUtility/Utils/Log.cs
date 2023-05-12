@@ -6,7 +6,7 @@ using static KaffeeUtility.Globals;
 
 namespace KaffeeUtility.Utils
 {
-    internal class Logging
+    internal static class Logging
     {
         public static void Log(string message, LogAction action = LogAction.Write)
         {

@@ -162,7 +162,7 @@ namespace KaffeeUtility.Utils
                 }
                 catch (Exception ex)
                 {
-                    DialogResult result = MessageBox.Show("Couldn't connect to Github, would you like to skip the update check?", "Update Check Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Couldn't check for updates, would you like to skip the update check?", "Update Check Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     switch (result)
                     {
