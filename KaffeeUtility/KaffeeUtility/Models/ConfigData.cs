@@ -22,6 +22,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = false)]
         bool GithubBlocked { get; set; }
+
+        [Option(DefaultValue = false)]
+        bool DownloadInParallel { get; set; }
         #endregion
 
         #region Stats
@@ -68,6 +71,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = true)]
         bool KillAllInstances { get; set; }
+
+        [Option(DefaultValue = true)]
+        bool InjectToAll { get; set; }
         #endregion
 
         #region Spoofer

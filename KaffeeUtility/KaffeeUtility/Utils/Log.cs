@@ -1,7 +1,6 @@
 ﻿using KaffeeUtility.Models;
 using System;
 using System.IO;
-using System.Windows.Forms;
 using static KaffeeUtility.Globals;
 
 namespace KaffeeUtility.Utils
@@ -21,7 +20,7 @@ namespace KaffeeUtility.Utils
                     File.WriteAllText(LogFile, $"[Kaffee @ {DateTime.Now}]: **Log Cleared**\n");
             } catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Logging Error");
+                Misc.Notify(e.Message, "Logging Error");
             }
         }
 
@@ -37,7 +36,7 @@ namespace KaffeeUtility.Utils
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Logging Error");
+                Misc.Notify(e.Message, "Logging Error");
             }
         }
     }

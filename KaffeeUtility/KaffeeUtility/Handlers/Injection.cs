@@ -124,7 +124,7 @@ namespace KaffeeUtility.Handlers
                 }
                 else
                 {
-                    Misc.Notify("Injection", "Minecraft is currently closed (or not detected)");
+                    Misc.Notify("Minecraft is currently closed (or not detected)", "Injection");
                     Logging.Log("Attempted to Inject but 'Auto Focus Minecraft' is Disabled");
                 }
             }

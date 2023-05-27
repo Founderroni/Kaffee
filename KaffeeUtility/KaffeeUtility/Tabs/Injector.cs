@@ -9,6 +9,7 @@ namespace KaffeeUtility.Tabs
     public partial class Injector : UserControl
     {
         private static string FilePath;
+        private ConfigData Config = Utils.Config.GetConfig();
 
         #region Functions
         private void UpdateVersionLabel(bool disableCheck = false) // Might remove
@@ -47,9 +48,10 @@ namespace KaffeeUtility.Tabs
         public Injector()
         {
             InitializeComponent();
-            DisableVersionCheck.Checked = Utils.Config.GetConfig().DisableVersionCheck;
-            UseCustomDll.Checked = Utils.Config.GetConfig().UseCustomDll;
-            KillAllInstances.Checked = Utils.Config.GetConfig().KillAllInstances;
+            DisableVersionCheck.Checked = Config.DisableVersionCheck;
+            UseCustomDll.Checked = Config.UseCustomDll;
+            KillAllInstances.Checked = Config.KillAllInstances;
+            InjectoToAll.Checked = Config.InjectToAll;
         }
 
         private async void Injector_Load(object sender, EventArgs e)
@@ -165,6 +167,11 @@ namespace KaffeeUtility.Tabs
                     mc.Kill();
             else
                 McProcess[0].Kill();
+        }
+
+        private void InjectoToAll_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.InjectToAll = InjectoToAll.Checked;
         }
     }
 }

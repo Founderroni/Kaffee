@@ -29,11 +29,11 @@ namespace KaffeeUtility.Utils
 
         public static async Task DownloadFile(string url, string filePath)
         {
-            using (var client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (Stream stream = await response.Content.ReadAsStreamAsync())
+                using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await stream.CopyToAsync(fileStream);
                 }

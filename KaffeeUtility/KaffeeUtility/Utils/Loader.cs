@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.Generic;
 
 namespace KaffeeUtility.Utils
 {
@@ -205,12 +206,30 @@ namespace KaffeeUtility.Utils
                     }
                     Logging.Log("Finished ClientList");
 
-
-                    foreach (var client in Globals.ClientList)
+                    if (Config.GetConfig().DownloadInParallel)
                     {
-                        UpdateProgress("Downloading Client List", 0, $"Downloading {client.displayName}");
-                        Logging.Log($"Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
-                        await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
+                        UpdateProgress("Downloading Client List", 0, "Downloading Clients");
+                        List<Task> tasks = new List<Task>();
+                        string logTaskCache = "";
+                        foreach (var client in Globals.ClientList)
+                        {
+                            tasks.Add(Task.Run(async () =>
+                            {
+                                logTaskCache += $"\n[{DateTime.Now}] Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll";
+                                await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
+                            }));
+                        }
+                        await Task.WhenAll(tasks);
+                        Logging.Log(logTaskCache);
+                    }
+                    else
+                    {
+                        foreach (var client in Globals.ClientList)
+                        {
+                            UpdateProgress("Downloading Client List", 0, $"Downloading {client.displayName}");
+                            Logging.Log($"Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll");
+                            await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
+                        }
                     }
                     Logging.Log("Finished downloading DLLs");
                 }
