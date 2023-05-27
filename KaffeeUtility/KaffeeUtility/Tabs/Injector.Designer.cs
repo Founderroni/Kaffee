@@ -38,6 +38,7 @@
             this.DllPath = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Injection = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.InjectoToAll = new Guna.UI2.WinForms.Guna2CheckBox();
             this.KillAllInstances = new Guna.UI2.WinForms.Guna2CheckBox();
             this.UseCustomDll = new Guna.UI2.WinForms.Guna2CheckBox();
             this.DisableVersionCheck = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -45,7 +46,6 @@
             this.InjectDelay = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.InjectSettings = new System.Windows.Forms.Label();
             this.PathToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.InjectoToAll = new Guna.UI2.WinForms.Guna2CheckBox();
             this.ClientPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InjectDelay)).BeginInit();
@@ -62,7 +62,7 @@
             this.ClientPanel.Controls.Add(this.DllPath);
             this.ClientPanel.Controls.Add(this.Injection);
             this.ClientPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientPanel.Location = new System.Drawing.Point(164, 101);
+            this.ClientPanel.Location = new System.Drawing.Point(164, 68);
             this.ClientPanel.Name = "ClientPanel";
             this.ClientPanel.ShadowDecoration.Depth = 0;
             this.ClientPanel.Size = new System.Drawing.Size(483, 141);
@@ -204,12 +204,34 @@
             this.guna2Panel1.Controls.Add(this.InjectDelay);
             this.guna2Panel1.Controls.Add(this.InjectSettings);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(264, 272);
+            this.guna2Panel1.Location = new System.Drawing.Point(264, 239);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Depth = 0;
             this.guna2Panel1.Size = new System.Drawing.Size(282, 241);
             this.guna2Panel1.TabIndex = 8;
             this.guna2Panel1.UseTransparentBackground = true;
+            // 
+            // InjectoToAll
+            // 
+            this.InjectoToAll.Animated = true;
+            this.InjectoToAll.AutoSize = true;
+            this.InjectoToAll.Checked = true;
+            this.InjectoToAll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
+            this.InjectoToAll.CheckedState.BorderRadius = 0;
+            this.InjectoToAll.CheckedState.BorderThickness = 0;
+            this.InjectoToAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
+            this.InjectoToAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.InjectoToAll.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InjectoToAll.Location = new System.Drawing.Point(57, 194);
+            this.InjectoToAll.Name = "InjectoToAll";
+            this.InjectoToAll.Size = new System.Drawing.Size(149, 19);
+            this.InjectoToAll.TabIndex = 8;
+            this.InjectoToAll.Text = "Inject To All Instances";
+            this.InjectoToAll.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.InjectoToAll.UncheckedState.BorderRadius = 0;
+            this.InjectoToAll.UncheckedState.BorderThickness = 0;
+            this.InjectoToAll.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.InjectoToAll.CheckedChanged += new System.EventHandler(this.InjectoToAll_CheckedChanged);
             // 
             // KillAllInstances
             // 
@@ -322,28 +344,6 @@
             // 
             this.PathToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.PathToolTip.ForeColor = System.Drawing.Color.LightGray;
-            // 
-            // InjectoToAll
-            // 
-            this.InjectoToAll.Animated = true;
-            this.InjectoToAll.AutoSize = true;
-            this.InjectoToAll.Checked = true;
-            this.InjectoToAll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
-            this.InjectoToAll.CheckedState.BorderRadius = 0;
-            this.InjectoToAll.CheckedState.BorderThickness = 0;
-            this.InjectoToAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(35)))), ((int)(((byte)(217)))));
-            this.InjectoToAll.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.InjectoToAll.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InjectoToAll.Location = new System.Drawing.Point(57, 194);
-            this.InjectoToAll.Name = "InjectoToAll";
-            this.InjectoToAll.Size = new System.Drawing.Size(149, 19);
-            this.InjectoToAll.TabIndex = 8;
-            this.InjectoToAll.Text = "Inject To All Instances";
-            this.InjectoToAll.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.InjectoToAll.UncheckedState.BorderRadius = 0;
-            this.InjectoToAll.UncheckedState.BorderThickness = 0;
-            this.InjectoToAll.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.InjectoToAll.CheckedChanged += new System.EventHandler(this.InjectoToAll_CheckedChanged);
             // 
             // Injector
             // 
