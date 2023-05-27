@@ -13,6 +13,7 @@ namespace KaffeeUtility.Utils
                 return new ConfigurationBuilder<ConfigData>().UseJsonFile(Globals.ConfigFile).Build();
             } catch (IOException)
             {
+                Logging.Log("IOException occured in GetConfig");
                 return null;
             }
         }
