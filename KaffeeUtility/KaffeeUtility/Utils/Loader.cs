@@ -211,6 +211,12 @@ namespace KaffeeUtility.Utils
                         UpdateProgress("Downloading Client List", 0, "Downloading Clients");
                         List<Task> tasks = new List<Task>();
                         string logTaskCache = "";
+                        Parallel.ForEach(Globals.ClientList, async (client) =>
+                        {
+                            logTaskCache += $"\n[{DateTime.Now}] Downloading {client.displayName} from {client.url} to {Globals.DataDir}\\{client.fileName}.dll";
+                            await Network.DownloadFile(client.url, $"{Globals.DataDir}\\{client.fileName}.dll");
+                        });
+                        /*
                         foreach (var client in Globals.ClientList)
                         {
                             tasks.Add(Task.Run(async () =>
@@ -220,6 +226,7 @@ namespace KaffeeUtility.Utils
                             }));
                         }
                         await Task.WhenAll(tasks);
+                        */
                         Logging.Log(logTaskCache);
                     }
                     else
