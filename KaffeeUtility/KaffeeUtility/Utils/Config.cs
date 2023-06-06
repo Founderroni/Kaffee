@@ -24,7 +24,7 @@ namespace KaffeeUtility.Utils
             }
         }
 
-        public static void ResetConfig()
+        public static void ResetConfigs()
         {
 
         }
