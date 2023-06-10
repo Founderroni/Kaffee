@@ -32,10 +32,10 @@ namespace KaffeeUtility.Utils
 
         public static string GetOGDID()
         {
-            if (!File.Exists(Globals.McpeDirectory + "hs.txt"))
+            if (!File.Exists(Globals.McpeDirectory + "hs"))
                 return "N/A";
 
-            return File.ReadAllLines(Globals.McpeDirectory + "hs.txt")[1];
+            return File.ReadAllLines(Globals.McpeDirectory + "hs")[1];
         }
     }
 }
