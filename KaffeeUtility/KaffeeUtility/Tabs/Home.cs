@@ -22,7 +22,7 @@ namespace KaffeeUtility.Tabs
             // Update Inject Stats
             Injections.Text = Config.Injections.ToString();
             Failed.Text = Config.FailedInjections.ToString();
-            //InjectionDelay.Text = GetInjectConfig().InjectDelay.ToString();
+            InjectionDelay.Text = GetInjectConfig().InjectDelay.ToString();
         }
     }
 }
