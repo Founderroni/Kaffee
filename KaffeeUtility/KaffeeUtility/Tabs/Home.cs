@@ -8,7 +8,7 @@ namespace KaffeeUtility.Tabs
         public Home()
         {
             InitializeComponent();
-            Models.Stats Config = GetStats();
+            Models.Stats Config = Globals.CachedStats;
 
             // Update Launcher Stats
             Launches.Text = Config.Launches.ToString();
@@ -22,7 +22,7 @@ namespace KaffeeUtility.Tabs
             // Update Inject Stats
             Injections.Text = Config.Injections.ToString();
             Failed.Text = Config.FailedInjections.ToString();
-            InjectionDelay.Text = GetInjectConfig().InjectDelay.ToString();
+            //InjectionDelay.Text = GetInjectConfig().InjectDelay.ToString();
         }
     }
 }

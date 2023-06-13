@@ -290,7 +290,8 @@ namespace KaffeeUtility.Utils
 
 
             UpdateProgress("Updating Launches");
-            Config.GetConfig().Launches += 1;
+            Globals.CachedStats = Config.GetStats();
+            Globals.CachedStats.Launches += 1;
             Logging.Log("+1 Launch");
 
 
