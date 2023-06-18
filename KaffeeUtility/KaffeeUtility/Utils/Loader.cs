@@ -26,7 +26,8 @@ namespace KaffeeUtility.Utils
 
         public static async Task<string> LoaderTask()
         {
-            Globals.RootDataDir = Config.GetConfig().RootDirectory;
+            Globals.CachedConfig = Config.GetConfig();
+            Globals.RootDataDir = Globals.CachedConfig.RootDirectory;
             if (Globals.RootDataDir == "null")
             {
                 try
@@ -301,8 +302,7 @@ namespace KaffeeUtility.Utils
 
 
             UpdateProgress("Updating Launches");
-            Globals.CachedStats = Config.GetStats();
-            Globals.CachedStats.Launches += 1;
+            Globals.CachedConfig.Launches += 1;
             Logging.Log("+1 Launch");
 
 
