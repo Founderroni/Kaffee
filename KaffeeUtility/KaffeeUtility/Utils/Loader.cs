@@ -37,6 +37,7 @@ namespace KaffeeUtility.Utils
                     Globals.RootDataDir = Path.Combine(Globals.AppDir, "FadedSolutions");
                 }
             }
+
             UpdateProgress("Clearing Log");
             try
             {
