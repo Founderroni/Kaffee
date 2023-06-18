@@ -31,7 +31,7 @@ namespace KaffeeUtility.Utils
             {
                 try
                 {
-                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FadedSolutions");
+                    Globals.RootDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FadedSolutions");
                 } catch (Exception ex)
                 {
                     Globals.RootDataDir = Path.Combine(Globals.AppDir, "FadedSolutions");
