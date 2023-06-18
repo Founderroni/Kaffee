@@ -27,6 +27,16 @@ namespace KaffeeUtility.Utils
         public static async Task<string> LoaderTask()
         {
             Globals.RootDataDir = Config.GetConfig().RootDirectory;
+            if (Globals.RootDataDir == "null")
+            {
+                try
+                {
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FadedSolutions");
+                } catch (Exception ex)
+                {
+                    Globals.RootDataDir = Path.Combine(Globals.AppDir, "FadedSolutions");
+                }
+            }
             UpdateProgress("Clearing Log");
             try
             {
