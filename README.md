@@ -1,9 +1,4 @@
-# Kaffee Utility
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/Founderroni/Assets/main/Images/Kaffee.png">
-</p>
-
+# Kaffee Utility <img align="right" height="40" src="https://raw.githubusercontent.com/Founderroni/Assets/main/Images/Kaffee.png" alt="Kaffe's logo.">
 Kaffee utility is an open source injector and multi-tool for MCBE. It features client injection, custom DLL injection, ID (CID, DID and MCID) spoof, and more.
 
 ## FAQ
