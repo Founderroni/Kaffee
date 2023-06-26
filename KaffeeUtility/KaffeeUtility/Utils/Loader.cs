@@ -33,7 +33,7 @@ namespace KaffeeUtility.Utils
                 try
                 {
                     Globals.RootDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FadedSolutions");
-                } catch (Exception ex)
+                } catch (Exception)
                 {
                     Globals.RootDataDir = Path.Combine(Globals.AppDir, "FadedSolutions");
                 }
