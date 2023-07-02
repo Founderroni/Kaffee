@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using static KaffeeUtility.Utils.Config;
 
 namespace KaffeeUtility.Tabs
 {
