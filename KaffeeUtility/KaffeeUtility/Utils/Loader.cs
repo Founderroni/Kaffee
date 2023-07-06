@@ -28,6 +28,7 @@ namespace KaffeeUtility.Utils
         {
             Globals.CachedConfig = Config.GetConfig();
             Globals.RootDataDir = Globals.CachedConfig.RootDirectory;
+            UpdateProgress("Checking Root Directory");
             if (Globals.RootDataDir == "null")
             {
                 try
@@ -38,44 +39,6 @@ namespace KaffeeUtility.Utils
                     Globals.RootDataDir = Path.Combine(Globals.AppDir, "FadedSolutions");
                 }
             }
-
-            UpdateProgress("Clearing Log");
-            try
-            {
-                Logging.Clear();
-            }
-            catch (Exception ex)
-            {
-                return $"Could not clear logs:\n{ex.Message}";
-            }
-
-            UpdateProgress("Checking Connection");
-            if (!Config.GetConfig().GithubBlocked) // It's gotta be like this until we have our own hosting or Github gets unblocked
-            {
-                try
-                { // Test if we can connect, if you can then save the version and compare it later
-                    Globals.LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
-                }
-                catch (Exception ex)
-                {
-                    DialogResult result = MessageBox.Show("Couldn't connect to Github, is it blocked on your device or region?\nClicking Yes will skip tasks that try to connect to Github, but this means you will be missing out on a lot of features (like Spoofer and Client Injection, Custom DLL injection will still work though). If you don't want to miss out, try using a VPN.", "Github Blocked", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    switch (result)
-                    {
-                        case DialogResult.Yes:
-                            Config.GetConfig().SkipUpdateCheck = true;
-                            Config.GetConfig().GithubBlocked = true;
-                            Application.Restart();
-                            break;
-                        case DialogResult.No:
-                            return $"Couldn't check for updates:\n{ex.Message}";
-                        default:
-                            return $"Couldn't check for updates:\n{ex.Message}";
-                    }
-                }
-            }
-
-            UpdateProgress("Checking Root Directory");
             try
             {
                 if (!Directory.Exists(Globals.RootDataDir))
@@ -100,7 +63,8 @@ namespace KaffeeUtility.Utils
                                 if (!Directory.Exists(Globals.RootDataDir))
                                     Directory.CreateDirectory(Globals.RootDataDir);
                                 Application.Restart();
-                            } catch (Exception wtf)
+                            }
+                            catch (Exception wtf)
                             {
                                 return $"Couldn't create local Root Directory:\n{wtf.Message}";
                             }
@@ -136,6 +100,32 @@ namespace KaffeeUtility.Utils
                 await Task.Delay(100);
 
 
+            UpdateProgress("Checking Connection");
+            if (!Config.GetConfig().GithubBlocked) // It's gotta be like this until we have our own hosting or Github gets unblocked
+            {
+                try
+                { // Test if we can connect, if you can then save the version and compare it later
+                    Globals.LatestVersion = await Network.GetString("https://github.com/Founderroni/Assets/raw/main/Kaffee/Version.txt");
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show("Couldn't connect to Github, is it blocked on your device or region?\nClicking Yes will skip tasks that try to connect to Github, but this means you will be missing out on a lot of features (like Spoofer and Client Injection, Custom DLL injection will still work though). If you don't want to miss out, try using a VPN.", "Github Blocked", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    switch (result)
+                    {
+                        case DialogResult.Yes:
+                            Config.GetConfig().SkipUpdateCheck = true;
+                            Config.GetConfig().GithubBlocked = true;
+                            Application.Restart();
+                            break;
+                        case DialogResult.No:
+                            return $"Couldn't check for updates:\n{ex.Message}";
+                        default:
+                            return $"Couldn't check for updates:\n{ex.Message}";
+                    }
+                }
+            }
+
             UpdateProgress("Checking Log File");
             try
             {
@@ -148,16 +138,60 @@ namespace KaffeeUtility.Utils
                 return $"Couldn't create or check for log file:\n{ex.Message}";
             }
 
+            UpdateProgress("Clearing Log");
+            try
+            {
+                Logging.Clear();
+            }
+            catch (Exception ex)
+            {
+                return $"Could not clear logs:\n{ex.Message}";
+            }
+
+            UpdateProgress("Downloading Adverts");
+            if (!Config.GetConfig().GithubBlocked && Config.GetConfig().ShowAds)
+            {
+                try
+                {
+                    string adList = await Network.GetString("https://raw.githubusercontent.com/Founderroni/Lab/main/Kaffee/testAdList.txt");
+                    string[] lines = adList.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var line in lines)
+                    {
+                        string[] parts = line.Split(';');
+                        string adName = parts[0];
+                        string adUrl = parts[1];
+                        string adRedirectUrl = parts[2];
+                        string adFileName = parts[3];
+                        if (Network.IsUrl(adUrl))
+                        {
+                            adFileName = $"{Globals.DataDir}\\{adFileName}";
+                            await Network.DownloadFile(adUrl, adFileName);
+                            Logging.Log($"Downloaded ad of {adName} to {adFileName}");
+                        }
+                        Globals.AdvertData.Add(new Models.AdvertDataStruct(adName, adUrl, adRedirectUrl, adFileName));
+                        Logging.Log($"Added {adName} to AdvertList");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return $"Could not download adverts:\n{ex.Message}";
+                }
+            } else
+            {
+                for (int i = 0; i > 2; i++)
+                    Globals.AdvertData.Add(new Models.AdvertDataStruct("Ads Disabled", "https://i.imgur.com/j1oJ6om.png", "https://discord.gg/Rk4RxvmDXa", "null"));
+                Logging.Log($"Ads are disabled");
+            }
 
             UpdateProgress("Checking for Updates");
+            if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
+                File.Delete($"{Globals.AppDir}/Kaffee.old");
             if (!Config.GetConfig().GithubBlocked)
             {
                 try
                 {
                     if (!Config.GetConfig().SkipUpdateCheck)
                     {
-                        if (File.Exists($"{Globals.AppDir}/Kaffee.old"))
-                            File.Delete($"{Globals.AppDir}/Kaffee.old");
                         if (float.Parse(Globals.LatestVersion) > Globals.Version)
                         {
                             UpdateProgress("Checking for Updates", 0, "There is an Update, Downloading");

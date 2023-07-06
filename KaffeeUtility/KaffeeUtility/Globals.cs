@@ -21,8 +21,8 @@ namespace KaffeeUtility
 
         public static List<ClientListStruct> ClientList = new List<ClientListStruct>();
         public static List<SpoofPointersStruct> SpoofList = new List<SpoofPointersStruct>();
+        public static List<AdvertDataStruct> AdvertData = new List<AdvertDataStruct>();
 
         public static ConfigData CachedConfig;
-        public static Stats CachedStats;
     }
 }

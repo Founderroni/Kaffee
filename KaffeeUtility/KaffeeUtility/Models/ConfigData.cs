@@ -25,6 +25,9 @@ namespace KaffeeUtility.Models
 
         [Option(DefaultValue = false)]
         bool DownloadInParallel { get; set; }
+
+        [Option(DefaultValue = true)]
+        bool ShowAds { get; set; }
         #endregion
 
         #region Stats

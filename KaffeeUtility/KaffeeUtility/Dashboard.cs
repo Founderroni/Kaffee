@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -7,8 +8,31 @@ namespace KaffeeUtility
 {
     public partial class Dashboard : Form
     {
-        public Dashboard() =>
+        public Dashboard()
+        {
             InitializeComponent();
+            if (Utils.Config.GetConfig().ShowAds)
+            {
+                // Why did I do it like this? Good question
+                AdBannerTop.Image = Image.FromFile(Globals.AdvertData[0].adFilePath);
+                AdBannerTop.Click += (object sender, EventArgs e) =>
+                {
+                    Process.Start(Globals.AdvertData[0].adRedirectUrl);
+                };
+                AdBannerMiddle.Image = Image.FromFile(Globals.AdvertData[1].adFilePath);
+                AdBannerMiddle.Click += (object sender, EventArgs e) =>
+                {
+                    Process.Start(Globals.AdvertData[1].adRedirectUrl);
+                };
+                AdBannerBottom.Image = Image.FromFile(Globals.AdvertData[2].adFilePath);
+                AdBannerBottom.Click += (object sender, EventArgs e) =>
+                {
+                    Process.Start(Globals.AdvertData[2].adRedirectUrl);
+                };
+            } else
+                foreach (Control ctrl in TabContainer.Controls)
+                    ctrl.Visible = false;
+        }
 
         #region Dashboard Functions
         private async void AnimateControls()

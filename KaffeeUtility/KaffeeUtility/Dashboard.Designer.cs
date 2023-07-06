@@ -44,8 +44,13 @@
             this.Exit = new Guna.UI2.WinForms.Guna2Button();
             this.TabContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.DragSidePanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.AdBannerTop = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.AdBannerMiddle = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.AdBannerBottom = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.LabelAdvert = new System.Windows.Forms.Label();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            this.TabContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // ModifyForm
@@ -272,6 +277,10 @@
             // TabContainer
             // 
             this.TabContainer.BackColor = System.Drawing.Color.Transparent;
+            this.TabContainer.Controls.Add(this.LabelAdvert);
+            this.TabContainer.Controls.Add(this.AdBannerBottom);
+            this.TabContainer.Controls.Add(this.AdBannerMiddle);
+            this.TabContainer.Controls.Add(this.AdBannerTop);
             this.TabContainer.FillColor = System.Drawing.Color.Transparent;
             this.TabContainer.Location = new System.Drawing.Point(161, 0);
             this.TabContainer.Name = "TabContainer";
@@ -284,6 +293,67 @@
             this.DragSidePanel.DockIndicatorTransparencyValue = 0.6D;
             this.DragSidePanel.TargetControl = this.SidePanel;
             this.DragSidePanel.UseTransparentDrag = true;
+            // 
+            // AdBannerTop
+            // 
+            this.AdBannerTop.AnimatedGIF = true;
+            this.AdBannerTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.AdBannerTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AdBannerTop.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.AdBannerTop.HoverState.ImageSize = new System.Drawing.Size(489, 139);
+            this.AdBannerTop.Image = ((System.Drawing.Image)(resources.GetObject("AdBannerTop.Image")));
+            this.AdBannerTop.ImageOffset = new System.Drawing.Point(0, 0);
+            this.AdBannerTop.ImageRotate = 0F;
+            this.AdBannerTop.ImageSize = new System.Drawing.Size(489, 139);
+            this.AdBannerTop.Location = new System.Drawing.Point(155, 49);
+            this.AdBannerTop.Name = "AdBannerTop";
+            this.AdBannerTop.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.AdBannerTop.Size = new System.Drawing.Size(500, 150);
+            this.AdBannerTop.TabIndex = 0;
+            // 
+            // AdBannerMiddle
+            // 
+            this.AdBannerMiddle.AnimatedGIF = true;
+            this.AdBannerMiddle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.AdBannerMiddle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AdBannerMiddle.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.AdBannerMiddle.HoverState.ImageSize = new System.Drawing.Size(489, 139);
+            this.AdBannerMiddle.Image = ((System.Drawing.Image)(resources.GetObject("AdBannerMiddle.Image")));
+            this.AdBannerMiddle.ImageOffset = new System.Drawing.Point(0, 0);
+            this.AdBannerMiddle.ImageRotate = 0F;
+            this.AdBannerMiddle.ImageSize = new System.Drawing.Size(489, 139);
+            this.AdBannerMiddle.Location = new System.Drawing.Point(155, 213);
+            this.AdBannerMiddle.Name = "AdBannerMiddle";
+            this.AdBannerMiddle.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.AdBannerMiddle.Size = new System.Drawing.Size(500, 150);
+            this.AdBannerMiddle.TabIndex = 1;
+            // 
+            // AdBannerBottom
+            // 
+            this.AdBannerBottom.AnimatedGIF = true;
+            this.AdBannerBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.AdBannerBottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AdBannerBottom.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.AdBannerBottom.HoverState.ImageSize = new System.Drawing.Size(489, 139);
+            this.AdBannerBottom.Image = ((System.Drawing.Image)(resources.GetObject("AdBannerBottom.Image")));
+            this.AdBannerBottom.ImageOffset = new System.Drawing.Point(0, 0);
+            this.AdBannerBottom.ImageRotate = 0F;
+            this.AdBannerBottom.ImageSize = new System.Drawing.Size(489, 139);
+            this.AdBannerBottom.Location = new System.Drawing.Point(155, 377);
+            this.AdBannerBottom.Name = "AdBannerBottom";
+            this.AdBannerBottom.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.AdBannerBottom.Size = new System.Drawing.Size(500, 150);
+            this.AdBannerBottom.TabIndex = 2;
+            // 
+            // LabelAdvert
+            // 
+            this.LabelAdvert.AutoSize = true;
+            this.LabelAdvert.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelAdvert.Location = new System.Drawing.Point(265, 22);
+            this.LabelAdvert.Name = "LabelAdvert";
+            this.LabelAdvert.Size = new System.Drawing.Size(280, 24);
+            this.LabelAdvert.TabIndex = 3;
+            this.LabelAdvert.Text = "Advertisements and Partners";
             // 
             // Dashboard
             // 
@@ -304,6 +374,8 @@
             this.SidePanel.ResumeLayout(false);
             this.SidePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            this.TabContainer.ResumeLayout(false);
+            this.TabContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +396,9 @@
         private Guna.UI2.WinForms.Guna2Button Settings;
         private Guna.UI2.WinForms.Guna2Button Directory;
         private Guna.UI2.WinForms.Guna2Button Spoofer;
+        private Guna.UI2.WinForms.Guna2ImageButton AdBannerBottom;
+        private Guna.UI2.WinForms.Guna2ImageButton AdBannerMiddle;
+        private Guna.UI2.WinForms.Guna2ImageButton AdBannerTop;
+        private System.Windows.Forms.Label LabelAdvert;
     }
 }
