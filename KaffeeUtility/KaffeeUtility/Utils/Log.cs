@@ -18,10 +18,7 @@ namespace KaffeeUtility.Utils
                     File.AppendAllText(LogFile, $"[Kaffee @ {DateTime.Now}]: {message}\n");
                 if (action == LogAction.Clear)
                     File.WriteAllText(LogFile, $"[Kaffee @ {DateTime.Now}]: **Log Cleared**\n");
-            } catch (Exception e)
-            {
-                Misc.Notify(e.Message, "Logging Error");
-            }
+            } catch (Exception) { }
         }
 
         public static void Clear()
