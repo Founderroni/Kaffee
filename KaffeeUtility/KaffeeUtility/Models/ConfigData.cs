@@ -116,7 +116,7 @@ namespace KaffeeUtility.Models
         [Option(DefaultValue = false)]
         bool GithubBlocked { get; set; }
 
-        [Option(DefaultValue = false)]
+        [Option(DefaultValue = true)]
         bool DownloadInParallel { get; set; }
     }
 
