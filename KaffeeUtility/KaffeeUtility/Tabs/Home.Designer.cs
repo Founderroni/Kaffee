@@ -87,6 +87,7 @@
             // 
             // guna2Panel4
             // 
+            this.guna2Panel4.BorderRadius = 3;
             this.guna2Panel4.Controls.Add(this.Version);
             this.guna2Panel4.Controls.Add(this.VersionLabel);
             this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -123,6 +124,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.BorderRadius = 3;
             this.guna2Panel3.Controls.Add(this.Launches);
             this.guna2Panel3.Controls.Add(this.LaunchesLabel);
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -185,6 +187,7 @@
             // 
             // guna2Panel8
             // 
+            this.guna2Panel8.BorderRadius = 3;
             this.guna2Panel8.Controls.Add(this.MCID);
             this.guna2Panel8.Controls.Add(this.MCIDLabel);
             this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -221,6 +224,7 @@
             // 
             // guna2Panel6
             // 
+            this.guna2Panel6.BorderRadius = 3;
             this.guna2Panel6.Controls.Add(this.DID);
             this.guna2Panel6.Controls.Add(this.DIDLabel);
             this.guna2Panel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -257,6 +261,7 @@
             // 
             // guna2Panel7
             // 
+            this.guna2Panel7.BorderRadius = 3;
             this.guna2Panel7.Controls.Add(this.CID);
             this.guna2Panel7.Controls.Add(this.CIDLabel);
             this.guna2Panel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -319,6 +324,7 @@
             // 
             // guna2Panel10
             // 
+            this.guna2Panel10.BorderRadius = 3;
             this.guna2Panel10.Controls.Add(this.InjectionDelay);
             this.guna2Panel10.Controls.Add(this.InjectDelayLabel);
             this.guna2Panel10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -355,6 +361,7 @@
             // 
             // guna2Panel11
             // 
+            this.guna2Panel11.BorderRadius = 3;
             this.guna2Panel11.Controls.Add(this.Failed);
             this.guna2Panel11.Controls.Add(this.FailedLabel);
             this.guna2Panel11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -391,6 +398,7 @@
             // 
             // guna2Panel12
             // 
+            this.guna2Panel12.BorderRadius = 3;
             this.guna2Panel12.Controls.Add(this.Injections);
             this.guna2Panel12.Controls.Add(this.InjectionsLabel);
             this.guna2Panel12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
