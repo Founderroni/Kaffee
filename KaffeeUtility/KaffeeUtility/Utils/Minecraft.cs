@@ -1,41 +1,43 @@
 ﻿using System.IO;
+using static KaffeeUtility.Globals;
 
 namespace KaffeeUtility.Utils
 {
     internal class Minecraft
-    {
-        public static string GetMPUsername()
+    { // https://github.com/Founderroni/FoundersMinecraftUtils
+        public static string GetOptionValue(string key)
         {
-            if (!File.Exists(Globals.OptionsFile))
+            if (!File.Exists(OptionsFile))
                 return "N/A";
 
-            string[] lines = File.ReadAllLines(Globals.OptionsFile);
-            for (int i = 0; i < lines.Length; i++)
+            string[] lines = File.ReadAllLines(OptionsFile);
+            foreach (string line in lines)
             {
-                if (lines[i].StartsWith("mp_username"))
+                if (line.StartsWith(key))
                 {
-                    string[] parts = lines[i].Split(':');
-                    return parts[1];
+                    string[] parts = line.Split(':');
+                    return parts.Length > 1 ? parts[1] : "N/A";
                 }
             }
 
             return "N/A";
         }
 
-        public static string GetCID()
+        public static string GetValueFromFile(string fileName, int line = 0)
         {
-            if (!File.Exists(Globals.McpeDirectory + "clientId.txt"))
+            string filePath = Path.Combine(McpeDirectory, fileName);
+
+            if (!File.Exists(filePath))
                 return "N/A";
 
-            return File.ReadAllLines(Globals.McpeDirectory + "clientId.txt")[0];
+            string[] lines = File.ReadAllLines(filePath);
+            return lines.Length > line ? lines[line] : "N/A";
         }
 
-        public static string GetOGDID()
-        {
-            if (!File.Exists(Globals.McpeDirectory + "hs"))
-                return "N/A";
+        public static string GetMPUsername() => GetOptionValue("mp_username");
 
-            return File.ReadAllLines(Globals.McpeDirectory + "hs")[1];
-        }
+        public static string GetCID() => GetValueFromFile("clientId.txt");
+
+        public static string GetDID() => GetValueFromFile("hs", 1);
     }
 }
