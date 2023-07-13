@@ -146,6 +146,6 @@ namespace KaffeeUtility
         }
 
         private void Settings_Click(object sender, EventArgs e) =>
-            OpenTab();
+            OpenTab(new Tabs.Settings());
     }
 }

@@ -342,7 +342,7 @@ namespace KaffeeUtility.Utils
 
             if (Config.GetConfig().UseAnimations)
             {
-                await Task.Delay(FastLaunch ? 1 : 500).ContinueWith(t =>
+                await Task.Delay(FastLaunch ? 1 : 300).ContinueWith(t =>
                 {
                     Handlers.Animator.Linear(GetLoader.StatusLabel, "Text", "", FastLaunch ? 125 : 300);
                     Handlers.Animator.Linear(GetLoader.StatusLabel, "Top", 334 - 10, FastLaunch ? 225 : 500);

@@ -312,6 +312,12 @@
     <Compile Include="Tabs\Injector.Designer.cs">
       <DependentUpon>Injector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tabs\Spoofer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tabs\Injector.resx">
       <DependentUpon>Injector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tabs\Spoofer.resx">
       <DependentUpon>Spoofer.cs</DependentUpon>
